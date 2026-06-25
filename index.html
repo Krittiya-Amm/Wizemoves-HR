@@ -32,10 +32,10 @@
 <style>
   html { scroll-behavior: smooth; }
   .num { font-variant-numeric: tabular-nums; }
-  /* Thai-friendly line-height to avoid tone-mark overlap */
-  h1 { line-height: 1.18; }
-  h2 { line-height: 1.3; }
-  h3 { line-height: 1.4; }
+  /* Thai-friendly line-height to avoid tone-mark overlap (override Tailwind font-size line-heights) */
+  h1 { line-height: 1.2 !important; }
+  h2 { line-height: 1.35 !important; }
+  h3 { line-height: 1.4 !important; }
   p, li { line-height: 1.7; }
 
   @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
@@ -130,8 +130,8 @@
         <img src="logo.png" alt="WizeMoves HR — Business Solutions" class="h-9 w-auto" />
       </a>
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-body">
-        <a href="#why" class="hover:text-ink transition-colors">ทำไมต้องมี</a>
         <a href="#bundles" class="hover:text-ink transition-colors">แพ็กเกจ</a>
+        <a href="#why" class="hover:text-ink transition-colors">ทำไมต้องมี</a>
         <a href="#proof" class="hover:text-ink transition-colors">รีวิว</a>
         <a href="#guarantee" class="hover:text-ink transition-colors">การรับประกัน</a>
       </nav>
@@ -249,131 +249,6 @@
       </div>
     </section>
 
-    <!-- ============ 2. WHY (sticky scrollytelling — pitch style) ============ -->
-    <section id="why" class="mx-auto max-w-6xl px-4 sm:px-6 py-20 lg:py-28">
-      <div class="text-center max-w-2xl mx-auto">
-        <p class="js-reveal text-sm font-semibold text-brand uppercase tracking-widest">ทำไมต้องมีเอกสารที่รัดกุม</p>
-        <h2 class="js-reveal mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink">ปัญหาที่นายจ้างทุกคนกลัว</h2>
-        <p class="js-reveal mt-5 text-lg text-body">เลื่อนดู 3 ความเสี่ยงที่ชุดเอกสารของเราช่วยป้องกัน — แต่ละจุดมีตัวอย่างเอกสารจริงประกอบ</p>
-      </div>
-
-      <div class="mt-12 lg:mt-16 grid lg:grid-cols-2 lg:gap-16">
-        <!-- LEFT: scrolling steps -->
-        <div>
-          <!-- step 0 -->
-          <div class="why-step lg:min-h-[68vh] flex flex-col justify-center" data-step="0">
-            <span class="ico h-14 w-14 rounded-2xl ico-magenta"><i data-lucide="gavel" class="h-7 w-7"></i></span>
-            <h3 class="mt-6 text-2xl sm:text-3xl font-extrabold text-ink">แพ้คดีศาลแรงงาน</h3>
-            <p class="mt-4 text-lg text-body max-w-md">หนังสือเลิกจ้างที่ไม่รัดกุมหรืออ้างอิงกฎหมายผิด อาจทำให้นายจ้างต้องจ่ายค่าชดเชยหลักแสนบาทเมื่อขึ้นศาล</p>
-            <p class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-magenta">ป้องกันด้วยชุด Legal Shield <i data-lucide="arrow-right" class="h-4 w-4"></i></p>
-            <!-- mobile inline visual -->
-            <div class="lg:hidden mt-6 rounded-2xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-4 ring-1 ring-brand/10">
-              <div class="rounded-xl bg-white p-4 shadow-sm">
-                <div class="flex items-center justify-between"><p class="text-xs font-bold text-ink">หนังสือบอกเลิกจ้าง</p><span class="text-[10px] rounded bg-magentaSoft text-magenta px-2 py-0.5 font-semibold">ต้องรัดกุม</span></div>
-                <div class="mt-3 space-y-1.5"><div class="h-2 rounded bg-slate-100"></div><div class="h-2 w-4/5 rounded bg-slate-100"></div></div>
-                <div class="mt-3 flex items-center gap-2 text-xs text-grass font-medium"><i data-lucide="check-circle-2" class="h-4 w-4"></i> อ้างอิง พ.ร.บ.คุ้มครองแรงงาน ม.119</div>
-              </div>
-            </div>
-          </div>
-          <!-- step 1 -->
-          <div class="why-step lg:min-h-[68vh] flex flex-col justify-center" data-step="1">
-            <span class="ico h-14 w-14 rounded-2xl ico-orange"><i data-lucide="user-x" class="h-7 w-7"></i></span>
-            <h3 class="mt-6 text-2xl sm:text-3xl font-extrabold text-ink">พนักงานลาออกสูง</h3>
-            <p class="mt-4 text-lg text-body max-w-md">ไม่มีระบบ Onboarding ที่ดี พนักงานใหม่สับสนตั้งแต่วันแรกและลาออกตั้งแต่ช่วงทดลองงาน เสียต้นทุนการจ้างซ้ำ</p>
-            <p class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-orange">แก้ด้วยชุด Perfect Onboarding <i data-lucide="arrow-right" class="h-4 w-4"></i></p>
-            <div class="lg:hidden mt-6 rounded-2xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-4 ring-1 ring-brand/10">
-              <div class="rounded-xl bg-white p-4 shadow-sm">
-                <p class="text-xs font-bold text-ink">Onboarding 30-60-90 วัน</p>
-                <div class="mt-3 space-y-2">
-                  <div class="flex items-center gap-2"><span class="text-[10px] w-10 text-slate-500">30 วัน</span><div class="flex-1 h-2 rounded-full bg-slate-100"><div class="h-2 rounded-full bg-orange" style="width:100%"></div></div></div>
-                  <div class="flex items-center gap-2"><span class="text-[10px] w-10 text-slate-500">60 วัน</span><div class="flex-1 h-2 rounded-full bg-slate-100"><div class="h-2 rounded-full bg-orange" style="width:70%"></div></div></div>
-                  <div class="flex items-center gap-2"><span class="text-[10px] w-10 text-slate-500">90 วัน</span><div class="flex-1 h-2 rounded-full bg-slate-100"><div class="h-2 rounded-full bg-orange" style="width:45%"></div></div></div>
-                </div>
-                <div class="mt-3 flex items-center gap-2 text-xs text-grass font-medium"><i data-lucide="trending-up" class="h-4 w-4"></i> Retention เพิ่มเป็น 92%</div>
-              </div>
-            </div>
-          </div>
-          <!-- step 2 -->
-          <div class="why-step lg:min-h-[68vh] flex flex-col justify-center" data-step="2">
-            <span class="ico h-14 w-14 rounded-2xl ico-cyan"><i data-lucide="file-warning" class="h-7 w-7"></i></span>
-            <h3 class="mt-6 text-2xl sm:text-3xl font-extrabold text-ink">ผิด PDPA</h3>
-            <p class="mt-4 text-lg text-body max-w-md">เก็บข้อมูลพนักงานโดยไม่มีหนังสือยินยอมที่ถูกต้อง เสี่ยงต่อโทษปรับตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล</p>
-            <p class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan">ครอบคลุมในชุด Legal Shield <i data-lucide="arrow-right" class="h-4 w-4"></i></p>
-            <div class="lg:hidden mt-6 rounded-2xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-4 ring-1 ring-brand/10">
-              <div class="rounded-xl bg-white p-4 shadow-sm">
-                <div class="flex items-center gap-2"><span class="ico h-7 w-7 rounded-lg ico-cyan"><i data-lucide="shield" class="h-4 w-4"></i></span><p class="text-xs font-bold text-ink">หนังสือยินยอม PDPA</p></div>
-                <div class="mt-3 space-y-2 text-xs text-body">
-                  <div class="flex items-center gap-2"><i data-lucide="check-square" class="h-4 w-4 text-cyan"></i> ยินยอมจัดเก็บข้อมูลประวัติ</div>
-                  <div class="flex items-center gap-2"><i data-lucide="check-square" class="h-4 w-4 text-cyan"></i> ยินยอมใช้ข้อมูลสุขภาพ</div>
-                  <div class="flex items-center gap-2"><i data-lucide="check-square" class="h-4 w-4 text-cyan"></i> ยินยอมเผยแพร่ภาพถ่าย</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: sticky crossfading visual (desktop) -->
-        <div class="hidden lg:block">
-          <div class="sticky top-28">
-            <div class="relative h-[460px] rounded-3xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-6 ring-1 ring-brand/10 overflow-hidden">
-              <!-- visual 0: termination doc -->
-              <div class="why-visual absolute inset-6" data-v="0">
-                <div class="h-full rounded-2xl bg-white shadow-xl p-6 flex flex-col">
-                  <div class="flex items-center justify-between">
-                    <span class="ico h-10 w-10 rounded-xl ico-magenta"><i data-lucide="gavel" class="h-5 w-5"></i></span>
-                    <span class="text-[11px] rounded-full bg-magentaSoft text-magenta px-3 py-1 font-semibold">เอกสารต้องรัดกุม</span>
-                  </div>
-                  <p class="mt-5 text-lg font-bold text-ink">หนังสือบอกเลิกจ้าง</p>
-                  <div class="mt-4 space-y-2.5">
-                    <div class="h-2.5 rounded bg-slate-100"></div>
-                    <div class="h-2.5 w-11/12 rounded bg-slate-100"></div>
-                    <div class="h-2.5 w-4/5 rounded bg-slate-100"></div>
-                    <div class="h-2.5 w-2/3 rounded bg-slate-100"></div>
-                  </div>
-                  <div class="mt-auto space-y-2">
-                    <div class="flex items-center gap-2 text-sm text-grass font-medium"><i data-lucide="check-circle-2" class="h-5 w-5"></i> อ้างอิง พ.ร.บ.คุ้มครองแรงงาน ม.119</div>
-                    <div class="flex items-center gap-2 text-sm text-grass font-medium"><i data-lucide="check-circle-2" class="h-5 w-5"></i> ระบุฐานความผิดชัดเจน ลดความเสี่ยงแพ้คดี</div>
-                  </div>
-                </div>
-              </div>
-              <!-- visual 1: onboarding -->
-              <div class="why-visual absolute inset-6" data-v="1">
-                <div class="h-full rounded-2xl bg-white shadow-xl p-6 flex flex-col">
-                  <div class="flex items-center justify-between">
-                    <span class="ico h-10 w-10 rounded-xl ico-orange"><i data-lucide="users" class="h-5 w-5"></i></span>
-                    <span class="text-[11px] rounded-full bg-orangeSoft text-orange px-3 py-1 font-semibold">Onboarding Plan</span>
-                  </div>
-                  <p class="mt-5 text-lg font-bold text-ink">แผนปฐมนิเทศ 30-60-90 วัน</p>
-                  <div class="mt-5 space-y-3.5">
-                    <div><div class="flex justify-between text-xs text-slate-500 mb-1"><span>30 วันแรก</span><span>เสร็จสมบูรณ์</span></div><div class="h-2.5 rounded-full bg-slate-100"><div class="h-2.5 rounded-full bg-gradient-to-r from-orange to-magenta" style="width:100%"></div></div></div>
-                    <div><div class="flex justify-between text-xs text-slate-500 mb-1"><span>60 วัน</span><span>70%</span></div><div class="h-2.5 rounded-full bg-slate-100"><div class="h-2.5 rounded-full bg-gradient-to-r from-orange to-magenta" style="width:70%"></div></div></div>
-                    <div><div class="flex justify-between text-xs text-slate-500 mb-1"><span>90 วัน</span><span>45%</span></div><div class="h-2.5 rounded-full bg-slate-100"><div class="h-2.5 rounded-full bg-gradient-to-r from-orange to-magenta" style="width:45%"></div></div></div>
-                  </div>
-                  <div class="mt-auto flex items-center gap-2 text-sm text-grass font-medium"><i data-lucide="trending-up" class="h-5 w-5"></i> อัตราการรักษาพนักงานเพิ่มเป็น 92%</div>
-                </div>
-              </div>
-              <!-- visual 2: PDPA -->
-              <div class="why-visual absolute inset-6" data-v="2">
-                <div class="h-full rounded-2xl bg-white shadow-xl p-6 flex flex-col">
-                  <div class="flex items-center justify-between">
-                    <span class="ico h-10 w-10 rounded-xl ico-cyan"><i data-lucide="shield" class="h-5 w-5"></i></span>
-                    <span class="text-[11px] rounded-full bg-cyanSoft text-cyan px-3 py-1 font-semibold">PDPA Consent</span>
-                  </div>
-                  <p class="mt-5 text-lg font-bold text-ink">หนังสือให้ความยินยอม</p>
-                  <div class="mt-5 space-y-3 text-sm text-body">
-                    <div class="flex items-center gap-2.5"><i data-lucide="check-square" class="h-5 w-5 text-cyan"></i> ยินยอมจัดเก็บข้อมูลประวัติอาชญากรรม</div>
-                    <div class="flex items-center gap-2.5"><i data-lucide="check-square" class="h-5 w-5 text-cyan"></i> ยินยอมใช้ข้อมูลสุขภาพ (ใบรับรองแพทย์)</div>
-                    <div class="flex items-center gap-2.5"><i data-lucide="check-square" class="h-5 w-5 text-cyan"></i> ยินยอมเผยแพร่ภาพถ่ายเพื่อประชาสัมพันธ์</div>
-                  </div>
-                  <div class="mt-auto flex items-center gap-2 text-sm text-grass font-medium"><i data-lucide="check-circle-2" class="h-5 w-5"></i> ถูกต้องตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ 3. BUNDLES + VALUE STACK ============ -->
     <section id="bundles" class="bg-paper">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 py-20 lg:py-28">
@@ -477,6 +352,166 @@
           <i data-lucide="plus-circle" class="h-5 w-5 text-brandDark shrink-0 mt-0.5"></i>
           <p class="text-sm text-body"><b class="text-ink">เพิ่มได้ตอนชำระเงิน:</b> ชุดแบบฟอร์มใบสมัครงาน 50 ตำแหน่ง เพียง <span class="num font-semibold text-ink">฿290</span></p>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. WHY (cost-of-inaction — sticky scrollytelling) ============ -->
+    <section id="why" class="mx-auto max-w-6xl px-4 sm:px-6 py-20 lg:py-28">
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="js-reveal text-sm font-semibold text-brand uppercase tracking-widest">ทำไมต้องมีเอกสารที่รัดกุม</p>
+        <h2 class="js-reveal mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink">ประหยัด ฿4,990 วันนี้<br class="hidden sm:block" />หรือเสี่ยงจ่ายหลักแสนทีหลัง?</h2>
+        <p class="js-reveal mt-5 text-lg text-body">เอกสารฟรีที่โหลดมาใช้ อาจกลายเป็นหลักฐานเอาผิดบริษัทคุณเอง — ดู 3 ความเสี่ยงที่ HR เจอจริง และ "ตัวเลข" ที่คุณต้องจ่ายถ้าไม่มีเอกสารที่ถูกต้อง</p>
+      </div>
+
+      <div class="mt-12 lg:mt-16 grid lg:grid-cols-2 lg:gap-16">
+        <!-- LEFT: scrolling steps -->
+        <div>
+          <!-- step 0 -->
+          <div class="why-step lg:min-h-[72vh] flex flex-col justify-center" data-step="0">
+            <span class="ico h-14 w-14 rounded-2xl ico-magenta"><i data-lucide="gavel" class="h-7 w-7"></i></span>
+            <span class="mt-5 inline-flex w-max items-center gap-1.5 rounded-full bg-rose-50 text-rose-600 px-3 py-1 text-xs font-bold"><i data-lucide="alert-triangle" class="h-3.5 w-3.5"></i> เสี่ยงจ่ายชดเชย + ค่าเสียหาย สูงสุดหลักแสน/คดี</span>
+            <h3 class="mt-4 text-2xl sm:text-3xl font-extrabold text-ink">แพ้คดีศาลแรงงาน</h3>
+            <p class="mt-3 text-lg text-body max-w-md">พนักงานที่ถูกเลิกจ้างฟ้อง "เลิกจ้างไม่เป็นธรรม" — ถ้าหนังสือเลิกจ้างไม่อ้างอิงมาตราให้ถูก หรือระบุฐานความผิดไม่ชัด นายจ้างมักเป็นฝ่ายแพ้</p>
+            <div class="mt-5 rounded-xl bg-grassSoft/70 p-4 max-w-md">
+              <p class="text-xs font-bold text-grass uppercase tracking-wider">ถ้ามีชุดเอกสารที่รัดกุม</p>
+              <ul class="mt-2 space-y-1.5 text-sm text-body">
+                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> หนังสือเตือน/เลิกจ้างอ้างอิง พ.ร.บ.คุ้มครองแรงงานถูกต้อง</li>
+                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> มีหลักฐานเป็นลายลักษณ์อักษรครบ ตั้งแต่ตักเตือนถึงเลิกจ้าง</li>
+              </ul>
+            </div>
+            <p class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-magenta">มีในชุด Legal Shield · ฿4,990 <i data-lucide="arrow-right" class="h-4 w-4"></i></p>
+            <!-- mobile inline visual -->
+            <div class="lg:hidden mt-6 rounded-2xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-4 ring-1 ring-brand/10">
+              <div class="rounded-xl bg-white p-5 shadow-sm text-center">
+                <p class="text-xs font-semibold text-rose-500">คำพิพากษา: เลิกจ้างไม่เป็นธรรม</p>
+                <p class="num mt-1 text-3xl font-extrabold text-rose-600">฿300,000+</p>
+                <p class="text-xs text-slate-500">ค่าชดเชย + ค่าเสียหาย ต่อ 1 คดี</p>
+                <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-2 text-xs text-grass font-medium"><i data-lucide="shield-check" class="h-4 w-4"></i> ป้องกันได้ด้วยเอกสารชุด ฿4,990</div>
+              </div>
+            </div>
+          </div>
+          <!-- step 1 -->
+          <div class="why-step lg:min-h-[72vh] flex flex-col justify-center" data-step="1">
+            <span class="ico h-14 w-14 rounded-2xl ico-orange"><i data-lucide="user-x" class="h-7 w-7"></i></span>
+            <span class="mt-5 inline-flex w-max items-center gap-1.5 rounded-full bg-rose-50 text-rose-600 px-3 py-1 text-xs font-bold"><i data-lucide="alert-triangle" class="h-3.5 w-3.5"></i> ต้นทุนแฝง ฿50,000+ ต่อพนักงานที่ลาออก 1 คน</span>
+            <h3 class="mt-4 text-2xl sm:text-3xl font-extrabold text-ink">พนักงานใหม่ลาออกไว</h3>
+            <p class="mt-3 text-lg text-body max-w-md">ไม่มีระบบ Onboarding ที่ดี พนักงานใหม่สับสนตั้งแต่วันแรก ทำงานไม่เต็มที่ และลาออกตั้งแต่ช่วงทดลองงาน — คุณต้องเริ่มสรรหาและเทรนใหม่ตั้งแต่ศูนย์</p>
+            <div class="mt-5 rounded-xl bg-grassSoft/70 p-4 max-w-md">
+              <p class="text-xs font-bold text-grass uppercase tracking-wider">ถ้ามีระบบ Onboarding</p>
+              <ul class="mt-2 space-y-1.5 text-sm text-body">
+                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> แผน 30-60-90 วัน ทำให้พนักงานใหม่เริ่มงานได้เร็วและมั่นใจ</li>
+                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> เพิ่มอัตราการรักษาพนักงาน (Retention) อย่างเห็นผล</li>
+              </ul>
+            </div>
+            <p class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-orange">มีในชุด Perfect Onboarding · ฿2,990 <i data-lucide="arrow-right" class="h-4 w-4"></i></p>
+            <div class="lg:hidden mt-6 rounded-2xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-4 ring-1 ring-brand/10">
+              <div class="rounded-xl bg-white p-5 shadow-sm text-center">
+                <p class="text-xs font-semibold text-rose-500">ต้นทุนสรรหา + เทรนใหม่</p>
+                <p class="num mt-1 text-3xl font-extrabold text-rose-600">฿50,000+</p>
+                <p class="text-xs text-slate-500">ต่อพนักงานที่ลาออก 1 คน</p>
+                <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-2 text-xs text-grass font-medium"><i data-lucide="trending-up" class="h-4 w-4"></i> Retention เพิ่มเป็น 92% ด้วยชุด ฿2,990</div>
+              </div>
+            </div>
+          </div>
+          <!-- step 2 -->
+          <div class="why-step lg:min-h-[72vh] flex flex-col justify-center" data-step="2">
+            <span class="ico h-14 w-14 rounded-2xl ico-cyan"><i data-lucide="file-warning" class="h-7 w-7"></i></span>
+            <span class="mt-5 inline-flex w-max items-center gap-1.5 rounded-full bg-rose-50 text-rose-600 px-3 py-1 text-xs font-bold"><i data-lucide="alert-triangle" class="h-3.5 w-3.5"></i> โทษปรับ PDPA สูงสุด ฿5,000,000</span>
+            <h3 class="mt-4 text-2xl sm:text-3xl font-extrabold text-ink">เก็บข้อมูลพนักงานผิด PDPA</h3>
+            <p class="mt-3 text-lg text-body max-w-md">ฝ่าย HR คือหน่วยงานที่ถือข้อมูลอ่อนไหวมากที่สุด (ประวัติ, สุขภาพ, ภาพถ่าย) — เก็บโดยไม่มีหนังสือยินยอมที่ถูกต้อง เสี่ยงทั้งโทษปรับและถูกพนักงานร้องเรียน</p>
+            <div class="mt-5 rounded-xl bg-grassSoft/70 p-4 max-w-md">
+              <p class="text-xs font-bold text-grass uppercase tracking-wider">ถ้ามีชุดเอกสาร PDPA</p>
+              <ul class="mt-2 space-y-1.5 text-sm text-body">
+                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> หนังสือยินยอมครบทุกกรณี เก็บข้อมูลได้อย่างถูกกฎหมาย</li>
+                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> ลดความเสี่ยงถูกร้องเรียนและโทษปรับทางปกครอง</li>
+              </ul>
+            </div>
+            <p class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-cyan">มีในชุด Legal Shield · ฿4,990 <i data-lucide="arrow-right" class="h-4 w-4"></i></p>
+            <div class="lg:hidden mt-6 rounded-2xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-4 ring-1 ring-brand/10">
+              <div class="rounded-xl bg-white p-5 shadow-sm text-center">
+                <p class="text-xs font-semibold text-rose-500">โทษปรับทางปกครองสูงสุด</p>
+                <p class="num mt-1 text-3xl font-extrabold text-rose-600">฿5,000,000</p>
+                <p class="text-xs text-slate-500">ตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล</p>
+                <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-2 text-xs text-grass font-medium"><i data-lucide="shield-check" class="h-4 w-4"></i> ป้องกันได้ด้วยหนังสือยินยอมในชุด ฿4,990</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: sticky crossfading visual (desktop) — cost contrast -->
+        <div class="hidden lg:block">
+          <div class="sticky top-28">
+            <div class="relative h-[460px] rounded-3xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-6 ring-1 ring-brand/10 overflow-hidden">
+              <!-- visual 0: lawsuit cost -->
+              <div class="why-visual absolute inset-6" data-v="0">
+                <div class="h-full rounded-2xl bg-white shadow-xl p-7 flex flex-col">
+                  <div class="flex items-center justify-between">
+                    <span class="ico h-10 w-10 rounded-xl ico-magenta"><i data-lucide="gavel" class="h-5 w-5"></i></span>
+                    <span class="text-[11px] rounded-full bg-brandSoft text-brand px-3 py-1 font-semibold">ถ้าไม่มีเอกสารที่รัดกุม</span>
+                  </div>
+                  <p class="mt-6 text-sm font-semibold text-brand">คำพิพากษา: เลิกจ้างไม่เป็นธรรม</p>
+                  <p class="num mt-1 text-5xl font-extrabold text-brand">฿300,000+</p>
+                  <p class="mt-1 text-sm text-body">ค่าชดเชย + ค่าเสียหาย + สินจ้างแทนการบอกกล่าว ต่อ 1 คดี</p>
+                  <div class="mt-auto rounded-xl bg-grassSoft p-4">
+                    <div class="flex items-center justify-between">
+                      <span class="flex items-center gap-2 text-sm font-semibold text-grass"><i data-lucide="shield-check" class="h-5 w-5"></i> ป้องกันได้ด้วย Legal Shield</span>
+                      <span class="num text-lg font-extrabold text-ink">฿4,990</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- visual 1: turnover cost -->
+              <div class="why-visual absolute inset-6" data-v="1">
+                <div class="h-full rounded-2xl bg-white shadow-xl p-7 flex flex-col">
+                  <div class="flex items-center justify-between">
+                    <span class="ico h-10 w-10 rounded-xl ico-orange"><i data-lucide="user-x" class="h-5 w-5"></i></span>
+                    <span class="text-[11px] rounded-full bg-brandSoft text-brand px-3 py-1 font-semibold">ต้นทุนแฝงที่มองไม่เห็น</span>
+                  </div>
+                  <p class="mt-6 text-sm font-semibold text-brand">สรรหา + เทรน + งานสะดุด</p>
+                  <p class="num mt-1 text-5xl font-extrabold text-brand">฿50,000+</p>
+                  <p class="mt-1 text-sm text-body">ต่อพนักงานใหม่ 1 คนที่ลาออกในช่วงทดลองงาน</p>
+                  <div class="mt-auto rounded-xl bg-grassSoft p-4">
+                    <div class="flex items-center justify-between">
+                      <span class="flex items-center gap-2 text-sm font-semibold text-grass"><i data-lucide="trending-up" class="h-5 w-5"></i> แก้ด้วย Perfect Onboarding</span>
+                      <span class="num text-lg font-extrabold text-ink">฿2,990</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- visual 2: PDPA fine -->
+              <div class="why-visual absolute inset-6" data-v="2">
+                <div class="h-full rounded-2xl bg-white shadow-xl p-7 flex flex-col">
+                  <div class="flex items-center justify-between">
+                    <span class="ico h-10 w-10 rounded-xl ico-cyan"><i data-lucide="file-warning" class="h-5 w-5"></i></span>
+                    <span class="text-[11px] rounded-full bg-brandSoft text-brand px-3 py-1 font-semibold">ความเสี่ยงทางกฎหมาย</span>
+                  </div>
+                  <p class="mt-6 text-sm font-semibold text-brand">โทษปรับทางปกครองสูงสุด</p>
+                  <p class="num mt-1 text-5xl font-extrabold text-brand">฿5,000,000</p>
+                  <p class="mt-1 text-sm text-body">ตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล (PDPA)</p>
+                  <div class="mt-auto rounded-xl bg-grassSoft p-4">
+                    <div class="flex items-center justify-between">
+                      <span class="flex items-center gap-2 text-sm font-semibold text-grass"><i data-lucide="shield-check" class="h-5 w-5"></i> ครอบคลุมใน Legal Shield</span>
+                      <span class="num text-lg font-extrabold text-ink">฿4,990</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- closing CTA bridge -->
+      <div class="js-reveal mt-14 rounded-3xl bg-ink text-white px-6 sm:px-10 py-12 text-center relative overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80" alt="" onerror="this.remove()" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20" />
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40"></div>
+        <div class="pointer-events-none absolute -top-16 -right-10 h-48 w-48 rounded-full bg-brand/40 blur-3xl"></div>
+        <p class="relative text-lg sm:text-xl text-purple-100">ความเสียหายหลักแสน–หลักล้าน ป้องกันได้ด้วยเอกสารชุดเดียว</p>
+        <p class="relative mt-2 text-2xl sm:text-3xl font-extrabold">ลงทุนหลักพัน เพื่อปิดความเสี่ยงหลักล้าน</p>
+        <button type="button" class="buy-btn btn relative mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-lg font-semibold text-brandDark hover:bg-purple-50 cursor-pointer shadow-xl shadow-black/20" data-bundle="Legal Shield — ชุดเกราะป้องกันกฎหมายและข้อพิพาทแรงงาน" data-price="4990">
+          <i data-lucide="shield" class="h-5 w-5"></i> เริ่มป้องกันด้วย Legal Shield ฿4,990
+        </button>
+        <p class="relative mt-3 text-sm text-purple-200"><a href="#bundles" class="underline underline-offset-2 hover:text-white">หรือดูแพ็กเกจทั้งหมด</a></p>
       </div>
     </section>
 
