@@ -99,8 +99,12 @@
   .why-visual{ opacity:0; transform:scale(.97) translateY(8px); transition:opacity .55s ease, transform .55s ease; pointer-events:none; }
   .why-visual.active{ opacity:1; transform:none; pointer-events:auto; }
 
+  /* success popup */
+  @keyframes pop-in { from{opacity:0; transform:scale(.92) translateY(10px)} to{opacity:1; transform:none} }
+  .success-pop{ animation: pop-in .35s cubic-bezier(.16,1,.3,1); }
+
   @media (prefers-reduced-motion: reduce){
-    .floaty,.floaty2,.drift1,.drift2,.drift3,.marquee,.pulse-dot{ animation:none }
+    .floaty,.floaty2,.drift1,.drift2,.drift3,.marquee,.pulse-dot,.success-pop{ animation:none }
     html{ scroll-behavior:auto }
     .js-reveal{ opacity:1 !important; transform:none !important; transition:none }
     .bar{ transition:none } .btn,.ico{ transition:none }
@@ -600,12 +604,13 @@
 
           <h3 class="mt-7 text-lg font-bold text-ink">วิธีชำระเงิน</h3>
           <div class="mt-3 grid grid-cols-3 gap-2">
-            <button type="button" data-pm class="pm-opt rounded-xl border-2 border-brand bg-brandSoft px-3 py-3 text-xs font-medium text-ink flex flex-col items-center gap-1.5 cursor-pointer"><i data-lucide="credit-card" class="h-5 w-5 text-brandDark"></i> บัตรเครดิต</button>
-            <button type="button" data-pm class="pm-opt rounded-xl border-2 border-slate-200 px-3 py-3 text-xs font-medium text-ink flex flex-col items-center gap-1.5 cursor-pointer"><i data-lucide="qr-code" class="h-5 w-5 text-body"></i> PromptPay</button>
-            <button type="button" data-pm class="pm-opt rounded-xl border-2 border-slate-200 px-3 py-3 text-xs font-medium text-ink flex flex-col items-center gap-1.5 cursor-pointer"><i data-lucide="building-2" class="h-5 w-5 text-body"></i> โอนผ่านธนาคาร</button>
+            <button type="button" data-method="card" class="pm-opt rounded-xl border-2 border-brand bg-brandSoft px-3 py-3 text-xs font-medium text-ink flex flex-col items-center gap-1.5 cursor-pointer"><i data-lucide="credit-card" class="h-5 w-5 text-brandDark"></i> บัตรเครดิต</button>
+            <button type="button" data-method="promptpay" class="pm-opt rounded-xl border-2 border-slate-200 px-3 py-3 text-xs font-medium text-ink flex flex-col items-center gap-1.5 cursor-pointer"><i data-lucide="qr-code" class="h-5 w-5 text-body"></i> PromptPay</button>
+            <button type="button" data-method="bank" class="pm-opt rounded-xl border-2 border-slate-200 px-3 py-3 text-xs font-medium text-ink flex flex-col items-center gap-1.5 cursor-pointer"><i data-lucide="building-2" class="h-5 w-5 text-body"></i> โอนผ่านธนาคาร</button>
           </div>
 
-          <div class="mt-4 space-y-3">
+          <!-- panel: card -->
+          <div class="pm-panel mt-4 space-y-3" data-panel="card">
             <div>
               <label class="block text-sm font-medium text-ink mb-1">ข้อมูลบัตร</label>
               <div class="rounded-xl border border-slate-200 overflow-hidden focus-within:ring-2 focus-within:ring-brand/40 focus-within:border-brand">
@@ -631,8 +636,29 @@
             </div>
           </div>
 
+          <!-- panel: promptpay -->
+          <div class="pm-panel mt-4 hidden" data-panel="promptpay">
+            <div class="rounded-xl border border-slate-200 p-5 text-center">
+              <p class="text-sm text-body">สแกน QR ด้วยแอปธนาคารเพื่อชำระเงิน</p>
+              <div id="promptpay-qr" class="mx-auto mt-4 h-44 w-44 rounded-xl bg-white ring-1 ring-slate-200 p-2"></div>
+              <p class="mt-4 num text-2xl font-extrabold text-ink" id="pm-promptpay-amt">฿0</p>
+              <p class="mt-1 text-xs text-slate-400">PromptPay · WizeMoves HR</p>
+            </div>
+          </div>
+
+          <!-- panel: bank transfer -->
+          <div class="pm-panel mt-4 hidden" data-panel="bank">
+            <div class="rounded-xl border border-slate-200 divide-y divide-slate-100 text-sm overflow-hidden">
+              <div class="flex justify-between p-3"><span class="text-body">ธนาคาร</span><span class="font-medium text-ink">กสิกรไทย (KBank)</span></div>
+              <div class="flex justify-between p-3"><span class="text-body">ชื่อบัญชี</span><span class="font-medium text-ink text-right">บจก. ไวซ์มูฟ เอชอาร์</span></div>
+              <div class="flex justify-between p-3"><span class="text-body">เลขที่บัญชี</span><span class="num font-medium text-ink">123-4-56789-0</span></div>
+              <div class="flex justify-between p-3 bg-paper"><span class="text-body">ยอดที่ต้องโอน</span><span class="num font-bold text-brand" id="pm-bank-amt">฿0</span></div>
+            </div>
+            <p class="mt-2 text-xs text-body">โอนแล้วกดปุ่มด้านล่างเพื่อแจ้งชำระเงิน ทีมงานจะตรวจสอบและส่งไฟล์ให้ทางอีเมล</p>
+          </div>
+
           <button id="pay-btn" type="button" class="btn mt-6 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-6 py-3.5 font-semibold text-white hover:bg-brandDark cursor-pointer shadow-lg shadow-brand/30">
-            <i data-lucide="lock" class="h-4 w-4"></i> ชำระเงิน <span id="pay-amount" class="num">฿0</span>
+            <i data-lucide="lock" class="h-4 w-4"></i> <span id="pay-label">ชำระเงิน</span> <span id="pay-amount" class="num">฿0</span>
           </button>
           <p class="mt-4 text-center text-xs text-slate-400 flex items-center justify-center gap-1.5"><i data-lucide="lock" class="h-3.5 w-3.5"></i> Powered by <b class="text-slate-500">Stripe</b> · ชำระเงินปลอดภัย</p>
           <p class="mt-1 text-center text-[11px] text-slate-300">* หน้าตัวอย่าง (mock) ยังไม่เชื่อมระบบชำระเงินจริง</p>
@@ -640,11 +666,12 @@
       </div>
     </div>
 
-    <!-- ===== SUCCESS VIEW (full page) ===== -->
-    <div id="checkout-success" class="hidden min-h-full flex items-center justify-center p-6">
-      <div class="w-full max-w-md text-center">
+    <!-- ===== SUCCESS POPUP ===== -->
+    <div id="checkout-success" class="hidden fixed inset-0 z-[80] flex items-center justify-center p-4">
+      <div class="absolute inset-0 bg-ink/60 backdrop-blur-sm" data-close></div>
+      <div class="success-pop relative w-full max-w-md rounded-2xl bg-white shadow-2xl ring-1 ring-slate-100 p-8 text-center">
         <span class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-brandSoft text-brand"><i data-lucide="check" class="h-10 w-10"></i></span>
-        <h3 class="mt-6 text-3xl font-extrabold text-ink">สั่งซื้อสำเร็จ!</h3>
+        <h3 class="mt-6 text-2xl font-extrabold text-ink">ชำระเงินสำเร็จ!</h3>
         <p class="mt-3 text-body">ขอบคุณสำหรับการสั่งซื้อ เราได้ส่งลิงก์ดาวน์โหลดไฟล์ไปที่อีเมลของคุณแล้ว</p>
         <div class="mt-6 rounded-2xl bg-paper p-5 text-left text-sm">
           <div class="flex justify-between"><span class="text-body">เลขที่คำสั่งซื้อ</span><span id="co-ref" class="num font-semibold text-ink">—</span></div>
@@ -667,6 +694,23 @@
   <script>
     lucide.createIcons();
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Faux PromptPay QR (self-contained SVG, no network) */
+    (function () {
+      var el = document.getElementById('promptpay-qr'); if (!el) return;
+      var N = 25, m = 8, pad = 8, size = N * m + pad * 2;
+      function rect(x, y, w, h, fill){ return '<rect x="' + (pad + x*m) + '" y="' + (pad + y*m) + '" width="' + (w*m) + '" height="' + (h*m) + '" fill="' + fill + '"/>'; }
+      function finder(cx, cy){ return rect(cx,cy,7,7,'#191919') + rect(cx+1,cy+1,5,5,'#fff') + rect(cx+2,cy+2,3,3,'#191919'); }
+      function inFinder(x, y){ return (x<8&&y<8) || (x>=N-8&&y<8) || (x<8&&y>=N-8); }
+      var seed = 987654321;
+      function rnd(){ seed = (seed*1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+      var s = '<svg viewBox="0 0 ' + size + ' ' + size + '" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">';
+      s += '<rect width="' + size + '" height="' + size + '" fill="#fff"/>';
+      for (var y = 0; y < N; y++) for (var x = 0; x < N; x++){ if (!inFinder(x,y) && rnd() > 0.55) s += rect(x,y,1,1,'#191919'); }
+      s += finder(0,0) + finder(N-7,0) + finder(0,N-7);
+      s += '</svg>';
+      el.innerHTML = s;
+    })();
 
     /* Countdown */
     (function () {
@@ -775,9 +819,21 @@
         document.getElementById('co-total').textContent = baht(total());
         document.getElementById('co-amount-big').textContent = baht(total());
         document.getElementById('pay-amount').textContent = baht(total());
+        var pp = document.getElementById('pm-promptpay-amt'); if (pp) pp.textContent = baht(total());
+        var bk = document.getElementById('pm-bank-amt'); if (bk) bk.textContent = baht(total());
         var dr = document.getElementById('co-discount-row');
         if (state.promo > 0){ dr.classList.remove('hidden'); document.getElementById('co-discount').textContent = '-' + baht(state.promo); document.getElementById('co-promo-code').textContent = state.promoCode; }
         else { dr.classList.add('hidden'); }
+      }
+      var PAY_LABELS = { card:'ชำระเงิน', promptpay:'ฉันสแกนจ่ายแล้ว', bank:'แจ้งชำระเงินแล้ว' };
+      function selectMethod(method){
+        page.querySelectorAll('.pm-opt').forEach(function(o){
+          var on = o.getAttribute('data-method') === method;
+          o.classList.toggle('border-brand', on); o.classList.toggle('bg-brandSoft', on); o.classList.toggle('border-slate-200', !on);
+          var ic = o.querySelector('i'); if (ic){ ic.classList.toggle('text-brandDark', on); ic.classList.toggle('text-body', !on); }
+        });
+        page.querySelectorAll('.pm-panel').forEach(function(p){ p.classList.toggle('hidden', p.getAttribute('data-panel') !== method); });
+        var lbl = document.getElementById('pay-label'); if (lbl) lbl.textContent = PAY_LABELS[method] || 'ชำระเงิน';
       }
       function applyPromo(code){
         code = (code || '').trim().toUpperCase();
@@ -794,6 +850,7 @@
         // prefilled promo (เหมือนลิงก์ตัวอย่าง ?prefilled_promo_code=PRO500)
         document.getElementById('co-promo').value = 'PRO500';
         applyPromo('PRO500');
+        selectMethod('card');
         payView.classList.remove('hidden'); okView.classList.add('hidden');
         page.classList.remove('hidden'); document.body.style.overflow = 'hidden'; page.scrollTop = 0;
       }
@@ -803,19 +860,14 @@
       document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !page.classList.contains('hidden')) close(); });
       document.getElementById('co-bump').addEventListener('change', refresh);
       document.getElementById('co-promo-btn').addEventListener('click', function(){ applyPromo(document.getElementById('co-promo').value); });
-      var pmOpts = page.querySelectorAll('.pm-opt');
-      pmOpts.forEach(function(opt){
-        opt.addEventListener('click', function(){
-          pmOpts.forEach(function(o){ o.classList.remove('border-brand','bg-brandSoft'); o.classList.add('border-slate-200'); var ic=o.querySelector('i'); if(ic){ic.classList.remove('text-brandDark'); ic.classList.add('text-body');} });
-          opt.classList.add('border-brand','bg-brandSoft'); opt.classList.remove('border-slate-200');
-          var ic=opt.querySelector('i'); if(ic){ic.classList.add('text-brandDark'); ic.classList.remove('text-body');}
-        });
+      page.querySelectorAll('.pm-opt').forEach(function(opt){
+        opt.addEventListener('click', function(){ selectMethod(opt.getAttribute('data-method')); });
       });
       document.getElementById('pay-btn').addEventListener('click', function(){
         document.getElementById('co-ref').textContent = '#WM' + Date.now().toString().slice(-8);
         document.getElementById('co-success-bundle').textContent = state.bundle;
         document.getElementById('co-success-total').textContent = baht(total());
-        payView.classList.add('hidden'); okView.classList.remove('hidden'); page.scrollTop = 0;
+        okView.classList.remove('hidden');
       });
     })();
   </script>
