@@ -72,6 +72,14 @@
   @keyframes scrollx{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
   .marquee-mask{ -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
 
+  /* subtle dot-grid pattern (hero background) */
+  .hero-pattern{
+    background-image: radial-gradient(rgba(124,58,237,0.10) 1.3px, transparent 1.3px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 30%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 85% 75% at 50% 30%, #000 35%, transparent 100%);
+  }
+
   /* hero photo overlay */
   .hero-overlay{ background:
     radial-gradient(120% 120% at 15% 0%, rgba(54,197,240,.35) 0%, transparent 45%),
@@ -114,12 +122,12 @@
 <body class="font-sans text-ink bg-white antialiased">
 
   <!-- ============ SLIM PROMO COUNTDOWN BAR (taller + bold gradient) ============ -->
-  <div class="bg-gradient-to-r from-orange via-magenta to-brand text-white">
+  <div class="bg-gradient-to-r from-royal via-brand to-royal text-white">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 h-12 sm:h-[52px] flex items-center justify-center gap-2.5 text-sm sm:text-base font-medium">
-      <span class="pulse-dot inline-block h-2.5 w-2.5 rounded-full bg-white shrink-0"></span>
-      <i data-lucide="timer" class="h-4 w-4 sm:h-5 sm:w-5 shrink-0"></i>
+      <span class="pulse-dot inline-block h-2.5 w-2.5 rounded-full bg-amber-300 shrink-0"></span>
+      <i data-lucide="timer" class="h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-amber-300"></i>
       <span class="truncate">ราคาพิเศษ + โบนัส 3 ชิ้น หมดเขตใน</span>
-      <span id="topbar-countdown" class="num font-extrabold tracking-tight text-base sm:text-lg">72:00:00</span>
+      <span id="topbar-countdown" class="num font-extrabold tracking-tight text-base sm:text-lg text-amber-300">72:00:00</span>
     </div>
   </div>
 
@@ -144,42 +152,45 @@
   <main id="top">
 
     <!-- ============ 1. HERO (photo bg + gradient overlay, pitch style) ============ -->
-    <section class="relative overflow-hidden text-white">
-      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80" alt="ทีมงานออฟฟิศกำลังประชุม" class="absolute inset-0 h-full w-full object-cover" />
-      <div class="absolute inset-0 hero-overlay"></div>
-      <div class="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-cyan/20 blur-3xl drift1"></div>
-      <div class="pointer-events-none absolute top-10 -right-24 h-80 w-80 rounded-full bg-magenta/20 blur-3xl drift2"></div>
+    <section class="relative overflow-hidden bg-white">
+      <!-- soft light-purple blobs -->
+      <div class="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brandSoft blur-3xl opacity-80 drift1"></div>
+      <div class="pointer-events-none absolute top-10 -right-24 h-80 w-80 rounded-full bg-cyanSoft blur-3xl opacity-80 drift2"></div>
+      <div class="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-magentaSoft blur-3xl opacity-60 drift3"></div>
+
+      <!-- subtle dot-grid pattern -->
+      <div class="hero-pattern pointer-events-none absolute inset-0"></div>
 
       <div class="relative mx-auto max-w-4xl px-4 sm:px-6 pt-16 pb-14 lg:pt-24 text-center">
-        <span class="js-reveal inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-semibold text-white">
+        <span class="js-reveal inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brandSoft px-4 py-1.5 text-xs font-semibold text-brandDark">
           <i data-lucide="scale" class="h-3.5 w-3.5"></i> เอกสารมาตรฐานที่นักกฎหมายแรงงานยอมรับ
         </span>
-        <h1 class="js-reveal mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
+        <h1 class="js-reveal mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink">
           ยุติความปวดหัวจาก<br class="hidden sm:block" />
-          <span class="bg-gradient-to-r from-amber-300 via-orange-300 to-pink-300 bg-clip-text text-transparent">ข้อพิพาทแรงงาน</span>
+          <span class="text-brand">ข้อพิพาทแรงงาน</span>
         </h1>
-        <p class="js-reveal mt-6 text-lg sm:text-xl text-purple-100 max-w-2xl mx-auto">
-          ชุดเทมเพลตเอกสาร HR ครบวงจร พร้อมใช้ทันที — ลดเวลาทำเอกสารลง <b class="text-white">80%</b>
+        <p class="js-reveal mt-6 text-lg sm:text-xl text-body max-w-2xl mx-auto">
+          ชุดเทมเพลตเอกสาร HR ครบวงจร พร้อมใช้ทันที — ลดเวลาทำเอกสารลง <b class="text-ink">80%</b>
           ป้องกันความเสี่ยงทางกฎหมาย ในราคาที่ถูกกว่าจ้างทนายหลายเท่า
         </p>
         <div class="js-reveal mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="#offer" class="btn inline-flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-4 font-semibold text-brandDark hover:bg-purple-50 cursor-pointer shadow-xl shadow-black/20">
+          <a href="#offer" class="btn inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-7 py-4 font-semibold text-white hover:bg-brandDark cursor-pointer shadow-lg shadow-brand/25">
             <i data-lucide="shopping-bag" class="h-5 w-5"></i> รับชุดเอกสาร + โบนัสทั้งหมด
           </a>
-          <a href="#bundles" class="btn inline-flex items-center justify-center gap-2 rounded-xl border border-white/40 bg-white/5 backdrop-blur px-7 py-4 font-semibold text-white hover:bg-white/15 cursor-pointer">
+          <a href="#bundles" class="btn inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-4 font-semibold text-ink hover:bg-paper cursor-pointer">
             ดูรายละเอียดแพ็กเกจ
           </a>
         </div>
-        <div class="js-reveal mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-purple-100">
-          <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-amber-300"></i> อัปเดตตามกฎหมายล่าสุด</span>
-          <span class="inline-flex items-center gap-1.5"><i data-lucide="download" class="h-4 w-4 text-amber-300"></i> ดาวน์โหลดทันที</span>
-          <span class="inline-flex items-center gap-1.5"><i data-lucide="repeat" class="h-4 w-4 text-amber-300"></i> ปรับแก้ได้ไม่จำกัด</span>
+        <div class="js-reveal mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-body">
+          <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-brand"></i> อัปเดตตามกฎหมายล่าสุด</span>
+          <span class="inline-flex items-center gap-1.5"><i data-lucide="download" class="h-4 w-4 text-brand"></i> ดาวน์โหลดทันที</span>
+          <span class="inline-flex items-center gap-1.5"><i data-lucide="repeat" class="h-4 w-4 text-brand"></i> ปรับแก้ได้ไม่จำกัด</span>
         </div>
       </div>
 
       <!-- mockup cluster -->
       <div class="relative mx-auto max-w-4xl px-4 sm:px-6 pb-16 lg:pb-24">
-        <div id="tilt" class="js-reveal relative rounded-2xl bg-white shadow-2xl shadow-black/30 ring-1 ring-white/20 p-4 sm:p-6 will-change-transform" style="transition:transform .2s ease-out">
+        <div id="tilt" class="js-reveal relative rounded-2xl bg-white shadow-2xl shadow-slate-300/50 ring-1 ring-slate-100 p-4 sm:p-6 will-change-transform" style="transition:transform .2s ease-out">
           <div class="rounded-xl bg-paper p-5 sm:p-8">
             <div class="flex items-center justify-between mb-5">
               <p class="text-sm font-semibold text-ink">HR Performance Dashboard</p>
@@ -216,7 +227,7 @@
     </section>
 
     <!-- ============ TRUST STRIP ============ -->
-    <section class="bg-paper">
+    <section class="bg-white">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 py-9 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         <div class="js-reveal"><p class="num text-3xl font-extrabold text-ink" data-count="50" data-suffix="+">0+</p><p class="text-sm text-body mt-1">เทมเพลตพร้อมใช้</p></div>
         <div class="js-reveal"><p class="num text-3xl font-extrabold text-ink" data-count="80" data-suffix="%">0%</p><p class="text-sm text-body mt-1">ลดเวลาทำเอกสาร</p></div>
@@ -250,7 +261,7 @@
     </section>
 
     <!-- ============ 3. BUNDLES + VALUE STACK ============ -->
-    <section id="bundles" class="bg-paper">
+    <section id="bundles" class="bg-brandSoft">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 py-20 lg:py-28">
         <div class="text-center max-w-2xl mx-auto">
           <p class="js-reveal text-sm font-semibold text-brand uppercase tracking-widest">ทางออกของคุณ</p>
@@ -516,33 +527,35 @@
     </section>
 
     <!-- ============ 4. SOCIAL PROOF ============ -->
-    <section id="proof" class="mx-auto max-w-6xl px-4 sm:px-6 py-20 lg:py-28">
+    <section id="proof" class="bg-brandSoft">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-20 lg:py-28">
       <div class="text-center max-w-2xl mx-auto">
         <p class="js-reveal text-sm font-semibold text-brand uppercase tracking-widest">เสียงจากผู้ใช้งานจริง</p>
         <h2 class="js-reveal mt-3 text-3xl sm:text-4xl font-extrabold text-ink">ผู้ประกอบการกว่าร้อยรายไว้วางใจ</h2>
         <p class="js-reveal mt-3 text-xs text-slate-400">*ตัวอย่างรีวิว (mock) สำหรับการออกแบบ</p>
       </div>
       <div class="mt-12 grid md:grid-cols-3 gap-6">
-        <figure class="js-reveal lift rounded-2xl bg-paper p-7">
+        <figure class="js-reveal lift rounded-2xl bg-white ring-1 ring-slate-100 p-7">
           <div class="flex gap-0.5 text-orange"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
           <blockquote class="mt-4 text-sm text-body">"เทมเพลตแผน PIP จากชุดนี้ช่วยให้เราเลิกจ้างพนักงานที่มีปัญหาได้อย่างเป็นระบบ โดยไม่มีการฟ้องร้องตามมา"</blockquote>
           <figcaption class="mt-5 flex items-center gap-3"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="" class="h-11 w-11 rounded-full object-cover ring-2 ring-white shadow" /><span><span class="block text-sm font-semibold text-ink">คุณศิริพร วัฒนกุล</span><span class="block text-xs text-slate-500">HR Manager · บจก. สยามเทรดดิ้ง</span></span></figcaption>
         </figure>
-        <figure class="js-reveal lift rounded-2xl bg-paper p-7">
+        <figure class="js-reveal lift rounded-2xl bg-white ring-1 ring-slate-100 p-7">
           <div class="flex gap-0.5 text-orange"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
           <blockquote class="mt-4 text-sm text-body">"ประหยัดเวลาทำเอกสารไปได้เป็นสิบชั่วโมงต่อเดือน ไฟล์ Dashboard ใช้งานง่ายมาก กรอกแล้วได้กราฟเลย"</blockquote>
           <figcaption class="mt-5 flex items-center gap-3"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="h-11 w-11 rounded-full object-cover ring-2 ring-white shadow" /><span><span class="block text-sm font-semibold text-ink">คุณธนกร อัศวเดชา</span><span class="block text-xs text-slate-500">เจ้าของกิจการ · ร้าน Bean &amp; Co.</span></span></figcaption>
         </figure>
-        <figure class="js-reveal lift rounded-2xl bg-paper p-7">
+        <figure class="js-reveal lift rounded-2xl bg-white ring-1 ring-slate-100 p-7">
           <div class="flex gap-0.5 text-orange"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
           <blockquote class="mt-4 text-sm text-body">"ชุดเอกสาร PDPA ช่วยให้บริษัทเราจัดการข้อมูลพนักงานถูกต้องตามกฎหมาย อุ่นใจขึ้นเยอะ"</blockquote>
           <figcaption class="mt-5 flex items-center gap-3"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" class="h-11 w-11 rounded-full object-cover ring-2 ring-white shadow" /><span><span class="block text-sm font-semibold text-ink">คุณนภัสสร พงษ์ไพบูลย์</span><span class="block text-xs text-slate-500">ผู้จัดการฝ่ายบุคคล · โรงงานไทยรุ่งเรือง</span></span></figcaption>
         </figure>
       </div>
+      </div>
     </section>
 
     <!-- ============ 5. RISK REVERSAL ============ -->
-    <section id="guarantee" class="bg-brandSoft">
+    <section id="guarantee" class="bg-white">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 py-16 lg:py-20 text-center">
         <span class="js-reveal ico h-16 w-16 rounded-2xl ico-violet"><i data-lucide="badge-check" class="h-8 w-8"></i></span>
         <h2 class="js-reveal mt-5 text-3xl sm:text-4xl font-extrabold text-ink">รับประกันความพึงพอใจ 7 วัน</h2>
@@ -554,16 +567,16 @@
     </section>
 
     <!-- ============ 6. FINAL CTA (gradient band — push Legal Shield) ============ -->
-    <section class="relative overflow-hidden cta-grad text-white">
-      <div class="pointer-events-none absolute -top-20 left-10 h-64 w-64 rounded-full bg-white/10 blur-3xl drift1"></div>
-      <div class="pointer-events-none absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-cyan/30 blur-3xl drift2"></div>
+    <section class="relative overflow-hidden bg-brandSoft">
+      <div class="pointer-events-none absolute -top-20 left-10 h-64 w-64 rounded-full bg-white/60 blur-3xl drift1"></div>
+      <div class="pointer-events-none absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-cyanSoft blur-3xl drift2"></div>
       <div class="relative mx-auto max-w-4xl px-4 sm:px-6 py-16 lg:py-24 text-center">
-        <h2 class="js-reveal text-3xl sm:text-5xl font-extrabold text-white">ชุดยอดนิยม: เกราะป้องกันกฎหมาย</h2>
-        <p class="js-reveal mt-5 text-purple-100 text-lg max-w-xl mx-auto">ครบทั้งสัญญาจ้าง หนังสือเตือน-เลิกจ้าง แผน PIP และ PDPA — มูลค่ารวม <span class="num">฿15,400</span> รับไปในราคา <span class="num font-semibold text-white">฿4,990</span></p>
-        <button type="button" class="buy-btn btn mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-white px-9 py-4 text-lg font-semibold text-brandDark hover:bg-purple-50 cursor-pointer shadow-xl shadow-black/20" data-bundle="Legal Shield — ชุดเกราะป้องกันกฎหมายและข้อพิพาทแรงงาน" data-price="4990">
+        <h2 class="js-reveal text-3xl sm:text-5xl font-extrabold text-ink">ชุดยอดนิยม: <span class="text-brand">เกราะป้องกันกฎหมาย</span></h2>
+        <p class="js-reveal mt-5 text-body text-lg max-w-xl mx-auto">ครบทั้งสัญญาจ้าง หนังสือเตือน-เลิกจ้าง แผน PIP และ PDPA — มูลค่ารวม <span class="num">฿15,400</span> รับไปในราคา <span class="num font-semibold text-brand">฿4,990</span></p>
+        <button type="button" class="buy-btn btn mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-9 py-4 text-lg font-semibold text-white hover:bg-brandDark cursor-pointer shadow-lg shadow-brand/30" data-bundle="Legal Shield — ชุดเกราะป้องกันกฎหมายและข้อพิพาทแรงงาน" data-price="4990">
           <i data-lucide="shield" class="h-5 w-5"></i> รับชุดเกราะป้องกันกฎหมายทันที
         </button>
-        <p class="js-reveal mt-4 text-sm text-purple-100 flex items-center justify-center gap-2"><i data-lucide="lock" class="h-4 w-4"></i> ชำระเงินปลอดภัย · การันตีคืนเงิน 7 วัน</p>
+        <p class="js-reveal mt-4 text-sm text-body flex items-center justify-center gap-2"><i data-lucide="lock" class="h-4 w-4"></i> ชำระเงินปลอดภัย · การันตีคืนเงิน 7 วัน</p>
       </div>
     </section>
 
