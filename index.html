@@ -1,923 +1,1435 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Ultimate HR Mastery Bundle — เอกสาร HR มาตรฐานที่นักกฎหมายยอมรับ</title>
-<meta name="description" content="ชุดเทมเพลตเอกสาร HR ครบชุด ลดเวลาทำเอกสาร 80% ป้องกันข้อพิพาทแรงงาน — ราคาพิเศษเริ่ม 2,990 บาท" />
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: { sans: ['"IBM Plex Sans Thai"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] },
-        colors: {
-          ink: '#191919', body: '#52525B',
-          brand: '#7C3AED', brandDark: '#6D28D9', brandSoft: '#F5F3FF',
-          royal: '#3D2C5F', gold: '#E2A82E',
-          cyan: '#36C5F0',  cyanSoft: '#E3F6FD',
-          grass: '#0ACF83', grassSoft: '#E5FAF1',
-          orange: '#F8761F', orangeSoft: '#FEF1E7',
-          magenta: '#E01E5A', magentaSoft: '#FCE7EF',
-          paper: '#F7F7F8',
-        },
-      },
-    },
-  };
+/* Always start at the top on refresh: disable scroll restoration and drop a
+   stale #hash left over from clicking nav/CTA. Deep-links on a fresh visit still work. */
+(function(){
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  var e = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  var isReload = e ? e.type==='reload' : (performance.navigation && performance.navigation.type===1);
+  if(isReload && location.hash) history.replaceState(null,'',location.pathname+location.search);
+  /* enable scroll-reveal (skip for reduced motion); failsafe un-hides everything if init fails */
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+    document.documentElement.classList.add('revealjs');
+    window.addEventListener('load', function(){ if(!window.__revealReady) document.documentElement.classList.remove('revealjs'); });
+  }
+})();
 </script>
+<title>WizeMoves HR — ชุดเอกสาร HR มาตรฐานที่นักกฎหมายยอมรับ</title>
+<meta name="description" content="ชุดเทมเพลตเอกสาร HR ครบวงจร ลดเวลาทำเอกสาร 80% ป้องกันข้อพิพาทแรงงาน เริ่มต้น 2,990 บาท พร้อมโบนัส 3 ชิ้นทุกชุด">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500;600;700&family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  html { scroll-behavior: smooth; }
-  .num { font-variant-numeric: tabular-nums; }
-  /* Thai-friendly line-height to avoid tone-mark overlap (override Tailwind font-size line-heights) */
-  h1 { line-height: 1.2 !important; }
-  h2 { line-height: 1.35 !important; }
-  h3 { line-height: 1.4 !important; }
-  p, li { line-height: 1.7; }
+/* ============ DB HEAVENT ROUNDED (local first, self-host fallback) ============ */
+@font-face{font-family:'DB Heavent Rounded';font-weight:400;font-display:swap;
+  src:local('DB Heavent Rounded'),local('DBHeaventRounded'),url('fonts/DBHeaventRounded.woff2') format('woff2'),url('fonts/DBHeaventRounded.ttf') format('truetype')}
+@font-face{font-family:'DB Heavent Rounded';font-weight:500;font-display:swap;
+  src:local('DB Heavent Rounded Med'),local('DBHeaventRoundedMed'),url('fonts/DBHeaventRoundedMed.woff2') format('woff2'),url('fonts/DBHeaventRoundedMed.ttf') format('truetype')}
+@font-face{font-family:'DB Heavent Rounded';font-weight:700;font-display:swap;
+  src:local('DB Heavent Rounded Bd'),local('DBHeaventRoundedBold'),local('DB Heavent Rounded Bold'),url('fonts/DBHeaventRoundedBold.woff2') format('woff2'),url('fonts/DBHeaventRoundedBold.ttf') format('truetype')}
+/* ============ TOKENS ============ */
+:root{
+  --ink:#271C43;          /* deep navy — headings / primary button */
+  --ink-soft:#6A6284;     /* secondary text */
+  --bg:#FFFFFF;
+  --bg-alt:#F7F5FC;       /* cool paper */
+  --line:#E9E3F5;
+  --brand:#7C3AED;         /* CI purple — brand / prices / accents */
+  --brand-soft:#F4EEFD;
+  --royal:#3D2C5F;         /* CI deep purple (logo) */
+  --gold:#E2A82E;          /* CI gold (logo) */
+  --green:#1E7F5C;        /* "ฟรี" / checkmarks */
+  --green-soft:#E9F5EF;
+  --red:#C6402F;          /* urgency only */
+  --red-soft:#FBEBE8;
+  --radius:14px;
+  --shadow:0 10px 34px rgba(43,27,84,.09);
+  --shadow-sm:0 3px 12px rgba(43,27,84,.07);
+  --font-display:'DB Heavent Rounded','IBM Plex Sans Thai',sans-serif;
+  --font-body:'DB Heavent Rounded','IBM Plex Sans Thai','Anuphan',sans-serif;
+  --maxw:1140px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;font-size:120%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{font-family:var(--font-body);color:var(--ink);background:var(--bg);font-size:24px;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;touch-action:manipulation}
+@media(max-width:600px){html{font-size:112%}}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.3}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:var(--font-body);cursor:pointer}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:24px;font-weight:400;letter-spacing:.02em;color:var(--brand);border:1px solid var(--brand);border-radius:999px;padding:6px 20px;background:var(--brand-soft);margin-bottom:16px}
+.badge-pill{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:38px;padding:0 16px;background:#fff;border-radius:999px;box-shadow:0 8px 22px rgba(124,58,237,.14),0 2px 5px rgba(39,28,67,.06);margin-bottom:20px}
+.badge-pill span{font-family:var(--font-display);font-weight:700;font-size:24px;line-height:1;letter-spacing:.005em;white-space:nowrap;background:linear-gradient(100deg,#7C3AED 0%,#8B47DD 38%,#C77CB0 68%,#E2A82E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.section-title{font-size:clamp(34px,6vw,60px);font-weight:700;line-height:1.15;margin-bottom:14px}
+.section-sub{color:var(--ink-soft);max-width:720px;font-size:24px;font-weight:400}
+.center{text-align:center}.center .section-sub{margin:0 auto}
 
-  @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-  .floaty { animation: floaty 7s ease-in-out infinite; }
-  @keyframes floaty2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
-  .floaty2 { animation: floaty2 6s ease-in-out infinite; }
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:20px;border-radius:999px;padding:14px 26px;border:none;min-height:48px;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;text-decoration:none}
+.btn:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:#5B21B6;box-shadow:var(--shadow)}
+.btn-brand{background:var(--brand);color:#fff}
+.btn-brand:hover{background:#5B21B6}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-sm{padding:10px 18px;font-size:20px;min-height:44px}
+.btn-block{width:100%}
 
-  @keyframes drift1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(40px,30px) scale(1.1)} }
-  @keyframes drift2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-50px,20px) scale(1.05)} }
-  @keyframes drift3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(20px,-40px) scale(1.12)} }
-  .drift1 { animation: drift1 14s ease-in-out infinite; }
-  .drift2 { animation: drift2 18s ease-in-out infinite; }
-  .drift3 { animation: drift3 16s ease-in-out infinite; }
+/* ============ TOP BAR (countdown) ============ */
+.topbar{background:linear-gradient(90deg,var(--royal),var(--brand),var(--royal));color:#fff;text-align:center;font-size:20px;padding:11px 16px}
+.topbar strong{color:#FCD34D;font-weight:700;font-variant-numeric:tabular-nums}
 
-  @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
-  .pulse-dot { animation: pulse-dot 1.3s ease-in-out infinite; }
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--font-display);font-weight:700;font-size:1.15rem;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:700}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;font-size:24px;font-weight:400;color:var(--ink-soft);padding:8px 2px}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;gap:10px}
+@media(max-width:860px){.nav-links{display:none}}
 
-  /* fade-in reveal */
-  .js-reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
-  .js-reveal.in{ opacity:1; transform:none; }
+/* ============ HERO ============ */
+.hero{padding:64px 0 56px;background:linear-gradient(180deg,#FDFDFE 0%,var(--bg-alt) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(40px,6.5vw,72px);font-weight:700;line-height:1.12;margin:14px 0 18px}
+.hero h1 em{font-style:normal;color:var(--brand);position:relative;white-space:nowrap}
+.hero p.lead{color:var(--ink-soft);font-size:24px;max-width:600px;margin-bottom:28px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.trust-row{display:flex;gap:18px;flex-wrap:wrap;color:var(--ink-soft);font-size:20px}
+.trust-row span{display:inline-flex;align-items:center;gap:6px}
+.ic{width:18px;height:18px;flex:none}
+/* hero document stack */
+.doc-stack{position:relative;min-height:380px}
+.doc{position:absolute;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:22px;width:78%}
+.doc h4{font-size:20px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.doc .tag{font-size:20px;font-weight:700;color:var(--green);background:var(--green-soft);border-radius:4px;padding:2px 8px}
+.doc-line{height:8px;border-radius:4px;background:var(--bg-alt);margin:8px 0}
+.doc-line.short{width:60%}
+.doc-1{top:0;left:0;transform:rotate(-2deg)}
+.doc-2{top:70px;right:0;transform:rotate(1.5deg);z-index:2}
+.doc-3{bottom:0;left:8%;z-index:3}
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.kpi{background:var(--bg-alt);border-radius:8px;padding:10px;text-align:center}
+.kpi b{display:block;font-size:1.05rem;color:var(--ink)}
+.kpi span{font-size:20px;color:var(--ink-soft)}
+.seal{position:absolute;right:-8px;bottom:-14px;width:92px;height:92px;border-radius:50%;border:2.5px solid var(--brand);color:var(--brand);display:grid;place-items:center;text-align:center;font-family:var(--font-display);font-weight:700;font-size:20px;line-height:1.3;transform:rotate(-12deg);background:rgba(251,243,222,.9);z-index:4}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.doc-stack{display:none}}
 
-  /* hover lift */
-  .lift{ transition:transform .25s ease, box-shadow .25s ease; }
-  .lift:hover{ transform:translateY(-6px); box-shadow:0 24px 40px -18px rgba(124,58,237,.28); }
+/* ============ STATS STRIP ============ */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:26px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.stats b{font-family:var(--font-display);font-size:clamp(40px,5vw,60px);font-weight:700;display:block;color:var(--brand)}
+.stats span{color:var(--ink-soft);font-size:24px;font-weight:400}
+@media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);row-gap:22px}}
+@media(prefers-reduced-motion:no-preference){
+.stats.js-reveal .stats-grid>div{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s cubic-bezier(.22,.61,.36,1)}
+.stats.js-reveal.in .stats-grid>div{opacity:1;transform:none}
+.stats.js-reveal .stats-grid>div:nth-child(2){transition-delay:.09s}
+.stats.js-reveal .stats-grid>div:nth-child(3){transition-delay:.18s}
+.stats.js-reveal .stats-grid>div:nth-child(4){transition-delay:.27s}
+.consult-num.js-reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s cubic-bezier(.22,.61,.36,1)}
+.consult-num.js-reveal.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:no-preference){
+html.revealjs :is(.section-title,.section-sub,.badge-pill,.cmp,.review-card,.faq-item,.guarantee-inner):not(#ebook *):not(#faq *){opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .7s cubic-bezier(.22,.61,.36,1)}
+html.revealjs :is(.section-title,.section-sub,.badge-pill,.cmp,.review-card,.faq-item,.guarantee-inner):not(#ebook *):not(#faq *).in{opacity:1;transform:none}
+html.revealjs :is(.bundle,.single){opacity:0;transition:box-shadow .2s ease,transform .2s ease,opacity .6s ease}
+html.revealjs :is(.bundle,.single).in{opacity:1}
+}
 
-  /* button micro-interaction */
-  .btn{ transition:transform .15s ease, background-color .2s ease, box-shadow .2s ease, opacity .2s ease; }
-  .btn:hover{ transform:translateY(-1px); }
-  .btn:active{ transform:scale(.97); }
+/* ============ BUNDLES ============ */
+.bundles{background:var(--bg)}
+.bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;align-items:stretch}
+.bundle{position:relative;display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--line);border-radius:var(--radius);overflow:visible;transition:box-shadow .2s ease,transform .2s ease}
+.bundle:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.bundle-head{padding:24px 24px 18px;border-bottom:1px dashed var(--line)}
+.bundle-cat{font-size:20px;font-weight:700;letter-spacing:.1em;color:var(--ink-soft)}
+.bundle h3{font-size:clamp(24px,3.2vw,36px);font-weight:700;line-height:1.2;margin:6px 0 4px}
+.bundle-tagline{font-size:24px;color:var(--ink-soft)}
+.bundle-body{padding:20px 24px;flex:1;display:flex;flex-direction:column}
+.core-item{background:var(--bg-alt);border-radius:10px;padding:14px;margin-bottom:16px}
+.core-item .lbl{font-size:20px;font-weight:700;color:var(--ink-soft);letter-spacing:.06em}
+.core-item p{font-weight:600;font-size:24px;margin-top:4px}
+.core-item .val{color:var(--ink-soft);font-weight:500;font-size:20px}
+.bonus-lbl{font-size:20px;font-weight:700;color:var(--green);margin-bottom:8px}
+.bonus-list{list-style:none;margin-bottom:18px}
+.bonus-list li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--bg-alt);font-size:24px}
+.bonus-list li:last-child{border-bottom:none}
+.bonus-list .free{flex:none;font-size:20px;font-weight:700;color:var(--green);background:var(--green-soft);border-radius:4px;padding:2px 7px;margin-top:2px}
+.bonus-list .strike{color:var(--ink-soft);text-decoration:line-through;font-size:20px;white-space:nowrap;margin-left:auto;padding-left:8px}
+.price-box{margin-top:auto;padding-top:16px;border-top:1px dashed var(--line)}
+.price-row{display:flex;justify-content:space-between;font-size:20px;color:var(--ink-soft);margin-bottom:6px}
+.price-row .strike{text-decoration:line-through}
+.price-main{display:flex;align-items:baseline;gap:10px;margin:6px 0 14px}
+.price-main b{font-family:var(--font-display);font-size:2rem;color:var(--brand)}
+.price-main .save{font-size:20px;font-weight:700;color:var(--red);background:var(--red-soft);border-radius:4px;padding:3px 8px}
+.bundle.featured{border-color:#A78BFA;box-shadow:0 14px 40px rgba(109,40,217,.16)}
+.bundle.featured .price-main b{color:var(--brand)}
+.badge-best{position:absolute;top:-22px;left:50%;transform:translateX(-50%);z-index:3;background:linear-gradient(to top right,#F59E0B,#FDE68A);color:#5215B1;font-size:20px;font-weight:500;line-height:1;border-radius:99px;padding:6px 18px;white-space:nowrap;box-shadow:0 4px 12px rgba(43,27,84,.18)}
+.stamp{position:absolute;top:14px;right:14px;width:64px;height:64px;border-radius:50%;border:2px solid var(--brand);color:var(--brand);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:20px;text-align:center;line-height:1.25;transform:rotate(10deg);opacity:.9}
+@media(max-width:960px){.bundle-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}}
 
-  .bar{ transition:height 1s cubic-bezier(.16,1,.3,1); }
+/* ============ BUNDLE COVER (course cover) ============ */
+.bundle-cover{position:relative;overflow:hidden;min-height:150px;border-radius:12px 12px 0 0;padding:20px;display:flex;flex-direction:column;justify-content:flex-start;background:linear-gradient(135deg,var(--brand-soft),#fff);border-bottom:1px solid var(--line)}
+.bundle-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:none}
+.bundle-cover .bc-ic{width:64px;height:64px;border-radius:18px;background:linear-gradient(150deg,#FCFAFF,#F1E9FC);border:1px solid #fff;color:var(--brand);display:grid;place-items:center;box-shadow:0 12px 26px rgba(124,58,237,.18);flex:none;margin-bottom:12px}
+.bundle-cover .bc-ic svg{width:38px;height:38px}
+.bundle-cover .bc-en{font-size:20px;font-weight:700;letter-spacing:.12em;color:var(--brand);text-transform:uppercase}
+.bundle-cover .bc-name{font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--ink);line-height:1.25;margin-top:2px}
+.bundle-cover::after{display:none}
+/* (bundle uses single design — graphic covers; variant-2 image layout & toggle removed) */
 
-  .marquee{ display:flex; gap:1rem; width:max-content; animation:scrollx 28s linear infinite; }
-  @keyframes scrollx{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
-  .marquee-mask{ -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
+/* ============ SINGLE ITEMS ============ */
+.singles{background:var(--bg-alt)}
+.singles-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.slider-nav{display:flex;gap:8px;flex:none}
+.slider-nav button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;transition:border-color .2s,background .2s}
+.slider-nav button:hover{border-color:var(--brand);color:var(--brand)}
+.slider-nav button:disabled{opacity:.35;cursor:default}
+.single-grid{display:flex;gap:16px;margin-top:32px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 16px;-webkit-overflow-scrolling:touch}
+.single-grid::-webkit-scrollbar{height:8px}
+.single-grid::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+.single-grid::-webkit-scrollbar-track{background:transparent}
+.single{flex:0 0 262px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:0;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.single:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
+.single-cover{position:relative;height:170px;background:linear-gradient(135deg,var(--brand-soft),#F3EEFC);border-bottom:1px solid var(--line)}
+.single-cover img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.single-cover .cov-tag{position:absolute;bottom:10px;right:10px;font-size:13px;font-weight:700;letter-spacing:.03em;color:#fff;background:rgba(39,28,67,.6);border-radius:999px;padding:4px 12px}
+.single-body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.single .cat{font-size:20px;font-weight:700;letter-spacing:.08em;color:var(--brand)}
+.single .btn:hover{background:#5B21B6;color:#fff;border-color:#5B21B6}
+.single h4{font-size:20px;line-height:1.4;flex:1}
+.single .price{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--brand)}
+@media(max-width:520px){.single{flex-basis:80%}.slider-nav{display:none}}
 
-  /* subtle dot-grid pattern (hero background) */
-  .hero-pattern{
-    background-image: radial-gradient(rgba(124,58,237,0.10) 1.3px, transparent 1.3px);
-    background-size: 22px 22px;
-    -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 30%, #000 35%, transparent 100%);
-    mask-image: radial-gradient(ellipse 85% 75% at 50% 30%, #000 35%, transparent 100%);
-  }
+/* ============ STORY (เล่าปัญหาก่อนขาย) ============ */
+.story{background:linear-gradient(180deg,#2E1B5B 0%,#231245 100%);color:#fff}
+.story .section-title{color:#fff}
+.story .section-sub{color:#C9BEE6}
+.story .eyebrow{background:rgba(214,197,255,.12);border-color:rgba(214,197,255,.5);color:#D6C5FF}
+.timeline{max-width:680px;margin:44px auto 0;position:relative;text-align:left}
+.timeline::before{content:"";position:absolute;left:19px;top:10px;bottom:10px;width:2px;background:rgba(214,197,255,.22)}
+.t-step{position:relative;padding:0 0 26px 62px}
+.t-step:last-child{padding-bottom:0}
+.t-dot{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:#3B2A6B;border:1.5px solid rgba(214,197,255,.5);color:#D6C5FF;display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:20px}
+.t-step .when{font-size:20px;font-weight:700;letter-spacing:.1em;color:#B9A6E8;text-transform:uppercase}
+.t-step h3{font-size:1.1rem;margin:3px 0 8px;color:#fff}
+.t-hole{display:inline-flex;gap:8px;align-items:flex-start;margin-top:10px;background:rgba(198,64,47,.16);border:1px solid rgba(255,130,110,.35);color:#FFB4A6;border-radius:8px;padding:8px 12px;font-size:20px;line-height:1.5}
+.t-hole .ic{margin-top:2px;flex:none}
+.t-result{background:rgba(214,197,255,.08);border:1px solid rgba(214,197,255,.35);border-radius:12px;padding:20px;margin-top:12px}
+.t-result b{font-family:var(--font-display);font-size:2rem;color:#D6C5FF;display:block}
+.t-result span{color:#C9BEE6;font-size:20px}
+.mini-stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:760px;margin:40px auto 0}
+.mini-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:10px 18px;font-size:20px;color:#C9BEE6;text-align:left}
+.mini-stat b{font-family:var(--font-display);color:#D6C5FF;margin-right:6px}
+.bridge{margin-top:44px;max-width:620px;margin-left:auto;margin-right:auto;text-align:center}
+.bridge h3{font-size:clamp(24px,3.2vw,36px);font-weight:700;margin-bottom:10px}
+.bridge p{color:#C9BEE6;margin-bottom:24px}
+@media(max-width:700px){.mini-stat{width:100%;border-radius:12px}}
+/* compact story flow */
+.story-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:980px;margin:40px auto 0;text-align:left}
+.story-step,.story-result{background:rgba(255,255,255,.05);border:1px solid rgba(214,197,255,.18);border-radius:14px;padding:20px;position:relative}
+.story-step .s-num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#3B2A6B;color:#D6C5FF;font-family:var(--font-display);font-weight:700;margin-bottom:10px}
+.story-step .s-when,.story-result .s-when{font-size:20px;font-weight:700;letter-spacing:.08em;color:#B9A6E8;text-transform:uppercase}
+.story-step .s-head{color:#fff;font-weight:600;font-size:20px;margin:4px 0 8px}
+.story-step .s-hole{color:#FFB4A6;font-size:20px;line-height:1.5}
+.story-step:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:rgba(214,197,255,.5);font-size:1.1rem;z-index:2}
+.story-result{background:rgba(198,64,47,.16);border-color:rgba(255,130,110,.35);display:flex;flex-direction:column;justify-content:center}
+.story-result b{font-family:var(--font-display);font-size:1.9rem;color:#fff;margin:4px 0 2px}
+.story-result .rs{color:#FFC9BE;font-size:20px;line-height:1.5}
+@media(max-width:900px){.story-flow{grid-template-columns:1fr 1fr}.story-step:not(:last-child)::after{display:none}}
+@media(max-width:560px){.story-flow{grid-template-columns:1fr}}
 
-  /* hero photo overlay */
-  .hero-overlay{ background:
-    radial-gradient(120% 120% at 15% 0%, rgba(54,197,240,.35) 0%, transparent 45%),
-    radial-gradient(120% 120% at 85% 10%, rgba(224,30,90,.32) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(76,29,149,.95) 0%, rgba(109,40,217,.90) 45%, rgba(124,58,237,.86) 100%); }
-  .cta-grad{ background:
-    radial-gradient(100% 140% at 10% 0%, rgba(248,118,31,.35) 0%, transparent 50%),
-    radial-gradient(100% 140% at 90% 100%, rgba(54,197,240,.35) 0%, transparent 50%),
-    linear-gradient(120deg, #6D28D9 0%, #7C3AED 50%, #C026D3 100%); }
+/* ============ LEAD MAGNET ============ */
+.lead-sec{background:var(--brand-soft);position:relative;overflow:hidden}
+.lead-sec::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(124,58,237,.10) 1.3px,transparent 1.3px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 85% 72% at 50% 26%,#000 34%,transparent 100%);mask-image:radial-gradient(ellipse 85% 72% at 50% 26%,#000 34%,transparent 100%)}
+.lead-sec .container{position:relative;z-index:1}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.lead-form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:20px;font-weight:600;margin-bottom:5px}
+.field label .opt{font-weight:400;color:var(--ink-soft)}
+.field input,.field select,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:11px 13px;font-family:var(--font-body);font-size:20px;color:var(--ink);background:#fff;min-height:46px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(109,40,217,.14)}
+.field .err{display:none;color:var(--red);font-size:20px;margin-top:4px}
+.field.invalid input,.field.invalid select{border-color:var(--red)}
+.field.invalid .err{display:block}
+.form-note{font-size:20px;color:var(--ink-soft);margin-top:10px}
+.ebook-img{width:100%;max-width:460px;height:auto;border-radius:14px;margin-bottom:22px;display:block}
+.check-list{list-style:none;margin:18px 0}
+.check-list li{display:flex;gap:10px;margin-bottom:10px;font-size:24px}
+.check-list .ic{color:var(--green);margin-top:3px}
+@media(max-width:900px){.lead-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
 
-  /* gradient icon chips */
-  .ico{ display:inline-flex; align-items:center; justify-content:center; color:#fff; transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
-  .ico svg{ stroke:#fff; }
-  .ico-violet  { background:linear-gradient(135deg,#7C3AED,#C026D3); box-shadow:0 10px 22px -8px rgba(124,58,237,.6); }
-  .ico-cyan    { background:linear-gradient(135deg,#36C5F0,#7C3AED); box-shadow:0 10px 22px -8px rgba(54,197,240,.55); }
-  .ico-orange  { background:linear-gradient(135deg,#F8761F,#E01E5A); box-shadow:0 10px 22px -8px rgba(248,118,31,.55); }
-  .ico-grass   { background:linear-gradient(135deg,#0ACF83,#36C5F0); box-shadow:0 10px 22px -8px rgba(10,207,131,.5); }
-  .ico-magenta { background:linear-gradient(135deg,#E01E5A,#F8761F); box-shadow:0 10px 22px -8px rgba(224,30,90,.55); }
-  .ico-royal   { background:linear-gradient(135deg,#3D2C5F,#7C3AED); box-shadow:0 10px 22px -8px rgba(61,44,95,.6); }
-  .lift:hover .ico, .group:hover .ico { transform:scale(1.1) rotate(-5deg); }
+/* ============ TESTIMONIALS ============ */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.testi{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
+.testi .stars{color:var(--brand);letter-spacing:2px;margin-bottom:12px;font-size:20px}
+.testi p{font-size:24px;flex:1}
+.testi .who{display:flex;align-items:center;gap:12px;margin-top:18px}
+.avatar{width:42px;height:42px;border-radius:50%;background:var(--bg-alt);color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:20px;flex:none}
+.testi .who b{display:block;font-size:20px}
+.testi .who span{font-size:20px;color:var(--ink-soft)}
+.testi-note{text-align:center;color:var(--ink-soft);font-size:20px;margin-top:18px}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr}}
 
-  /* scrollytelling */
-  .why-step{ transition:opacity .4s ease; }
-  @media (min-width:1024px){ .why-step:not(.active){ opacity:.35; } }
-  .why-visual{ opacity:0; transform:scale(.97) translateY(8px); transition:opacity .55s ease, transform .55s ease; pointer-events:none; }
-  .why-visual.active{ opacity:1; transform:none; pointer-events:auto; }
+/* ============ CONSULT ============ */
+.consult{background:var(--bg-alt)}
+.consult-card{position:relative;overflow:hidden;color:#fff;border-radius:20px;padding:52px 48px;background:linear-gradient(120deg,#2D1B5A,#4B2A87)}
+.consult-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;display:block}
+.consult-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(76,29,149,.10),rgba(76,29,149,.10)),radial-gradient(120% 120% at 50% 40%,rgba(20,14,34,.60) 0%,rgba(6,4,12,.95) 100%)}
+.consult-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.consult-card h2{font-size:clamp(26px,3.4vw,36px);font-weight:700;line-height:1.2;margin-bottom:12px}
+.consult-card p{color:#EAE3F8;margin-bottom:8px}
+.consult-list{list-style:none;margin:18px 0 26px}
+.consult-list li{display:flex;gap:10px;margin-bottom:10px;font-size:24px;color:#DDE3EE}
+.consult-list .ic{color:#D6C5FF;margin-top:3px}
+@media(max-width:900px){.consult-inner{grid-template-columns:1fr}.consult-card{padding:36px 26px}}
 
-  /* success popup */
-  @keyframes pop-in { from{opacity:0; transform:scale(.92) translateY(10px)} to{opacity:1; transform:none} }
-  .success-pop{ animation: pop-in .35s cubic-bezier(.16,1,.3,1); }
+/* ============ GUARANTEE + FAQ ============ */
+.guarantee-box{position:relative;overflow:hidden;border-radius:0;height:400px;padding:56px 40px;margin:0;color:#fff;background:linear-gradient(120deg,#2D1B5A,#4C1D95)}
+.guarantee-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;z-index:0;display:block}
+.guarantee-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(76,29,149,.10),rgba(76,29,149,.10)),radial-gradient(120% 120% at 50% 40%,rgba(20,14,34,.60) 0%,rgba(6,4,12,.95) 100%)}
+.guarantee-inner{position:relative;z-index:2;display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;text-align:center;height:100%;max-width:840px;margin:0 auto}
+.guarantee-box .g-ic{flex:none;width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);color:#fff;display:grid;place-items:center}
+.guarantee-box h3{color:#fff;font-size:60px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.guarantee-box p{color:rgba(255,255,255,.92)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 4px;font-weight:600;font-size:24px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .pm{flex:none;display:inline-flex;align-items:center;color:var(--brand);transition:transform .25s ease}
+.faq-item summary .pm svg{width:24px;height:24px}
+.faq-item[open] summary .pm{transform:rotate(180deg)}
+.faq-item .faq-body{padding:0 4px 18px;color:var(--ink-soft);font-size:24px}
+.faq-wrap{display:flex;gap:44px;align-items:flex-start;max-width:1080px;margin-top:8px}
+.faq-wrap.illus-right{flex-direction:row-reverse}
+.faq-wrap.illus-left{flex-direction:row}
+.faq-illus{flex:0 0 360px;text-align:center;position:relative;margin-top:70px}
+.faq-illus::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateZ(0);width:112%;height:104%;z-index:0;pointer-events:none;background:radial-gradient(circle at 32% 34%,rgba(167,139,250,.62),transparent 56%),radial-gradient(circle at 72% 70%,rgba(245,158,11,.50),transparent 56%);filter:blur(46px)}
+.faq-mascot{position:relative;z-index:1;width:100%;max-width:360px;height:auto;display:block;margin:0 auto}
+.faq-main{flex:1;min-width:0}
+.faq-toggle{display:inline-flex;gap:4px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px;margin-top:14px}
+.faq-toggle button{border:none;background:none;border-radius:99px;padding:8px 20px;font-size:20px;font-weight:500;color:var(--ink-soft);cursor:pointer;transition:background .2s,color .2s}
+.faq-toggle button.active{background:var(--brand);color:#fff}
+@media(max-width:820px){.faq-wrap{flex-direction:column!important;gap:20px}.faq-illus{flex:none;max-width:240px;margin-top:0}}
+@media(max-width:700px){.guarantee-inner{flex-direction:column;text-align:center}}
 
-  @media (prefers-reduced-motion: reduce){
-    .floaty,.floaty2,.drift1,.drift2,.drift3,.marquee,.pulse-dot,.success-pop{ animation:none }
-    html{ scroll-behavior:auto }
-    .js-reveal{ opacity:1 !important; transform:none !important; transition:none }
-    .bar{ transition:none } .btn,.ico{ transition:none }
-  }
+/* ============ FINAL CTA (แถบบาง) ============ */
+.final{background:linear-gradient(100deg,#7C3AED,#C026D3);color:#fff;padding:26px 0}
+.final-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.final p{font-size:24px;line-height:1.5}
+.final .fp{font-family:var(--font-display);font-size:1.55rem;font-weight:700;margin-left:8px;color:#FCD34D}
+.final .fs{text-decoration:line-through;color:#D6C5FF;font-size:20px}
+.btn-white{background:#fff;color:var(--brand)}
+.btn-white:hover{background:#F1EAFE}
+@media(max-width:700px){.final-inner{flex-direction:column;text-align:center}.final .btn{width:100%}}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ink);color:#B9C2D6;padding:56px 0 32px;font-size:20px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
+footer h4{color:#fff;font-size:20px;margin-bottom:14px}
+footer .logo img{filter:brightness(0) invert(1)}
+.channel-list{list-style:none}
+.channel-list li{margin-bottom:10px}
+.channel-list a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:6px 0;color:#B9C2D6}
+.channel-list a:hover{color:#fff}
+.foot-links{list-style:none}
+.foot-links li{margin-bottom:10px}
+.foot-links a{text-decoration:none}
+.foot-links a:hover{color:#fff}
+.copy{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:20px;color:#8391AD}
+@media(max-width:800px){.foot-grid{grid-template-columns:1fr}}
+
+
+/* ============ FLOATING CONTACT BTNS ============ */
+.fab-stack{position:fixed;right:18px;bottom:20px;z-index:59;display:flex;flex-direction:column;gap:12px}
+.fab-btn{width:52px;height:52px;border-radius:50%;color:#EDE9FE;display:grid;place-items:center;text-decoration:none;transition:transform .15s}
+.fab-btn:hover{transform:scale(1.08)}
+.fab-line{background:#8B5CF6;box-shadow:0 6px 18px rgba(139,92,246,.4)}
+.fab-mail{background:#8B5CF6;box-shadow:0 6px 18px rgba(139,92,246,.4)}
+.fab-fb{background:#8B5CF6;box-shadow:0 6px 18px rgba(139,92,246,.4)}
+
+/* ============ MODALS ============ */
+.modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(20,28,46,.55);display:none;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:520px;padding:28px;position:relative;margin:auto;animation:pop .22s ease}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:none;background:var(--bg-alt);font-size:1.1rem;color:var(--ink-soft)}
+.modal-close:hover{background:var(--line)}
+.modal h3{font-size:1.25rem;margin-bottom:4px}
+.modal .m-sub{color:var(--ink-soft);font-size:20px;margin-bottom:20px}
+.order-line{display:flex;justify-content:space-between;font-size:20px;padding:9px 0;border-bottom:1px solid var(--bg-alt)}
+.order-line.total{border-bottom:none;font-weight:700;font-size:1.05rem;padding-top:14px}
+.order-line.total .amt{font-family:var(--font-display);font-size:1.3rem;color:var(--brand)}
+.bump{display:flex;gap:12px;align-items:flex-start;background:var(--brand-soft);border:1.5px dashed var(--brand);border-radius:10px;padding:14px;margin:16px 0;cursor:pointer}
+.bump input{width:20px;height:20px;margin-top:2px;accent-color:var(--brand);flex:none}
+.bump b{font-size:20px;display:block}
+.bump span{font-size:20px;color:var(--ink-soft)}
+.stripe-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:20px;color:var(--ink-soft);margin-top:12px}
+.success-box{text-align:center;padding:16px 0}
+.success-box .s-ic{width:64px;height:64px;border-radius:50%;background:var(--green-soft);color:var(--green);display:grid;place-items:center;margin:0 auto 16px}
+
+/* ============ HERO (centered + pattern + dashboard mock) ============ */
+.hero.hero-center{position:relative;overflow:hidden;text-align:center;padding:60px 0 72px}
+.hero-center .container{position:relative;z-index:2}
+.hero-pattern{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(rgba(124,58,237,.10) 1.3px,transparent 1.3px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 85% 72% at 50% 26%,#000 34%,transparent 100%);mask-image:radial-gradient(ellipse 85% 72% at 50% 26%,#000 34%,transparent 100%)}
+.hero-center h1{max-width:840px;margin:16px auto 18px}
+.hero-center .lead{margin:0 auto 28px}
+.hero-center .hero-cta{justify-content:center}
+.hero-center .trust-row{justify-content:center}
+.hero-visual{position:relative;max-width:760px;margin:44px auto 0}
+.hero-mock{position:relative;max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:20px}
+/* ---- split hero: purple gradient + copy left / visual right (corporate style) ---- */
+.hero.hero-split{position:relative;overflow:hidden;padding:88px 0 92px;background:linear-gradient(135deg,#33235F 0%,#4C1D95 48%,#6D28D9 100%)}
+.hero-split .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;display:block}
+.hero-split .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(82,21,177,.28) 0%,rgba(82,21,177,0) 100%),linear-gradient(to right,rgba(0,0,0,1) 0%,rgba(0,0,0,.6) 42%,rgba(0,0,0,0) 100%)}
+.hero-split::before{content:"";position:absolute;top:-22%;right:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(226,168,46,.20),transparent 62%);z-index:2;pointer-events:none}
+.hero-split::after{content:"";position:absolute;bottom:-32%;left:-10%;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(167,110,240,.38),transparent 62%);z-index:2;pointer-events:none}
+.hero-split .container{position:relative;z-index:3;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero-split .hero-pattern{z-index:2;background-image:radial-gradient(rgba(255,255,255,.13) 1.3px,transparent 1.3px);-webkit-mask-image:none;mask-image:none}
+.hero-split .hero-copy{text-align:left}
+.hero-split h1{color:#fff;max-width:none;margin:14px 0 18px}
+.hero-split h1 em{color:var(--gold)}
+.hero.hero-split .lead{color:#fff;text-shadow:0 1px 14px rgba(15,8,35,.7);max-width:520px;margin:0 0 28px}
+.hero-split .lead b{color:#fff!important}
+.hero-split .eyebrow{color:#fff;border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.12)}
+.hero-split .hero-cta{justify-content:flex-start}
+.hero-split .btn{border-radius:999px;font-weight:500;font-size:24px;height:48px;box-sizing:border-box;padding:0 20px;min-height:0;line-height:1}
+.hero-split .btn-brand{background:linear-gradient(to top right,#F59E0B 0%,#FDE68A 100%);border:none;color:#5215B1}
+.hero-split .btn-ghost{background:rgba(255,255,255,.10);border:2px solid rgba(255,255,255,.6);color:#fff}
+.hero-split .trust-row,.hero-split .trust-row span{color:rgba(255,255,255,.9)}
+.hero-split .hero-visual{max-width:none;margin:0}
+.hero-split .hero-mock{margin:0;border-color:rgba(255,255,255,.6);box-shadow:0 30px 70px rgba(18,10,40,.5)}
+@media(max-width:900px){.hero-split{padding:64px 0 60px}.hero-split .container{grid-template-columns:1fr;gap:34px}.hero-split .hero-copy{text-align:center}.hero-split .hero-cta,.hero-split .trust-row{justify-content:center}.hero-split .lead{margin-left:auto;margin-right:auto}.hero-split .hero-mock{max-width:560px;margin:0 auto}}
+.mock-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.mock-head b{font-family:var(--font-display);font-size:20px}
+.mock-head .tag{font-size:20px;font-weight:700;color:var(--brand);background:var(--brand-soft);border-radius:99px;padding:4px 12px}
+.mock-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.mock-kpi{background:var(--bg-alt);border-radius:10px;padding:12px;text-align:center}
+.mock-kpi b{display:block;font-family:var(--font-display);font-size:1.3rem;color:var(--ink)}
+.mock-kpi span{font-size:20px;color:var(--ink-soft)}
+.mock-bars{display:flex;align-items:flex-end;gap:8px;height:100px;background:var(--bg-alt);border-radius:10px;padding:14px}
+.mock-bars i{flex:1;background:var(--brand);border-radius:5px 5px 0 0;height:0;transition:height .9s cubic-bezier(.16,1,.3,1)}
+@media(prefers-reduced-motion:reduce){.mock-bars i{transition:none}}
+@media(max-width:600px){.mock-kpis{grid-template-columns:repeat(2,1fr)}}
+/* hero floating icons */
+.hero-fx{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-fx svg{position:absolute;filter:drop-shadow(0 8px 16px rgba(43,27,84,.16));animation:heroFloat 7s ease-in-out infinite}
+@keyframes heroFloat{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(var(--r,0deg))}}
+@media(max-width:1200px){.hero-fx{display:none}}
+@media(prefers-reduced-motion:reduce){.hero-fx svg{animation:none}}
+
+/* ============ COMPARE (before / after) ============ */
+.compare{background:var(--bg-alt)}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;align-items:stretch}
+.cmp{background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);border-radius:18px;padding:28px;display:flex;flex-direction:column;box-shadow:0 14px 34px rgba(124,58,237,.10);backdrop-filter:blur(4px)}
+.cmp.bad{border-color:rgba(224,120,90,.30)}
+.cmp.good{border-color:rgba(80,175,130,.38);box-shadow:0 16px 40px rgba(124,58,237,.16)}
+.cmp-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.cmp-badge{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;flex:none;border:1px solid #fff}
+.cmp.bad .cmp-badge{background:linear-gradient(to top,#FDEBE7,#FFFAF9);color:var(--red)}
+.cmp.good .cmp-badge{background:linear-gradient(to top,#EEF7F2,#F7FCFA);color:var(--green)}
+.cmp-head h3{font-size:clamp(22px,2.6vw,36px);font-weight:700;line-height:1.2}
+.cmp-head p{font-size:20px;color:var(--ink-soft)}
+.cmp-list{list-style:none;flex:1}
+.cmp-list li{display:flex;align-items:center;gap:11px;padding:13px 0;border-bottom:1px solid var(--bg-alt);font-size:24px;line-height:1.5}
+.cmp-list li:last-child{border-bottom:none}
+.cmp-list li svg{width:23px;height:23px;flex:none}
+.cmp.bad .cmp-list svg{color:var(--red)}
+.cmp.good .cmp-list svg{color:var(--green)}
+.cmp-foot{margin-top:18px;border-radius:12px;padding:18px;text-align:center}
+.cmp.bad .cmp-foot{background:var(--red-soft)}
+.cmp.good .cmp-foot{background:var(--brand-soft)}
+.cmp-foot .big{font-family:var(--font-display);font-size:2rem;font-weight:700;display:block;line-height:1.1}
+.cmp.bad .cmp-foot .big{color:var(--red)}
+.cmp.good .cmp-foot .big{color:var(--brand)}
+.cmp-foot span{font-size:20px;color:var(--ink-soft)}
+.vs{align-self:center;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,rgba(124,58,237,.85),rgba(245,158,11,.85));color:#fff;display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:20px;z-index:2;margin:0 -14px;box-shadow:0 8px 20px rgba(124,58,237,.3);border:4px solid #fff}
+.compare-cta{text-align:center;margin-top:38px}
+.compare-cta p{color:var(--ink-soft);margin-bottom:18px;font-size:24px}
+@media(max-width:860px){.compare-grid{grid-template-columns:1fr;gap:14px}.vs{margin:-6px auto;transform:rotate(90deg)}}
+
+/* ============ WHY (cost-of-inaction scrollytelling) ============ */
+.why{background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:36px;align-items:start}
+.why-step{min-height:70vh;display:flex;flex-direction:column;justify-content:center;transition:opacity .4s ease}
+@media(min-width:901px){.why-step:not(.active){opacity:.38}}
+.why-ico{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;color:#fff;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+.why-ico.c-magenta{background:linear-gradient(135deg,#7C3AED,#9B5DE5)}
+.why-ico.c-orange{background:linear-gradient(135deg,#6D28D9,#A855F7)}
+.why-ico.c-cyan{background:linear-gradient(135deg,#4C1D95,#7C3AED)}
+.cost-pill{display:inline-flex;align-items:center;gap:6px;background:var(--red-soft);color:var(--red);border-radius:99px;padding:6px 14px;font-size:20px;font-weight:700;width:max-content;margin-bottom:14px}
+.why-step h3{font-size:clamp(24px,3.4vw,36px);font-weight:700;margin-bottom:10px}
+.why-step .why-desc{color:var(--ink-soft);max-width:470px;margin-bottom:18px}
+.payoff{background:var(--green-soft);border:1px solid #CBE7DA;border-radius:12px;padding:16px 18px;max-width:470px}
+.payoff .lbl{font-size:20px;font-weight:700;color:var(--green);letter-spacing:.05em;margin-bottom:8px;text-transform:uppercase}
+.payoff ul{list-style:none}
+.payoff li{display:flex;gap:8px;font-size:24px;margin-bottom:6px}
+.payoff li:last-child{margin-bottom:0}
+.payoff li svg{width:16px;height:16px;color:var(--green);flex:none;margin-top:4px}
+.why-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:600;font-size:20px;color:var(--brand)}
+.why-link svg{width:16px;height:16px}
+.why-visual-wrap{position:sticky;top:104px}
+.why-stage{position:relative;height:440px;border-radius:22px;background:var(--brand-soft);border:1px solid var(--line);overflow:hidden}
+.why-card{position:absolute;inset:22px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:28px;display:flex;flex-direction:column;opacity:0;transform:scale(.97) translateY(8px);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
+.why-card.active{opacity:1;transform:none;pointer-events:auto}
+.why-card .wc-tag{align-self:flex-start;font-size:20px;font-weight:700;color:var(--brand);background:var(--brand-soft);border-radius:99px;padding:4px 12px}
+.why-card .wc-label{font-size:20px;font-weight:600;color:var(--brand);margin-top:22px}
+.why-card .wc-num{font-family:var(--font-display);font-size:3rem;font-weight:700;color:var(--brand);line-height:1.05;margin:4px 0}
+.why-card .wc-desc{color:var(--ink-soft);font-size:20px}
+.why-card .wc-protect{margin-top:auto;background:var(--green-soft);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.why-card .wc-protect .p-l{display:flex;align-items:center;gap:8px;font-weight:600;font-size:20px;color:var(--green)}
+.why-card .wc-protect svg{width:18px;height:18px;flex:none}
+.why-card .wc-protect .p-p{font-family:var(--font-display);font-weight:700;color:var(--ink);white-space:nowrap}
+.why-mini{display:none}
+.why-close{margin-top:52px;border-radius:20px;background:var(--ink);color:#fff;padding:46px 28px;text-align:center;position:relative;overflow:hidden}
+.why-close .wc1{color:#C9BEE6;font-size:24px}
+.why-close h3{font-size:clamp(24px,3.4vw,36px);font-weight:700;color:#fff;margin:6px 0 22px}
+@media(max-width:900px){
+  .why-grid{grid-template-columns:1fr;gap:0;margin-top:8px}
+  .why-step{min-height:auto;padding:22px 0;border-bottom:1px solid var(--line)}
+  .why-step:last-of-type{border-bottom:none}
+  .why-visual-wrap{display:none}
+  .why-mini{display:block;margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);padding:18px;text-align:center}
+  .why-mini .m-label{font-size:20px;font-weight:600;color:var(--brand)}
+  .why-mini .m-num{font-family:var(--font-display);font-size:1.9rem;font-weight:700;color:var(--brand);margin:2px 0}
+  .why-mini .m-desc{font-size:20px;color:var(--ink-soft)}
+  .why-mini .m-protect{margin-top:12px;padding-top:12px;border-top:1px solid var(--bg-alt);font-size:20px;font-weight:600;color:var(--green);display:flex;align-items:center;justify-content:center;gap:6px}
+  .why-mini .m-protect svg{width:16px;height:16px}
+}
+
+/* ============ SOFT GRADIENT SECTION BACKGROUNDS (alternating) ============ */
+.stats{background:#FFFFFF}
+.compare{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),radial-gradient(82% 64% at 8% -10%,rgba(190,150,238,.55),transparent 60%),radial-gradient(82% 64% at 92% -10%,rgba(250,205,120,.55),transparent 60%),#FFFFFF}
+.bundles{background:radial-gradient(70% 60% at 22% 8%,rgba(250,190,110,.30) 0%,transparent 55%),radial-gradient(65% 65% at 90% 10%,rgba(176,148,240,.34) 0%,transparent 55%),radial-gradient(55% 70% at 5% 50%,rgba(190,160,240,.26) 0%,transparent 55%),linear-gradient(180deg,#F7F2FD 0%,#FCFAFF 65%,#FFFFFF 100%)}
+.singles{background:linear-gradient(180deg,transparent 0%,transparent 45%,#EAE2FB 100%)}
+.lead-sec{background:#FFFFFF}
+#proof{background:#FFFFFF}
+.consult{background:linear-gradient(180deg,#F5F0FD,#EAE2FA)}
+#faq{background:#FFFFFF}
+
+/* ============ REVIEW CAROUSEL (quote card, no photos) ============ */
+.reviews{position:relative;max-width:820px;margin:52px auto 0}
+.reviews-stage{position:relative;z-index:1}
+.reviews-stage::before,.reviews-stage::after{content:"";position:absolute;left:6%;right:6%;bottom:-9px;height:46px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);z-index:0}
+.reviews-stage::after{left:11%;right:11%;bottom:-18px;opacity:.65}
+.review-card{position:relative;z-index:2;background:#FAF9FF;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:38px 44px 24px;text-align:left;display:none}
+.review-card.active{display:block;animation:rvfade .45s ease}
+@keyframes rvfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.review-qmark{font-family:var(--font-display);font-size:6rem;line-height:.6;color:#C4B2EE;letter-spacing:-4px}
+.review-text{font-size:24px;line-height:1.7;color:var(--ink);margin-top:12px;min-height:110px}
+.review-text b{color:var(--brand);font-weight:600}
+.review-foot{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+.review-tag{font-size:20px;font-weight:600;color:var(--ink-soft);background:transparent;border:1px solid var(--line);border-radius:99px;padding:5px 14px}
+.review-src{display:inline-flex;align-items:center;gap:6px;font-size:20px;color:var(--ink-soft);font-weight:600}
+.review-src svg{width:15px;height:15px}
+.review-dots{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:36px}
+.review-dots button{width:9px;height:9px;border-radius:99px;border:none;background:#D9D0EE;cursor:pointer;padding:0;transition:width .25s,background .25s}
+.review-dots button.active{width:32px;background:var(--brand)}
+.review-chip{position:absolute;background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 16px;font-size:20px;font-weight:600;color:var(--brand);box-shadow:var(--shadow-sm);z-index:3}
+.review-chip.rc1{top:-14px;left:-34px}
+.review-chip.rc2{top:18px;right:-46px}
+.review-chip.rc3{bottom:70px;left:-56px}
+.review-deco{position:absolute;z-index:0;background-image:radial-gradient(#C4B2EE 1.6px,transparent 1.6px);background-size:16px 16px;opacity:.55}
+.review-deco.d1{width:120px;height:96px;left:-78px;bottom:16px}
+.review-deco.d2{width:88px;height:120px;right:-64px;top:44px}
+@media(max-width:900px){.review-chip,.review-deco,.reviews-stage::before,.reviews-stage::after{display:none}.review-card{padding:30px 24px 20px}.review-text{min-height:0}}
+
+/* keyboard focus visibility (links + interactive) */
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:6px}
+
+/* ============ CUSTOM DROPDOWN (CI-styled open state) ============ */
+.csel{position:relative}
+.csel-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--line);border-radius:8px;padding:11px 13px;background:#fff;font-family:var(--font-body);font-size:20px;color:var(--ink-soft);min-height:46px;text-align:left}
+.csel.has-value .csel-trigger{color:var(--ink)}
+.csel-trigger svg{width:18px;height:18px;color:var(--ink-soft);transition:transform .2s;flex:none}
+.csel.open .csel-trigger{border-color:var(--brand);box-shadow:0 0 0 3px rgba(124,58,237,.14)}
+.csel.open .csel-trigger svg{transform:rotate(180deg);color:var(--brand)}
+.field.invalid .csel-trigger{border-color:var(--red)}
+.csel-panel{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:6px;max-height:264px;overflow:auto;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease,visibility .18s}
+.csel.open .csel-panel{opacity:1;visibility:visible;transform:none}
+.csel-opt{padding:11px 12px;border-radius:8px;font-size:20px;color:var(--ink);cursor:pointer;transition:background .15s,color .15s}
+.csel-opt:hover{background:var(--brand-soft);color:var(--brand)}
+.csel-opt.sel{background:var(--brand-soft);color:var(--brand);font-weight:600}
+
+/* ============ WARM PURPLE→ORANGE ACCENT SECTIONS ============ */
+.singles{background:linear-gradient(180deg,transparent 0%,transparent 45%,#EAE2FB 100%)}
+.lead-sec{background:#FFFFFF}
+.consult{background:linear-gradient(180deg,#F5F0FD,#EAE2FA)}
 </style>
 </head>
-<body class="font-sans text-ink bg-white antialiased">
+<body>
 
-  <!-- ============ SLIM PROMO COUNTDOWN BAR (taller + bold gradient) ============ -->
-  <div class="bg-gradient-to-r from-royal via-brand to-royal text-white">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 h-12 sm:h-[52px] flex items-center justify-center gap-2.5 text-sm sm:text-base font-medium">
-      <span class="pulse-dot inline-block h-2.5 w-2.5 rounded-full bg-amber-300 shrink-0"></span>
-      <i data-lucide="timer" class="h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-amber-300"></i>
-      <span class="truncate">ราคาพิเศษ + โบนัส 3 ชิ้น หมดเขตใน</span>
-      <span id="topbar-countdown" class="num font-extrabold tracking-tight text-base sm:text-lg text-amber-300">72:00:00</span>
+<!-- ===== TOP BAR: urgency countdown ===== -->
+<div class="topbar" role="status">🔥 โปรเปิดตัว: ราคาพิเศษ + โบนัส 3 ชิ้น หมดเขตใน <strong id="countdown">72:00:00</strong></div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" aria-label="เมนูหลัก">
+  <div class="container nav-inner">
+    <a class="logo" href="#top" aria-label="WizeMoves HR"><img src="logo.png" alt="WizeMoves HR" style="height:34px;width:auto"></a>
+    <ul class="nav-links">
+      <li><a href="#story">ปัญหาที่ SME เจอ</a></li>
+      <li><a href="#bundles">แพ็กเกจ</a></li>
+      <li><a href="#singles">ซื้อแยกชิ้น</a></li>
+      <li><a href="#ebook">eBook ฟรี</a></li>
+      <li><a href="#consult">ที่ปรึกษา HR</a></li>
+      <li><a href="#faq">คำถามที่พบบ่อย</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="btn btn-primary btn-sm" onclick="openCheckout('legal')">สั่งซื้อเลย</button>
     </div>
   </div>
+</nav>
 
-  <!-- ============ STICKY TOP BAR ============ -->
-  <header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-slate-100">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-      <a href="#top" class="flex items-center">
-        <img src="logo.png" alt="WizeMoves HR — Business Solutions" class="h-9 w-auto" />
-      </a>
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-body">
-        <a href="#bundles" class="hover:text-ink transition-colors">แพ็กเกจ</a>
-        <a href="#why" class="hover:text-ink transition-colors">ทำไมต้องมี</a>
-        <a href="#proof" class="hover:text-ink transition-colors">รีวิว</a>
-        <a href="#guarantee" class="hover:text-ink transition-colors">การรับประกัน</a>
-      </nav>
-      <a href="#offer" class="btn inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-2 text-sm font-semibold text-white hover:bg-brandDark cursor-pointer">
-        ดูแพ็กเกจ <i data-lucide="arrow-right" class="h-4 w-4"></i>
-      </a>
+<!-- ===== HERO ===== -->
+<header class="hero hero-split" id="top">
+  <img class="hero-bg" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80" alt="" aria-hidden="true" onerror="this.style.display='none'" />
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-copy">
+    <h1>ยุติความปวดหัวจาก<br><em>ข้อพิพาทแรงงาน</em></h1>
+    <p class="lead">ชุดเทมเพลตเอกสาร HR ครบวงจร พร้อมใช้ทันที — ลดเวลาทำเอกสารลง <b style="color:var(--ink)">80%</b> ป้องกันความเสี่ยงทางกฎหมาย ในราคาที่ถูกกว่าจ้างทนายหลายเท่า</p>
+    <div class="hero-cta">
+      <a href="#bundles" class="btn btn-brand">ดูรายละเอียดแพ็กเกจ</a>
     </div>
-  </header>
-
-  <main id="top">
-
-    <!-- ============ 1. HERO (photo bg + gradient overlay, pitch style) ============ -->
-    <section class="relative overflow-hidden bg-white">
-      <!-- soft light-purple blobs -->
-      <div class="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brandSoft blur-3xl opacity-80 drift1"></div>
-      <div class="pointer-events-none absolute top-10 -right-24 h-80 w-80 rounded-full bg-cyanSoft blur-3xl opacity-80 drift2"></div>
-      <div class="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-magentaSoft blur-3xl opacity-60 drift3"></div>
-
-      <!-- subtle dot-grid pattern -->
-      <div class="hero-pattern pointer-events-none absolute inset-0"></div>
-
-      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 pt-16 pb-14 lg:pt-24 text-center">
-        <span class="js-reveal inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brandSoft px-4 py-1.5 text-xs font-semibold text-brandDark">
-          <i data-lucide="scale" class="h-3.5 w-3.5"></i> เอกสารมาตรฐานที่นักกฎหมายแรงงานยอมรับ
-        </span>
-        <h1 class="js-reveal mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink">
-          ยุติความปวดหัวจาก<br class="hidden sm:block" />
-          <span class="text-brand">ข้อพิพาทแรงงาน</span>
-        </h1>
-        <p class="js-reveal mt-6 text-lg sm:text-xl text-body max-w-2xl mx-auto">
-          ชุดเทมเพลตเอกสาร HR ครบวงจร พร้อมใช้ทันที — ลดเวลาทำเอกสารลง <b class="text-ink">80%</b>
-          ป้องกันความเสี่ยงทางกฎหมาย ในราคาที่ถูกกว่าจ้างทนายหลายเท่า
-        </p>
-        <div class="js-reveal mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="#offer" class="btn inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-7 py-4 font-semibold text-white hover:bg-brandDark cursor-pointer shadow-lg shadow-brand/25">
-            <i data-lucide="shopping-bag" class="h-5 w-5"></i> รับชุดเอกสาร + โบนัสทั้งหมด
-          </a>
-          <a href="#bundles" class="btn inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-4 font-semibold text-ink hover:bg-paper cursor-pointer">
-            ดูรายละเอียดแพ็กเกจ
-          </a>
-        </div>
-        <div class="js-reveal mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-body">
-          <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-brand"></i> อัปเดตตามกฎหมายล่าสุด</span>
-          <span class="inline-flex items-center gap-1.5"><i data-lucide="download" class="h-4 w-4 text-brand"></i> ดาวน์โหลดทันที</span>
-          <span class="inline-flex items-center gap-1.5"><i data-lucide="repeat" class="h-4 w-4 text-brand"></i> ปรับแก้ได้ไม่จำกัด</span>
-        </div>
-      </div>
-
-      <!-- mockup cluster -->
-      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 pb-16 lg:pb-24">
-        <div id="tilt" class="js-reveal relative rounded-2xl bg-white shadow-2xl shadow-slate-300/50 ring-1 ring-slate-100 p-4 sm:p-6 will-change-transform" style="transition:transform .2s ease-out">
-          <div class="rounded-xl bg-paper p-5 sm:p-8">
-            <div class="flex items-center justify-between mb-5">
-              <p class="text-sm font-semibold text-ink">HR Performance Dashboard</p>
-              <span class="text-[11px] rounded-full bg-brandSoft text-brandDark px-3 py-1 font-medium">Google Sheet · พร้อมใช้</span>
-            </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <div class="rounded-xl bg-white border border-slate-100 p-4 shadow-sm"><p class="text-xs text-slate-500">Headcount</p><p class="num text-2xl font-extrabold text-ink mt-1">128</p></div>
-              <div class="rounded-xl bg-white border border-slate-100 p-4 shadow-sm"><p class="text-xs text-slate-500">Turnover</p><p class="num text-2xl font-extrabold text-magenta mt-1">6.4%</p></div>
-              <div class="rounded-xl bg-white border border-slate-100 p-4 shadow-sm"><p class="text-xs text-slate-500">KPI Avg</p><p class="num text-2xl font-extrabold text-grass mt-1">87</p></div>
-              <div class="rounded-xl bg-white border border-slate-100 p-4 shadow-sm"><p class="text-xs text-slate-500">งานเอกสาร</p><p class="num text-2xl font-extrabold text-ink mt-1">-80%</p></div>
-            </div>
-            <div class="mt-4 rounded-xl bg-white border border-slate-100 p-4 shadow-sm">
-              <div class="flex items-end gap-2 sm:gap-3 h-24" id="hero-bars">
-                <div class="bar w-full bg-brand/25 rounded-t-md" style="height:0" data-h="40%"></div>
-                <div class="bar w-full bg-brand/40 rounded-t-md" style="height:0" data-h="62%"></div>
-                <div class="bar w-full bg-brand/55 rounded-t-md" style="height:0" data-h="48%"></div>
-                <div class="bar w-full bg-brand/75 rounded-t-md" style="height:0" data-h="80%"></div>
-                <div class="bar w-full bg-brand/60 rounded-t-md" style="height:0" data-h="68%"></div>
-                <div class="bar w-full bg-brand rounded-t-md" style="height:0" data-h="96%"></div>
-                <div class="bar w-full bg-brand/50 rounded-t-md" style="height:0" data-h="55%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="hidden sm:block absolute -left-6 top-16 floaty w-44 rounded-2xl bg-white shadow-xl ring-1 ring-slate-100 p-4 -rotate-3 group">
-          <span class="ico h-9 w-9 rounded-xl ico-cyan"><i data-lucide="book-open" class="h-5 w-5"></i></span>
-          <p class="mt-2 text-xs font-semibold text-ink">E-book: Strategic HR Mindset</p>
-        </div>
-        <div class="hidden sm:block absolute -right-6 bottom-10 floaty2 w-44 rounded-2xl bg-white shadow-xl ring-1 ring-slate-100 p-4 rotate-3 group">
-          <span class="ico h-9 w-9 rounded-xl ico-orange"><i data-lucide="file-check-2" class="h-5 w-5"></i></span>
-          <p class="mt-2 text-xs font-semibold text-ink">สัญญาจ้าง + PDPA ครบชุด</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ TRUST STRIP ============ -->
-    <section class="bg-white">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-9 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div class="js-reveal"><p class="num text-3xl font-extrabold text-ink" data-count="50" data-suffix="+">0+</p><p class="text-sm text-body mt-1">เทมเพลตพร้อมใช้</p></div>
-        <div class="js-reveal"><p class="num text-3xl font-extrabold text-ink" data-count="80" data-suffix="%">0%</p><p class="text-sm text-body mt-1">ลดเวลาทำเอกสาร</p></div>
-        <div class="js-reveal"><p class="num text-3xl font-extrabold text-ink" data-count="15400" data-prefix="฿" data-comma="1">฿0</p><p class="text-sm text-body mt-1">มูลค่ารวมต่อชุด</p></div>
-        <div class="js-reveal"><p class="num text-3xl font-extrabold text-ink" data-count="7" data-suffix=" วัน">0 วัน</p><p class="text-sm text-body mt-1">การันตีคืนเงิน</p></div>
-      </div>
-    </section>
-
-    <!-- ============ MARQUEE STRIP ============ -->
-    <section class="border-y border-slate-100 bg-white py-5 overflow-hidden">
-      <div class="marquee-mask">
-        <div class="marquee text-sm font-medium text-body">
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="file-text" class="h-4 w-4 text-brand"></i> สัญญาจ้างงาน</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="alert-triangle" class="h-4 w-4 text-magenta"></i> หนังสือเตือน</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="log-out" class="h-4 w-4 text-orange"></i> หนังสือเลิกจ้าง</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="shield" class="h-4 w-4 text-cyan"></i> PDPA</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="target" class="h-4 w-4 text-grass"></i> แผน PIP</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="clipboard-check" class="h-4 w-4 text-brand"></i> ประเมินทดลองงาน</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="bar-chart-3" class="h-4 w-4 text-magenta"></i> KPI Dashboard</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="book-open" class="h-4 w-4 text-orange"></i> E-book กลยุทธ์ HR</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="file-text" class="h-4 w-4 text-brand"></i> สัญญาจ้างงาน</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="alert-triangle" class="h-4 w-4 text-magenta"></i> หนังสือเตือน</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="log-out" class="h-4 w-4 text-orange"></i> หนังสือเลิกจ้าง</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="shield" class="h-4 w-4 text-cyan"></i> PDPA</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="target" class="h-4 w-4 text-grass"></i> แผน PIP</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="clipboard-check" class="h-4 w-4 text-brand"></i> ประเมินทดลองงาน</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="bar-chart-3" class="h-4 w-4 text-magenta"></i> KPI Dashboard</span><span class="text-slate-300">•</span>
-          <span class="inline-flex items-center gap-2 whitespace-nowrap"><i data-lucide="book-open" class="h-4 w-4 text-orange"></i> E-book กลยุทธ์ HR</span><span class="text-slate-300">•</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 3. BUNDLES + VALUE STACK ============ -->
-    <section id="bundles" class="bg-brandSoft">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-20 lg:py-28">
-        <div class="text-center max-w-2xl mx-auto">
-          <p class="js-reveal text-sm font-semibold text-brand uppercase tracking-widest">ทางออกของคุณ</p>
-          <h2 class="js-reveal mt-3 text-3xl sm:text-4xl font-extrabold text-ink">The Ultimate HR Mastery Bundle</h2>
-          <p class="js-reveal mt-5 text-lg text-body">ทุกชุด = สินค้าหลัก 1 ชิ้น + แถมฟรีอีก 3 ชิ้น โดยอ้างอิงกฎหมายแรงงานและ PDPA</p>
-        </div>
-
-        <div id="offer" class="mt-14 grid lg:grid-cols-3 gap-6 items-start">
-
-          <!-- Perfect Onboarding -->
-          <article class="js-reveal lift rounded-2xl bg-white ring-1 ring-slate-100 shadow-sm overflow-hidden flex flex-col">
-            <div class="p-7 border-b border-slate-100">
-              <span class="ico h-11 w-11 rounded-2xl ico-cyan"><i data-lucide="users" class="h-6 w-6"></i></span>
-              <h3 class="mt-4 text-xl font-bold text-ink">ชุดปฐมนิเทศ &amp; สร้างความผูกพัน</h3>
-              <p class="mt-1 text-sm text-body">ซื้อความเป็นมืออาชีพ ถูกกว่าเลี้ยงข้าว 1 มื้อ</p>
-            </div>
-            <div class="p-7 flex-1 flex flex-col">
-              <p class="text-xs font-bold text-brand uppercase tracking-wider">สินค้าหลัก</p>
-              <div class="mt-2 rounded-xl bg-brandSoft p-3 flex items-start gap-2.5">
-                <i data-lucide="package" class="h-5 w-5 text-brand shrink-0 mt-0.5"></i>
-                <span class="text-sm text-ink"><b>Onboarding 30-60-90 วัน + Employee Handbook</b> <span class="num text-slate-400">฿5,900</span></span>
-              </div>
-              <p class="mt-5 text-xs font-bold text-grass uppercase tracking-wider flex items-center gap-1.5"><i data-lucide="gift" class="h-4 w-4"></i> แถมฟรี 3 ชิ้น · มูลค่า ฿6,970</p>
-              <ul class="mt-2 space-y-2.5 text-sm text-body flex-1">
-                <li class="flex items-start gap-2.5"><span class="mt-0.5 shrink-0 rounded-md bg-grassSoft px-1.5 py-0.5 text-[10px] font-bold text-grass">ฟรี</span><span><b class="text-ink">Interview Scorecard</b> ใบสรุปคะแนนสัมภาษณ์ <span class="num text-slate-400">฿990</span></span></li>
-                <li class="flex items-start gap-2.5"><span class="mt-0.5 shrink-0 rounded-md bg-grassSoft px-1.5 py-0.5 text-[10px] font-bold text-grass">ฟรี</span><span><b class="text-ink">แบบประเมินทดลองงาน</b> <span class="num text-slate-400">฿990</span></span></li>
-                <li class="flex items-start gap-2.5"><span class="mt-0.5 shrink-0 rounded-md bg-grassSoft px-1.5 py-0.5 text-[10px] font-bold text-grass">ฟรี</span><span><b class="text-ink">E-book: Corporate Event Playbook</b> <span class="num text-slate-400">฿4,990</span></span></li>
-              </ul>
-              <div class="mt-6 pt-6 border-t border-slate-100">
-                <p class="text-sm text-slate-400">มูลค่ารวม <span class="num line-through">฿12,870</span></p>
-                <p class="mt-1 text-sm text-orange font-semibold">ราคาพิเศษ</p>
-                <p class="num text-4xl font-extrabold text-ink">฿2,990</p>
-                <button type="button" class="buy-btn btn mt-5 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-white border-2 border-brand px-5 py-3 font-semibold text-brandDark hover:bg-brandSoft cursor-pointer" data-bundle="Perfect Onboarding — ชุดปฐมนิเทศ &amp; สร้างความผูกพัน" data-price="2990">เลือกชุดนี้ <i data-lucide="arrow-right" class="h-4 w-4"></i></button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Legal Shield (FEATURED — เน้นขาย) -->
-          <article class="js-reveal lift rounded-2xl bg-white ring-2 ring-brand shadow-2xl shadow-brand/20 overflow-hidden flex flex-col relative lg:-mt-6">
-            <div class="bg-gradient-to-r from-brand to-magenta text-white text-center text-xs font-bold py-2.5 flex items-center justify-center gap-1.5">
-              <i data-lucide="star" class="h-3.5 w-3.5 fill-current"></i> แนะนำสำหรับ SME · ขายดีที่สุด
-            </div>
-            <div class="p-7 border-b border-slate-100">
-              <span class="ico h-12 w-12 rounded-2xl ico-violet"><i data-lucide="shield" class="h-7 w-7"></i></span>
-              <h3 class="mt-4 text-xl font-bold text-ink">ชุดเกราะป้องกันกฎหมายและข้อพิพาทแรงงาน</h3>
-              <p class="mt-1 text-sm text-body">ป้องกันความสูญเสียหลักแสนด้วยเงินหลักพัน</p>
-            </div>
-            <div class="p-7 flex-1 flex flex-col">
-              <p class="text-xs font-bold text-brand uppercase tracking-wider">สินค้าหลัก</p>
-              <div class="mt-2 rounded-xl bg-brandSoft p-3 flex items-start gap-2.5">
-                <i data-lucide="package" class="h-5 w-5 text-brand shrink-0 mt-0.5"></i>
-                <span class="text-sm text-ink"><b>สัญญาจ้างงานครบชุด</b> (ประจำ, Part-time, จ้างทำของ, WFH) <span class="num text-slate-400">฿3,500</span></span>
-              </div>
-              <p class="mt-5 text-xs font-bold text-grass uppercase tracking-wider flex items-center gap-1.5"><i data-lucide="gift" class="h-4 w-4"></i> แถมฟรี 3 ชิ้น · มูลค่า ฿11,900</p>
-              <ul class="mt-2 space-y-2.5 text-sm text-body flex-1">
-                <li class="flex items-start gap-2.5"><span class="mt-0.5 shrink-0 rounded-md bg-grassSoft px-1.5 py-0.5 text-[10px] font-bold text-grass">ฟรี</span><span><b class="text-ink">หนังสือเตือน + เลิกจ้าง</b> 100 เหตุผล <span class="num text-slate-400">฿3,500</span></span></li>
-                <li class="flex items-start gap-2.5"><span class="mt-0.5 shrink-0 rounded-md bg-grassSoft px-1.5 py-0.5 text-[10px] font-bold text-grass">ฟรี</span><span><b class="text-ink">แผน PIP</b> ปรับปรุงประสิทธิภาพ <span class="num text-slate-400">฿5,900</span></span></li>
-                <li class="flex items-start gap-2.5"><span class="mt-0.5 shrink-0 rounded-md bg-grassSoft px-1.5 py-0.5 text-[10px] font-bold text-grass">ฟรี</span><span><b class="text-ink">PDPA + ข้อบังคับการทำงาน</b> <span class="num text-slate-400">฿2,500</span></span></li>
-              </ul>
-              <div class="mt-6 pt-6 border-t border-slate-100">
-                <p class="text-sm text-slate-400">มูลค่ารวม <span class="num line-through">฿15,400</span></p>
-                <p class="mt-1 text-sm text-orange font-semibold">ราคาพิเศษ</p>
-                <p class="num text-4xl font-extrabold text-ink">฿4,990</p>
-                <button type="button" class="buy-btn btn mt-5 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 font-semibold text-white hover:bg-brandDark cursor-pointer shadow-lg shadow-brand/30" data-bundle="Legal Shield — ชุดเกราะป้องกันกฎหมายและข้อพิพาทแรงงาน" data-price="4990">เลือกชุดนี้ <i data-lucide="arrow-right" class="h-4 w-4"></i></button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Performance & Data -->
-          <article class="js-reveal lift rounded-2xl bg-white ring-1 ring-slate-100 shadow-sm overflow-hidden flex flex-col">
-            <div class="p-7 border-b border-slate-100">
-              <span class="ico h-11 w-11 rounded-2xl ico-grass"><i data-lucide="bar-chart-3" class="h-6 w-6"></i></span>
-              <h3 class="mt-4 text-xl font-bold text-ink">ชุดประเมินผล &amp; วิเคราะห์ข้อมูล</h3>
-              <p class="mt-1 text-sm text-body">เครื่องมือระดับองค์กรใหญ่ ย่อส่วนให้ SME</p>
-            </div>
-            <div class="p-7 flex-1 flex flex-col">
-              <p class="text-xs font-bold text-brand uppercase tracking-wider">สินค้าหลัก</p>
-              <div class="mt-2 rounded-xl bg-brandSoft p-3 flex items-start gap-2.5">
-                <i data-lucide="package" class="h-5 w-5 text-brand shrink-0 mt-0.5"></i>
-                <span class="text-sm text-ink"><b>Google Sheet HR Dashboard</b> (KPI อัตโนมัติ) <span class="num text-slate-400">฿5,900</span></span>
-              </div>
-              <p class="mt-5 text-xs font-bold text-grass uppercase tracking-wider flex items-center gap-1.5"><i data-lucide="gift" class="h-4 w-4"></i> แถมฟรี 3 ชิ้น · มูลค่า ฿8,000</p>
-              <ul class="mt-2 space-y-2.5 text-sm text-body flex-1">
-                <li class="flex items-start gap-2.5"><span class="mt-0.5 shrink-0 rounded-md bg-grassSoft px-1.5 py-0.5 text-[10px] font-bold text-grass">ฟรี</span><span><b class="text-ink">แบบประเมิน 360 องศา</b> <span class="num text-slate-400">฿2,500</span></span></li>
-                <li class="flex items-start gap-2.5"><span class="mt-0.5 shrink-0 rounded-md bg-grassSoft px-1.5 py-0.5 text-[10px] font-bold text-grass">ฟรี</span><span><b class="text-ink">แผนพัฒนารายบุคคล (IDP)</b> <span class="num text-slate-400">฿2,500</span></span></li>
-                <li class="flex items-start gap-2.5"><span class="mt-0.5 shrink-0 rounded-md bg-grassSoft px-1.5 py-0.5 text-[10px] font-bold text-grass">ฟรี</span><span><b class="text-ink">E-book: Strategic HR Mindset</b> <span class="num text-slate-400">฿3,000</span></span></li>
-              </ul>
-              <div class="mt-6 pt-6 border-t border-slate-100">
-                <p class="text-sm text-slate-400">มูลค่ารวม <span class="num line-through">฿13,900</span></p>
-                <p class="mt-1 text-sm text-orange font-semibold">ราคาพิเศษ</p>
-                <p class="num text-4xl font-extrabold text-ink">฿4,990</p>
-                <button type="button" class="buy-btn btn mt-5 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-white border-2 border-brand px-5 py-3 font-semibold text-brandDark hover:bg-brandSoft cursor-pointer" data-bundle="Performance &amp; Data — ชุดประเมินผล &amp; วิเคราะห์ข้อมูล" data-price="4990">เลือกชุดนี้ <i data-lucide="arrow-right" class="h-4 w-4"></i></button>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="js-reveal mt-8 mx-auto max-w-2xl rounded-2xl border border-dashed border-brand/40 bg-brandSoft p-5 flex items-start gap-3">
-          <i data-lucide="plus-circle" class="h-5 w-5 text-brandDark shrink-0 mt-0.5"></i>
-          <p class="text-sm text-body"><b class="text-ink">เพิ่มได้ตอนชำระเงิน:</b> ชุดแบบฟอร์มใบสมัครงาน 50 ตำแหน่ง เพียง <span class="num font-semibold text-ink">฿290</span></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 2. WHY (cost-of-inaction — sticky scrollytelling) ============ -->
-    <section id="why" class="mx-auto max-w-6xl px-4 sm:px-6 py-20 lg:py-28">
-      <div class="text-center max-w-2xl mx-auto">
-        <p class="js-reveal text-sm font-semibold text-brand uppercase tracking-widest">ทำไมต้องมีเอกสารที่รัดกุม</p>
-        <h2 class="js-reveal mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink">ประหยัด ฿4,990 วันนี้<br class="hidden sm:block" />หรือเสี่ยงจ่ายหลักแสนทีหลัง?</h2>
-        <p class="js-reveal mt-5 text-lg text-body">เอกสารฟรีที่โหลดมาใช้ อาจกลายเป็นหลักฐานเอาผิดบริษัทคุณเอง — ดู 3 ความเสี่ยงที่ HR เจอจริง และ "ตัวเลข" ที่คุณต้องจ่ายถ้าไม่มีเอกสารที่ถูกต้อง</p>
-      </div>
-
-      <div class="mt-12 lg:mt-16 grid lg:grid-cols-2 lg:gap-16">
-        <!-- LEFT: scrolling steps -->
-        <div>
-          <!-- step 0 -->
-          <div class="why-step lg:min-h-[72vh] flex flex-col justify-center" data-step="0">
-            <span class="ico h-14 w-14 rounded-2xl ico-magenta"><i data-lucide="gavel" class="h-7 w-7"></i></span>
-            <span class="mt-5 inline-flex w-max items-center gap-1.5 rounded-full bg-rose-50 text-rose-600 px-3 py-1 text-xs font-bold"><i data-lucide="alert-triangle" class="h-3.5 w-3.5"></i> เสี่ยงจ่ายชดเชย + ค่าเสียหาย สูงสุดหลักแสน/คดี</span>
-            <h3 class="mt-4 text-2xl sm:text-3xl font-extrabold text-ink">แพ้คดีศาลแรงงาน</h3>
-            <p class="mt-3 text-lg text-body max-w-md">พนักงานที่ถูกเลิกจ้างฟ้อง "เลิกจ้างไม่เป็นธรรม" — ถ้าหนังสือเลิกจ้างไม่อ้างอิงมาตราให้ถูก หรือระบุฐานความผิดไม่ชัด นายจ้างมักเป็นฝ่ายแพ้</p>
-            <div class="mt-5 rounded-xl bg-grassSoft/70 p-4 max-w-md">
-              <p class="text-xs font-bold text-grass uppercase tracking-wider">ถ้ามีชุดเอกสารที่รัดกุม</p>
-              <ul class="mt-2 space-y-1.5 text-sm text-body">
-                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> หนังสือเตือน/เลิกจ้างอ้างอิง พ.ร.บ.คุ้มครองแรงงานถูกต้อง</li>
-                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> มีหลักฐานเป็นลายลักษณ์อักษรครบ ตั้งแต่ตักเตือนถึงเลิกจ้าง</li>
-              </ul>
-            </div>
-            <p class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-magenta">มีในชุด Legal Shield · ฿4,990 <i data-lucide="arrow-right" class="h-4 w-4"></i></p>
-            <!-- mobile inline visual -->
-            <div class="lg:hidden mt-6 rounded-2xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-4 ring-1 ring-brand/10">
-              <div class="rounded-xl bg-white p-5 shadow-sm text-center">
-                <p class="text-xs font-semibold text-rose-500">คำพิพากษา: เลิกจ้างไม่เป็นธรรม</p>
-                <p class="num mt-1 text-3xl font-extrabold text-rose-600">฿300,000+</p>
-                <p class="text-xs text-slate-500">ค่าชดเชย + ค่าเสียหาย ต่อ 1 คดี</p>
-                <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-2 text-xs text-grass font-medium"><i data-lucide="shield-check" class="h-4 w-4"></i> ป้องกันได้ด้วยเอกสารชุด ฿4,990</div>
-              </div>
-            </div>
-          </div>
-          <!-- step 1 -->
-          <div class="why-step lg:min-h-[72vh] flex flex-col justify-center" data-step="1">
-            <span class="ico h-14 w-14 rounded-2xl ico-orange"><i data-lucide="user-x" class="h-7 w-7"></i></span>
-            <span class="mt-5 inline-flex w-max items-center gap-1.5 rounded-full bg-rose-50 text-rose-600 px-3 py-1 text-xs font-bold"><i data-lucide="alert-triangle" class="h-3.5 w-3.5"></i> ต้นทุนแฝง ฿50,000+ ต่อพนักงานที่ลาออก 1 คน</span>
-            <h3 class="mt-4 text-2xl sm:text-3xl font-extrabold text-ink">พนักงานใหม่ลาออกไว</h3>
-            <p class="mt-3 text-lg text-body max-w-md">ไม่มีระบบ Onboarding ที่ดี พนักงานใหม่สับสนตั้งแต่วันแรก ทำงานไม่เต็มที่ และลาออกตั้งแต่ช่วงทดลองงาน — คุณต้องเริ่มสรรหาและเทรนใหม่ตั้งแต่ศูนย์</p>
-            <div class="mt-5 rounded-xl bg-grassSoft/70 p-4 max-w-md">
-              <p class="text-xs font-bold text-grass uppercase tracking-wider">ถ้ามีระบบ Onboarding</p>
-              <ul class="mt-2 space-y-1.5 text-sm text-body">
-                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> แผน 30-60-90 วัน ทำให้พนักงานใหม่เริ่มงานได้เร็วและมั่นใจ</li>
-                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> เพิ่มอัตราการรักษาพนักงาน (Retention) อย่างเห็นผล</li>
-              </ul>
-            </div>
-            <p class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-orange">มีในชุด Perfect Onboarding · ฿2,990 <i data-lucide="arrow-right" class="h-4 w-4"></i></p>
-            <div class="lg:hidden mt-6 rounded-2xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-4 ring-1 ring-brand/10">
-              <div class="rounded-xl bg-white p-5 shadow-sm text-center">
-                <p class="text-xs font-semibold text-rose-500">ต้นทุนสรรหา + เทรนใหม่</p>
-                <p class="num mt-1 text-3xl font-extrabold text-rose-600">฿50,000+</p>
-                <p class="text-xs text-slate-500">ต่อพนักงานที่ลาออก 1 คน</p>
-                <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-2 text-xs text-grass font-medium"><i data-lucide="trending-up" class="h-4 w-4"></i> Retention เพิ่มเป็น 92% ด้วยชุด ฿2,990</div>
-              </div>
-            </div>
-          </div>
-          <!-- step 2 -->
-          <div class="why-step lg:min-h-[72vh] flex flex-col justify-center" data-step="2">
-            <span class="ico h-14 w-14 rounded-2xl ico-cyan"><i data-lucide="file-warning" class="h-7 w-7"></i></span>
-            <span class="mt-5 inline-flex w-max items-center gap-1.5 rounded-full bg-rose-50 text-rose-600 px-3 py-1 text-xs font-bold"><i data-lucide="alert-triangle" class="h-3.5 w-3.5"></i> โทษปรับ PDPA สูงสุด ฿5,000,000</span>
-            <h3 class="mt-4 text-2xl sm:text-3xl font-extrabold text-ink">เก็บข้อมูลพนักงานผิด PDPA</h3>
-            <p class="mt-3 text-lg text-body max-w-md">ฝ่าย HR คือหน่วยงานที่ถือข้อมูลอ่อนไหวมากที่สุด (ประวัติ, สุขภาพ, ภาพถ่าย) — เก็บโดยไม่มีหนังสือยินยอมที่ถูกต้อง เสี่ยงทั้งโทษปรับและถูกพนักงานร้องเรียน</p>
-            <div class="mt-5 rounded-xl bg-grassSoft/70 p-4 max-w-md">
-              <p class="text-xs font-bold text-grass uppercase tracking-wider">ถ้ามีชุดเอกสาร PDPA</p>
-              <ul class="mt-2 space-y-1.5 text-sm text-body">
-                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> หนังสือยินยอมครบทุกกรณี เก็บข้อมูลได้อย่างถูกกฎหมาย</li>
-                <li class="flex gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-grass shrink-0 mt-0.5"></i> ลดความเสี่ยงถูกร้องเรียนและโทษปรับทางปกครอง</li>
-              </ul>
-            </div>
-            <p class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-cyan">มีในชุด Legal Shield · ฿4,990 <i data-lucide="arrow-right" class="h-4 w-4"></i></p>
-            <div class="lg:hidden mt-6 rounded-2xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-4 ring-1 ring-brand/10">
-              <div class="rounded-xl bg-white p-5 shadow-sm text-center">
-                <p class="text-xs font-semibold text-rose-500">โทษปรับทางปกครองสูงสุด</p>
-                <p class="num mt-1 text-3xl font-extrabold text-rose-600">฿5,000,000</p>
-                <p class="text-xs text-slate-500">ตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล</p>
-                <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-2 text-xs text-grass font-medium"><i data-lucide="shield-check" class="h-4 w-4"></i> ป้องกันได้ด้วยหนังสือยินยอมในชุด ฿4,990</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: sticky crossfading visual (desktop) — cost contrast -->
-        <div class="hidden lg:block">
-          <div class="sticky top-28">
-            <div class="relative h-[460px] rounded-3xl bg-gradient-to-br from-brandSoft via-purple-100 to-magentaSoft p-6 ring-1 ring-brand/10 overflow-hidden">
-              <!-- visual 0: lawsuit cost -->
-              <div class="why-visual absolute inset-6" data-v="0">
-                <div class="h-full rounded-2xl bg-white shadow-xl p-7 flex flex-col">
-                  <div class="flex items-center justify-between">
-                    <span class="ico h-10 w-10 rounded-xl ico-magenta"><i data-lucide="gavel" class="h-5 w-5"></i></span>
-                    <span class="text-[11px] rounded-full bg-brandSoft text-brand px-3 py-1 font-semibold">ถ้าไม่มีเอกสารที่รัดกุม</span>
-                  </div>
-                  <p class="mt-6 text-sm font-semibold text-brand">คำพิพากษา: เลิกจ้างไม่เป็นธรรม</p>
-                  <p class="num mt-1 text-5xl font-extrabold text-brand">฿300,000+</p>
-                  <p class="mt-1 text-sm text-body">ค่าชดเชย + ค่าเสียหาย + สินจ้างแทนการบอกกล่าว ต่อ 1 คดี</p>
-                  <div class="mt-auto rounded-xl bg-grassSoft p-4">
-                    <div class="flex items-center justify-between">
-                      <span class="flex items-center gap-2 text-sm font-semibold text-grass"><i data-lucide="shield-check" class="h-5 w-5"></i> ป้องกันได้ด้วย Legal Shield</span>
-                      <span class="num text-lg font-extrabold text-ink">฿4,990</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- visual 1: turnover cost -->
-              <div class="why-visual absolute inset-6" data-v="1">
-                <div class="h-full rounded-2xl bg-white shadow-xl p-7 flex flex-col">
-                  <div class="flex items-center justify-between">
-                    <span class="ico h-10 w-10 rounded-xl ico-orange"><i data-lucide="user-x" class="h-5 w-5"></i></span>
-                    <span class="text-[11px] rounded-full bg-brandSoft text-brand px-3 py-1 font-semibold">ต้นทุนแฝงที่มองไม่เห็น</span>
-                  </div>
-                  <p class="mt-6 text-sm font-semibold text-brand">สรรหา + เทรน + งานสะดุด</p>
-                  <p class="num mt-1 text-5xl font-extrabold text-brand">฿50,000+</p>
-                  <p class="mt-1 text-sm text-body">ต่อพนักงานใหม่ 1 คนที่ลาออกในช่วงทดลองงาน</p>
-                  <div class="mt-auto rounded-xl bg-grassSoft p-4">
-                    <div class="flex items-center justify-between">
-                      <span class="flex items-center gap-2 text-sm font-semibold text-grass"><i data-lucide="trending-up" class="h-5 w-5"></i> แก้ด้วย Perfect Onboarding</span>
-                      <span class="num text-lg font-extrabold text-ink">฿2,990</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- visual 2: PDPA fine -->
-              <div class="why-visual absolute inset-6" data-v="2">
-                <div class="h-full rounded-2xl bg-white shadow-xl p-7 flex flex-col">
-                  <div class="flex items-center justify-between">
-                    <span class="ico h-10 w-10 rounded-xl ico-cyan"><i data-lucide="file-warning" class="h-5 w-5"></i></span>
-                    <span class="text-[11px] rounded-full bg-brandSoft text-brand px-3 py-1 font-semibold">ความเสี่ยงทางกฎหมาย</span>
-                  </div>
-                  <p class="mt-6 text-sm font-semibold text-brand">โทษปรับทางปกครองสูงสุด</p>
-                  <p class="num mt-1 text-5xl font-extrabold text-brand">฿5,000,000</p>
-                  <p class="mt-1 text-sm text-body">ตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล (PDPA)</p>
-                  <div class="mt-auto rounded-xl bg-grassSoft p-4">
-                    <div class="flex items-center justify-between">
-                      <span class="flex items-center gap-2 text-sm font-semibold text-grass"><i data-lucide="shield-check" class="h-5 w-5"></i> ครอบคลุมใน Legal Shield</span>
-                      <span class="num text-lg font-extrabold text-ink">฿4,990</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- closing CTA bridge -->
-      <div class="js-reveal mt-14 rounded-3xl bg-ink text-white px-6 sm:px-10 py-12 text-center relative overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80" alt="" onerror="this.remove()" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20" />
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40"></div>
-        <div class="pointer-events-none absolute -top-16 -right-10 h-48 w-48 rounded-full bg-brand/40 blur-3xl"></div>
-        <p class="relative text-lg sm:text-xl text-purple-100">ความเสียหายหลักแสน–หลักล้าน ป้องกันได้ด้วยเอกสารชุดเดียว</p>
-        <p class="relative mt-2 text-2xl sm:text-3xl font-extrabold">ลงทุนหลักพัน เพื่อปิดความเสี่ยงหลักล้าน</p>
-        <button type="button" class="buy-btn btn relative mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-lg font-semibold text-brandDark hover:bg-purple-50 cursor-pointer shadow-xl shadow-black/20" data-bundle="Legal Shield — ชุดเกราะป้องกันกฎหมายและข้อพิพาทแรงงาน" data-price="4990">
-          <i data-lucide="shield" class="h-5 w-5"></i> เริ่มป้องกันด้วย Legal Shield ฿4,990
-        </button>
-        <p class="relative mt-3 text-sm text-purple-200"><a href="#bundles" class="underline underline-offset-2 hover:text-white">หรือดูแพ็กเกจทั้งหมด</a></p>
-      </div>
-    </section>
-
-    <!-- ============ 4. SOCIAL PROOF ============ -->
-    <section id="proof" class="bg-brandSoft">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-20 lg:py-28">
-      <div class="text-center max-w-2xl mx-auto">
-        <p class="js-reveal text-sm font-semibold text-brand uppercase tracking-widest">เสียงจากผู้ใช้งานจริง</p>
-        <h2 class="js-reveal mt-3 text-3xl sm:text-4xl font-extrabold text-ink">ผู้ประกอบการกว่าร้อยรายไว้วางใจ</h2>
-        <p class="js-reveal mt-3 text-xs text-slate-400">*ตัวอย่างรีวิว (mock) สำหรับการออกแบบ</p>
-      </div>
-      <div class="mt-12 grid md:grid-cols-3 gap-6">
-        <figure class="js-reveal lift rounded-2xl bg-white ring-1 ring-slate-100 p-7">
-          <div class="flex gap-0.5 text-orange"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
-          <blockquote class="mt-4 text-sm text-body">"เทมเพลตแผน PIP จากชุดนี้ช่วยให้เราเลิกจ้างพนักงานที่มีปัญหาได้อย่างเป็นระบบ โดยไม่มีการฟ้องร้องตามมา"</blockquote>
-          <figcaption class="mt-5 flex items-center gap-3"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="" class="h-11 w-11 rounded-full object-cover ring-2 ring-white shadow" /><span><span class="block text-sm font-semibold text-ink">คุณศิริพร วัฒนกุล</span><span class="block text-xs text-slate-500">HR Manager · บจก. สยามเทรดดิ้ง</span></span></figcaption>
-        </figure>
-        <figure class="js-reveal lift rounded-2xl bg-white ring-1 ring-slate-100 p-7">
-          <div class="flex gap-0.5 text-orange"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
-          <blockquote class="mt-4 text-sm text-body">"ประหยัดเวลาทำเอกสารไปได้เป็นสิบชั่วโมงต่อเดือน ไฟล์ Dashboard ใช้งานง่ายมาก กรอกแล้วได้กราฟเลย"</blockquote>
-          <figcaption class="mt-5 flex items-center gap-3"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="h-11 w-11 rounded-full object-cover ring-2 ring-white shadow" /><span><span class="block text-sm font-semibold text-ink">คุณธนกร อัศวเดชา</span><span class="block text-xs text-slate-500">เจ้าของกิจการ · ร้าน Bean &amp; Co.</span></span></figcaption>
-        </figure>
-        <figure class="js-reveal lift rounded-2xl bg-white ring-1 ring-slate-100 p-7">
-          <div class="flex gap-0.5 text-orange"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
-          <blockquote class="mt-4 text-sm text-body">"ชุดเอกสาร PDPA ช่วยให้บริษัทเราจัดการข้อมูลพนักงานถูกต้องตามกฎหมาย อุ่นใจขึ้นเยอะ"</blockquote>
-          <figcaption class="mt-5 flex items-center gap-3"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" class="h-11 w-11 rounded-full object-cover ring-2 ring-white shadow" /><span><span class="block text-sm font-semibold text-ink">คุณนภัสสร พงษ์ไพบูลย์</span><span class="block text-xs text-slate-500">ผู้จัดการฝ่ายบุคคล · โรงงานไทยรุ่งเรือง</span></span></figcaption>
-        </figure>
-      </div>
-      </div>
-    </section>
-
-    <!-- ============ 5. RISK REVERSAL ============ -->
-    <section id="guarantee" class="bg-white">
-      <div class="mx-auto max-w-4xl px-4 sm:px-6 py-16 lg:py-20 text-center">
-        <span class="js-reveal ico h-16 w-16 rounded-2xl ico-violet"><i data-lucide="badge-check" class="h-8 w-8"></i></span>
-        <h2 class="js-reveal mt-5 text-3xl sm:text-4xl font-extrabold text-ink">รับประกันความพึงพอใจ 7 วัน</h2>
-        <p class="js-reveal mt-4 text-body max-w-2xl mx-auto">หากมีปัญหาในการเข้าถึงไฟล์ หรือเนื้อหาไม่ตรงตามที่แจ้งไว้ ติดต่อทีมงานได้ภายใน 7 วัน เราพร้อมดูแลคุณ</p>
-        <a href="#offer" class="js-reveal btn mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-7 py-3.5 font-semibold text-white hover:bg-brandDark cursor-pointer shadow-lg shadow-brand/30">
-          เลือกแพ็กเกจของคุณ <i data-lucide="arrow-right" class="h-4 w-4"></i>
-        </a>
-      </div>
-    </section>
-
-    <!-- ============ 6. FINAL CTA (gradient band — push Legal Shield) ============ -->
-    <section class="relative overflow-hidden bg-brandSoft">
-      <div class="pointer-events-none absolute -top-20 left-10 h-64 w-64 rounded-full bg-white/60 blur-3xl drift1"></div>
-      <div class="pointer-events-none absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-cyanSoft blur-3xl drift2"></div>
-      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 py-16 lg:py-24 text-center">
-        <h2 class="js-reveal text-3xl sm:text-5xl font-extrabold text-ink">ชุดยอดนิยม: <span class="text-brand">เกราะป้องกันกฎหมาย</span></h2>
-        <p class="js-reveal mt-5 text-body text-lg max-w-xl mx-auto">ครบทั้งสัญญาจ้าง หนังสือเตือน-เลิกจ้าง แผน PIP และ PDPA — มูลค่ารวม <span class="num">฿15,400</span> รับไปในราคา <span class="num font-semibold text-brand">฿4,990</span></p>
-        <button type="button" class="buy-btn btn mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-9 py-4 text-lg font-semibold text-white hover:bg-brandDark cursor-pointer shadow-lg shadow-brand/30" data-bundle="Legal Shield — ชุดเกราะป้องกันกฎหมายและข้อพิพาทแรงงาน" data-price="4990">
-          <i data-lucide="shield" class="h-5 w-5"></i> รับชุดเกราะป้องกันกฎหมายทันที
-        </button>
-        <p class="js-reveal mt-4 text-sm text-body flex items-center justify-center gap-2"><i data-lucide="lock" class="h-4 w-4"></i> ชำระเงินปลอดภัย · การันตีคืนเงิน 7 วัน</p>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="border-t border-slate-100 bg-paper">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <img src="logo.png" alt="WizeMoves HR — Business Solutions" class="h-10 w-auto" />
-      <p class="text-xs text-slate-500 text-center">© 2026 Wizemoves HR. เอกสารทั้งหมดจัดทำเพื่อเป็นแนวทาง โปรดปรับใช้ตามบริบทองค์กร</p>
-      <div class="flex items-center gap-3 text-slate-400">
-        <a href="#" class="hover:text-ink"><i data-lucide="facebook" class="h-5 w-5"></i></a>
-        <a href="#" class="hover:text-ink"><i data-lucide="mail" class="h-5 w-5"></i></a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============ CHECKOUT PAGE (Stripe-style full page) ============ -->
-  <div id="checkout" class="fixed inset-0 z-[70] hidden bg-white overflow-y-auto">
-
-    <!-- ===== PAY VIEW ===== -->
-    <div id="checkout-pay" class="min-h-full lg:grid lg:grid-cols-2">
-      <!-- LEFT: order summary -->
-      <div class="lg:bg-paper lg:border-r border-slate-100 px-6 sm:px-10 lg:px-14 xl:px-20 py-8 lg:py-16">
-        <div class="mx-auto w-full max-w-md lg:ml-auto lg:mr-0">
-          <button data-close class="inline-flex items-center gap-2 text-sm text-body hover:text-ink mb-8 cursor-pointer"><i data-lucide="arrow-left" class="h-4 w-4"></i> กลับหน้าเว็บ</button>
-          <img src="logo.png" alt="WizeMoves HR" class="h-8 w-auto" />
-
-          <p class="mt-8 text-sm text-body" id="co-bundle-label">ชำระเงินให้ Wizemoves HR</p>
-          <p class="mt-1 num text-4xl font-extrabold text-ink" id="co-amount-big">฿0</p>
-
-          <div class="mt-8 space-y-4">
-            <div class="flex items-start gap-3">
-              <span class="ico h-10 w-10 rounded-xl ico-violet shrink-0"><i data-lucide="package" class="h-5 w-5"></i></span>
-              <div class="flex-1 min-w-0">
-                <p class="text-sm font-semibold text-ink" id="co-bundle">—</p>
-                <p class="text-xs text-body">สินค้าหลัก + แถมฟรี 3 ชิ้น · ดาวน์โหลดทันที</p>
-              </div>
-              <span class="num text-sm font-semibold text-ink whitespace-nowrap" id="co-price">฿0</span>
-            </div>
-            <label class="flex items-center justify-between gap-3 rounded-xl border border-dashed border-brand/40 bg-brandSoft px-3 py-2.5 cursor-pointer">
-              <span class="flex items-center gap-2 text-sm text-body"><input id="co-bump" type="checkbox" class="h-4 w-4 accent-brand" /> เพิ่มชุดใบสมัครงาน 50 ตำแหน่ง</span>
-              <span class="num text-sm font-semibold text-brandDark whitespace-nowrap">+฿290</span>
-            </label>
-          </div>
-
-          <!-- promo code -->
-          <div class="mt-6">
-            <div class="flex gap-2">
-              <input id="co-promo" type="text" placeholder="โค้ดส่วนลด" class="flex-1 rounded-xl border border-slate-200 px-4 py-2.5 text-sm uppercase focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand" />
-              <button id="co-promo-btn" type="button" class="btn rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-white hover:bg-black cursor-pointer">ใช้โค้ด</button>
-            </div>
-            <p id="co-promo-msg" class="mt-2 text-xs hidden"></p>
-          </div>
-
-          <!-- totals -->
-          <div class="mt-6 pt-6 border-t border-slate-200 space-y-2 text-sm">
-            <div class="flex justify-between text-body"><span>รวมย่อย</span><span class="num" id="co-subtotal">฿0</span></div>
-            <div class="flex justify-between text-grass hidden" id="co-discount-row"><span>ส่วนลด (<span id="co-promo-code"></span>)</span><span class="num" id="co-discount">-฿0</span></div>
-            <div class="flex justify-between text-base font-extrabold text-ink pt-2"><span>ยอดชำระทั้งหมด</span><span class="num" id="co-total">฿0</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: payment form -->
-      <div class="px-6 sm:px-10 lg:px-14 xl:px-20 py-8 lg:py-16">
-        <div class="mx-auto w-full max-w-md lg:mr-auto lg:ml-0">
-          <h3 class="text-lg font-bold text-ink">ข้อมูลติดต่อ</h3>
-          <div class="mt-3">
-            <label for="co-email" class="block text-sm font-medium text-ink mb-1">อีเมล (สำหรับรับไฟล์)</label>
-            <input id="co-email" type="email" autocomplete="email" inputmode="email" placeholder="you@email.com" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand" />
-          </div>
-
-          <h3 class="mt-7 text-lg font-bold text-ink">วิธีชำระเงิน</h3>
-          <div class="mt-3 grid grid-cols-3 gap-2">
-            <button type="button" data-method="card" class="pm-opt rounded-xl border-2 border-brand bg-brandSoft px-3 py-3 text-xs font-medium text-ink flex flex-col items-center gap-1.5 cursor-pointer"><i data-lucide="credit-card" class="h-5 w-5 text-brandDark"></i> บัตรเครดิต</button>
-            <button type="button" data-method="promptpay" class="pm-opt rounded-xl border-2 border-slate-200 px-3 py-3 text-xs font-medium text-ink flex flex-col items-center gap-1.5 cursor-pointer"><i data-lucide="qr-code" class="h-5 w-5 text-body"></i> PromptPay</button>
-            <button type="button" data-method="bank" class="pm-opt rounded-xl border-2 border-slate-200 px-3 py-3 text-xs font-medium text-ink flex flex-col items-center gap-1.5 cursor-pointer"><i data-lucide="building-2" class="h-5 w-5 text-body"></i> โอนผ่านธนาคาร</button>
-          </div>
-
-          <!-- panel: card -->
-          <div class="pm-panel mt-4 space-y-3" data-panel="card">
-            <div>
-              <label class="block text-sm font-medium text-ink mb-1">ข้อมูลบัตร</label>
-              <div class="rounded-xl border border-slate-200 overflow-hidden focus-within:ring-2 focus-within:ring-brand/40 focus-within:border-brand">
-                <div class="flex items-center px-4">
-                  <input type="text" inputmode="numeric" placeholder="1234 1234 1234 1234" class="flex-1 py-3 text-sm outline-none" />
-                  <i data-lucide="credit-card" class="h-4 w-4 text-slate-400"></i>
-                </div>
-                <div class="flex border-t border-slate-200">
-                  <input type="text" inputmode="numeric" placeholder="ดด / ปป" class="w-1/2 px-4 py-3 text-sm outline-none border-r border-slate-200" />
-                  <input type="text" inputmode="numeric" placeholder="CVC" class="w-1/2 px-4 py-3 text-sm outline-none" />
-                </div>
-              </div>
-            </div>
-            <div>
-              <label for="co-name" class="block text-sm font-medium text-ink mb-1">ชื่อบนบัตร</label>
-              <input id="co-name" type="text" autocomplete="cc-name" placeholder="เช่น สมชาย ใจดี" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand" />
-            </div>
-            <div>
-              <label for="co-country" class="block text-sm font-medium text-ink mb-1">ประเทศ</label>
-              <select id="co-country" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand">
-                <option>ไทย</option><option>สิงคโปร์</option><option>สหรัฐอเมริกา</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- panel: promptpay -->
-          <div class="pm-panel mt-4 hidden" data-panel="promptpay">
-            <div class="rounded-xl border border-slate-200 p-5 text-center">
-              <p class="text-sm text-body">สแกน QR ด้วยแอปธนาคารเพื่อชำระเงิน</p>
-              <div id="promptpay-qr" class="mx-auto mt-4 h-44 w-44 rounded-xl bg-white ring-1 ring-slate-200 p-2"></div>
-              <p class="mt-4 num text-2xl font-extrabold text-ink" id="pm-promptpay-amt">฿0</p>
-              <p class="mt-1 text-xs text-slate-400">PromptPay · WizeMoves HR</p>
-            </div>
-          </div>
-
-          <!-- panel: bank transfer -->
-          <div class="pm-panel mt-4 hidden" data-panel="bank">
-            <div class="rounded-xl border border-slate-200 divide-y divide-slate-100 text-sm overflow-hidden">
-              <div class="flex justify-between p-3"><span class="text-body">ธนาคาร</span><span class="font-medium text-ink">กสิกรไทย (KBank)</span></div>
-              <div class="flex justify-between p-3"><span class="text-body">ชื่อบัญชี</span><span class="font-medium text-ink text-right">บจก. ไวซ์มูฟ เอชอาร์</span></div>
-              <div class="flex justify-between p-3"><span class="text-body">เลขที่บัญชี</span><span class="num font-medium text-ink">123-4-56789-0</span></div>
-              <div class="flex justify-between p-3 bg-paper"><span class="text-body">ยอดที่ต้องโอน</span><span class="num font-bold text-brand" id="pm-bank-amt">฿0</span></div>
-            </div>
-            <p class="mt-2 text-xs text-body">โอนแล้วกดปุ่มด้านล่างเพื่อแจ้งชำระเงิน ทีมงานจะตรวจสอบและส่งไฟล์ให้ทางอีเมล</p>
-          </div>
-
-          <button id="pay-btn" type="button" class="btn mt-6 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-6 py-3.5 font-semibold text-white hover:bg-brandDark cursor-pointer shadow-lg shadow-brand/30">
-            <i data-lucide="lock" class="h-4 w-4"></i> <span id="pay-label">ชำระเงิน</span> <span id="pay-amount" class="num">฿0</span>
-          </button>
-          <p class="mt-4 text-center text-xs text-slate-400 flex items-center justify-center gap-1.5"><i data-lucide="lock" class="h-3.5 w-3.5"></i> Powered by <b class="text-slate-500">Stripe</b> · ชำระเงินปลอดภัย</p>
-          <p class="mt-1 text-center text-[11px] text-slate-300">* หน้าตัวอย่าง (mock) ยังไม่เชื่อมระบบชำระเงินจริง</p>
-        </div>
-      </div>
     </div>
 
-    <!-- ===== SUCCESS POPUP ===== -->
-    <div id="checkout-success" class="hidden fixed inset-0 z-[80] flex items-center justify-center p-4">
-      <div class="absolute inset-0 bg-ink/60 backdrop-blur-sm" data-close></div>
-      <div class="success-pop relative w-full max-w-md rounded-2xl bg-white shadow-2xl ring-1 ring-slate-100 p-8 text-center">
-        <span class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-brandSoft text-brand"><i data-lucide="check" class="h-10 w-10"></i></span>
-        <h3 class="mt-6 text-2xl font-extrabold text-ink">ชำระเงินสำเร็จ!</h3>
-        <p class="mt-3 text-body">ขอบคุณสำหรับการสั่งซื้อ เราได้ส่งลิงก์ดาวน์โหลดไฟล์ไปที่อีเมลของคุณแล้ว</p>
-        <div class="mt-6 rounded-2xl bg-paper p-5 text-left text-sm">
-          <div class="flex justify-between"><span class="text-body">เลขที่คำสั่งซื้อ</span><span id="co-ref" class="num font-semibold text-ink">—</span></div>
-          <div class="mt-2 flex justify-between gap-4"><span class="text-body shrink-0">แพ็กเกจ</span><span id="co-success-bundle" class="font-medium text-ink text-right">—</span></div>
-          <div class="mt-2 flex justify-between"><span class="text-body">ยอดชำระ</span><span id="co-success-total" class="num font-semibold text-ink">฿0</span></div>
-        </div>
-        <button data-close class="btn mt-6 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-6 py-3.5 font-semibold text-white hover:bg-brandDark cursor-pointer shadow-lg shadow-brand/30">
-          <i data-lucide="arrow-left" class="h-4 w-4"></i> กลับหน้าเว็บ
-        </button>
+    <div class="hero-visual">
+      <div class="hero-mock" aria-hidden="true">
+      <div class="mock-head"><b>HR Performance Dashboard</b><span class="tag">Google Sheet · พร้อมใช้</span></div>
+      <div class="mock-kpis">
+        <div class="mock-kpi"><b>128</b><span>Headcount</span></div>
+        <div class="mock-kpi"><b>6.4%</b><span>Turnover</span></div>
+        <div class="mock-kpi"><b style="color:var(--green)">87</b><span>KPI Avg</span></div>
+        <div class="mock-kpi"><b style="color:var(--brand)">-80%</b><span>งานเอกสาร</span></div>
+      </div>
+      <div class="mock-bars" id="mockBars">
+        <i data-h="40%" style="opacity:.25"></i><i data-h="62%" style="opacity:.4"></i><i data-h="48%" style="opacity:.55"></i><i data-h="80%" style="opacity:.75"></i><i data-h="68%" style="opacity:.6"></i><i data-h="96%" style="opacity:1"></i><i data-h="55%" style="opacity:.5"></i>
+      </div>
       </div>
     </div>
   </div>
+</header>
 
-  <!-- ============ MOBILE STICKY CTA (push Legal Shield) ============ -->
-  <div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 p-3 flex items-center gap-3">
-    <div class="flex-1"><p class="text-[11px] text-slate-500 leading-none">ชุดเกราะป้องกันกฎหมาย</p><p class="num text-lg font-extrabold text-ink leading-tight">฿4,990</p></div>
-    <button type="button" class="buy-btn btn flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-4 py-3 font-semibold text-white cursor-pointer" data-bundle="Legal Shield — ชุดเกราะป้องกันกฎหมายและข้อพิพาทแรงงาน" data-price="4990">สั่งซื้อเลย <i data-lucide="arrow-right" class="h-4 w-4"></i></button>
+<!-- ===== STATS ===== -->
+<div class="stats">
+  <div class="container stats-grid">
+    <div><b>40+</b><span>เทมเพลตพร้อมใช้</span></div>
+    <div><b>80%</b><span>ลดเวลาทำเอกสาร</span></div>
+    <div><b>฿15,400</b><span>มูลค่าสูงสุดต่อชุด</span></div>
+    <div><b>7 วัน</b><span>การันตีดูแลหลังซื้อ</span></div>
   </div>
+</div>
 
-  <script>
-    lucide.createIcons();
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+<!-- ===== WHY: cost-of-inaction scrollytelling ===== -->
+<section class="compare" id="story">
+  <div class="container">
+    <div class="center">
+      <span class="badge-pill"><span>Problem</span></span>
+      <h2 class="section-title">ต่างกันแค่ “เอกสารรัดกุม” ผลลัพธ์ต่างกันหลักแสน</h2>
+      <p class="section-sub" style="margin:0 auto">เทียบให้เห็นชัด ๆ ระหว่างบริษัทที่ใช้ไฟล์ฟรีจากเน็ต กับบริษัทที่มีชุดเอกสารมาตรฐาน</p>
+    </div>
 
-    /* Faux PromptPay QR (self-contained SVG, no network) */
-    (function () {
-      var el = document.getElementById('promptpay-qr'); if (!el) return;
-      var N = 25, m = 8, pad = 8, size = N * m + pad * 2;
-      function rect(x, y, w, h, fill){ return '<rect x="' + (pad + x*m) + '" y="' + (pad + y*m) + '" width="' + (w*m) + '" height="' + (h*m) + '" fill="' + fill + '"/>'; }
-      function finder(cx, cy){ return rect(cx,cy,7,7,'#191919') + rect(cx+1,cy+1,5,5,'#fff') + rect(cx+2,cy+2,3,3,'#191919'); }
-      function inFinder(x, y){ return (x<8&&y<8) || (x>=N-8&&y<8) || (x<8&&y>=N-8); }
-      var seed = 987654321;
-      function rnd(){ seed = (seed*1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
-      var s = '<svg viewBox="0 0 ' + size + ' ' + size + '" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">';
-      s += '<rect width="' + size + '" height="' + size + '" fill="#fff"/>';
-      for (var y = 0; y < N; y++) for (var x = 0; x < N; x++){ if (!inFinder(x,y) && rnd() > 0.55) s += rect(x,y,1,1,'#191919'); }
-      s += finder(0,0) + finder(N-7,0) + finder(0,N-7);
-      s += '</svg>';
-      el.innerHTML = s;
-    })();
+    <div class="compare-grid">
+      <div class="cmp bad">
+        <div class="cmp-head">
+          <span class="cmp-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="28" height="28"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+          <div><h3>ใช้เอกสารฟรีจากเน็ต</h3><p>ประหยัดวันนี้ เสี่ยงหลักแสนทีหลัง</p></div>
+        </div>
+        <ul class="cmp-list">
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg> สัญญาจ้าง–ทดลองงาน เงื่อนไขค่าชดเชยไม่รัดกุมตั้งแต่วันแรก</li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg> เตือนปากเปล่า ไม่มีหลักฐานเป็นลายลักษณ์อักษรสักฉบับ</li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg> หนังสือเลิกจ้างไม่อ้างมาตรา กลายเป็นหลักฐานเอาผิดบริษัทเอง</li>
+        </ul>
+        <div class="cmp-foot">
+          <span class="big">฿300,000+</span>
+          <span>ค่าชดเชย + ค่าเสียหาย เมื่อแพ้คดีศาลแรงงาน 1 คดี</span>
+        </div>
+      </div>
 
-    /* Countdown */
-    (function () {
-      var end = Date.now() + 72 * 3600 * 1000;
-      var elTop = document.getElementById('topbar-countdown');
-      function pad(n){ return String(n).padStart(2,'0'); }
-      function tick() {
-        var d = Math.max(0, end - Date.now());
-        var h = Math.floor(d/3600000), m = Math.floor((d%3600000)/60000), s = Math.floor((d%60000)/1000);
-        if (elTop) elTop.textContent = pad(h)+':'+pad(m)+':'+pad(s);
-      }
-      tick(); setInterval(tick, 1000);
-    })();
+      <div class="cmp good">
+        <div class="cmp-head">
+          <span class="cmp-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="28" height="28"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><h3>มีชุด WizeMoves HR</h3><p>ปิดทุกช่องโหว่ตั้งแต่วันแรกที่จ้าง</p></div>
+        </div>
+        <ul class="cmp-list">
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> สัญญาจ้างครบทุกรูปแบบ (ประจำ / Part-time / จ้างทำของ / WFH)</li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> หนังสือเตือน + เลิกจ้าง อ้างอิง พ.ร.บ.คุ้มครองแรงงานครบ</li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> เอกสาร PDPA + ข้อบังคับการทำงาน เก็บข้อมูลถูกกฎหมาย</li>
+        </ul>
+        <div class="cmp-foot">
+          <span class="big">฿4,990</span>
+          <span>ชุดเกราะป้องกันกฎหมาย ปิดครบทุกช่องโหว่</span>
+        </div>
+      </div>
+    </div>
 
-    /* Fade-in reveal with stagger */
-    (function () {
-      var els = document.querySelectorAll('.js-reveal');
-      if (reduce){ els.forEach(function(e){ e.classList.add('in'); }); return; }
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      els.forEach(function(el){
-        var parent = el.parentNode;
-        if (!parent.__rc) parent.__rc = 0;
-        el.style.transitionDelay = Math.min(parent.__rc * 70, 350) + 'ms';
-        parent.__rc++;
-        io.observe(el);
-      });
-    })();
+    <div class="compare-cta">
+      <button class="btn btn-brand" onclick="openCheckout('legal')" style="padding:15px 34px;font-size:1.05rem">รับชุดเกราะป้องกันกฎหมาย ฿4,990</button>
+    </div>
+  </div>
+</section>
 
-    /* Count-up numbers (stats + prices) */
-    (function () {
-      var els = document.querySelectorAll('[data-count]');
-      function fmt(n, comma){ return comma ? n.toLocaleString('en-US') : String(n); }
-      function run(el){
-        var target = parseInt(el.getAttribute('data-count'),10);
-        var pre = el.getAttribute('data-prefix') || '', suf = el.getAttribute('data-suffix') || '', comma = el.getAttribute('data-comma');
-        if (reduce){ el.textContent = pre + fmt(target, comma) + suf; return; }
-        var start = performance.now(), dur = 1400;
-        function step(t){
-          var p = Math.min(1, (t - start)/dur), eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = pre + fmt(Math.round(target * eased), comma) + suf;
-          if (p < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      }
-      var io = new IntersectionObserver(function(es){
-        es.forEach(function(e){ if (e.isIntersecting){ run(e.target); io.unobserve(e.target); } });
-      }, { threshold: 0.6 });
-      els.forEach(function(el){ io.observe(el); });
-    })();
+<!-- ===== BUNDLES ===== -->
+<section class="bundles" id="bundles">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="icoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs></svg>
+  <div class="container center">
+    <span class="badge-pill"><span>Solution</span></span>
+    <h2 class="section-title">ปิดทุกช่องโหว่ ด้วยชุดเอกสารเดียว</h2>
+    <p class="section-sub" style="line-height:1.3">เลือกชุดที่ตรงกับปัญหาของคุณ + <b style="color:var(--green)">แถมฟรีอีก 3 ชิ้น</b></p>
 
-    /* WHY scrollytelling — text scrolls, sticky visual swaps */
-    (function () {
-      var steps = document.querySelectorAll('.why-step');
-      var visuals = document.querySelectorAll('.why-visual');
-      if (!steps.length) return;
-      function setActive(i){
-        steps.forEach(function(s,idx){ s.classList.toggle('active', idx===i); });
-        visuals.forEach(function(v,idx){ v.classList.toggle('active', idx===i); });
-      }
-      setActive(0);
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if (e.isIntersecting){ setActive(parseInt(e.target.getAttribute('data-step'),10)); } });
-      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-      steps.forEach(function(s){ io.observe(s); });
-    })();
+    <div class="bundle-grid" id="bundleGrid" style="text-align:left">
 
-    /* Hero bars grow */
-    (function () {
-      var wrap = document.getElementById('hero-bars'); if (!wrap) return;
-      var bars = wrap.querySelectorAll('.bar');
-      function grow(){ bars.forEach(function(b,i){ setTimeout(function(){ b.style.height = b.getAttribute('data-h'); }, reduce ? 0 : i*90); }); }
-      if (reduce){ grow(); return; }
-      var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ grow(); io.unobserve(e.target); } }); }, { threshold: 0.85, rootMargin: '0px 0px -15% 0px' });
-      io.observe(wrap);
-    })();
+      <!-- Onboarding -->
+      <article class="bundle">
+        <div class="bundle-cover">
+          <img loading="lazy" decoding="async" src="cover-onboard.png" alt="ปกชุดปฐมนิเทศ" onerror="this.src='cover-legal.png'" />
+          <span class="bc-ic"><svg viewBox="0 0 24 24" fill="url(#icoGrad)"><rect x="10" y="2" width="13" height="13" rx="1.6"/><rect x="12" y="4.4" width="9" height="1.3" rx="0.65" fill="#fff"/><rect x="12" y="7.1" width="9" height="1.3" rx="0.65" fill="#fff"/><rect x="12" y="9.8" width="5.8" height="1.3" rx="0.65" fill="#fff"/><circle cx="5.3" cy="5.5" r="3"/><path d="M1.3 18V13a4 4 0 0 1 8 0V18Z"/><path d="M8 13 11 11" fill="none" stroke="url(#icoGrad)" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+          <span class="bc-en">Perfect Onboarding</span>
+          <span class="bc-name">ปฐมนิเทศ &amp; รักษาคนเก่ง</span>
+        </div>
+        <div class="bundle-head">
+          <h3>ชุดปฐมนิเทศ &amp; สร้างความผูกพัน</h3>
+          <p class="bundle-tagline">ซื้อความเป็นมืออาชีพ ถูกกว่าเลี้ยงข้าวทีม 1 มื้อ</p>
+        </div>
+        <div class="bundle-body">
+          <div class="core-item">
+            <p>Onboarding 30-60-90 วัน + Employee Handbook <span class="val">(฿5,900)</span></p>
+          </div>
+          <p class="bonus-lbl">✓ แถมฟรี 3 ชิ้น มูลค่า ฿6,970</p>
+          <ul class="bonus-list">
+            <li><span class="free">ฟรี</span> Interview Scorecard ใบสรุปคะแนนสัมภาษณ์ <span class="strike">฿990</span></li>
+            <li><span class="free">ฟรี</span> แบบประเมินระยะทดลองงาน <span class="strike">฿990</span></li>
+            <li><span class="free">ฟรี</span> E-book: Corporate Event Playbook <span class="strike">฿4,990</span></li>
+          </ul>
+          <div class="price-box">
+            <div class="price-row"><span>มูลค่ารวม</span><span class="strike">฿12,870</span></div>
+            <div class="price-main"><b>฿2,990</b><span class="save">ประหยัด 77%</span></div>
+            <button class="btn btn-primary btn-block" onclick="openCheckout('onboard')">เลือกชุดนี้</button>
+          </div>
+        </div>
+      </article>
 
-    /* Hero tilt */
-    (function () {
-      var el = document.getElementById('tilt');
-      if (!el || reduce || !window.matchMedia('(pointer:fine)').matches) return;
-      var rect;
-      el.addEventListener('mouseenter', function(){ rect = el.getBoundingClientRect(); });
-      el.addEventListener('mousemove', function(ev){
-        if (!rect) rect = el.getBoundingClientRect();
-        var rx = (ev.clientY-rect.top)/rect.height - 0.5, ry = (ev.clientX-rect.left)/rect.width - 0.5;
-        el.style.transform = 'perspective(1000px) rotateX('+(-rx*4)+'deg) rotateY('+(ry*4)+'deg)';
-      });
-      el.addEventListener('mouseleave', function(){ el.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)'; });
-    })();
+      <!-- Legal Shield (featured) -->
+      <article class="bundle featured">
+        <span class="badge-best">แนะนำ · ขายดีที่สุดสำหรับ SME</span>
+        <div class="bundle-cover">
+          <img loading="lazy" decoding="async" src="cover-legal.png" alt="ปกชุดเกราะป้องกันกฎหมาย" onerror="this.style.display='none'" />
+          <span class="bc-ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" fill="url(#icoGrad)"/><g fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(12 10.8) scale(0.74) translate(-12 -10.8)"><path d="M12 6.2v9.6"/><path d="M9 15.8h6"/><path d="M6.4 8.2h11.2"/><path d="M4.3 11.7 6.4 8.4l2.1 3.3c-.57.5-1.3.78-2.1.78s-1.53-.28-2.1-.78Z"/><path d="M15.3 11.7 17.6 8.4l2.1 3.3c-.57.5-1.3.78-2.1.78s-1.53-.28-2.1-.78Z"/></g></svg></span>
+          <span class="bc-en">Legal Shield</span>
+          <span class="bc-name">เกราะป้องกันกฎหมาย</span>
+        </div>
+        <div class="bundle-head">
+          <h3>ชุดเกราะป้องกันกฎหมายแรงงาน</h3>
+          <p class="bundle-tagline">ป้องกันความสูญเสียหลักแสน ด้วยเงินหลักพัน</p>
+        </div>
+        <div class="bundle-body">
+          <div class="core-item">
+            <p>สัญญาจ้างงานครบชุด — ประจำ / Part-time / จ้างทำของ / WFH <span class="val">(฿3,500)</span></p>
+          </div>
+          <p class="bonus-lbl">✓ แถมฟรี 3 ชิ้น มูลค่า ฿11,900</p>
+          <ul class="bonus-list">
+            <li><span class="free">ฟรี</span> หนังสือเตือน + เลิกจ้าง ครอบคลุม 100 เหตุผล <span class="strike">฿3,500</span></li>
+            <li><span class="free">ฟรี</span> แผน PIP ปรับปรุงประสิทธิภาพพนักงาน <span class="strike">฿5,900</span></li>
+            <li><span class="free">ฟรี</span> ชุดเอกสาร PDPA + ข้อบังคับการทำงาน <span class="strike">฿2,500</span></li>
+          </ul>
+          <div class="price-box">
+            <div class="price-row"><span>มูลค่ารวม</span><span class="strike">฿15,400</span></div>
+            <div class="price-main"><b>฿4,990</b><span class="save">ประหยัด 68%</span></div>
+            <button class="btn btn-brand btn-block" onclick="openCheckout('legal')">เลือกชุดนี้</button>
+          </div>
+        </div>
+      </article>
 
-    /* Checkout (full-page, Stripe-style) */
-    (function () {
-      var page = document.getElementById('checkout'); if (!page) return;
-      var payView = document.getElementById('checkout-pay'), okView = document.getElementById('checkout-success');
-      var BUMP = 290, PROMOS = { 'PRO500': 500 };
-      var state = { bundle:'', price:0, promo:0, promoCode:'' };
-      function baht(n){ return '฿' + n.toLocaleString('en-US'); }
-      function bump(){ return document.getElementById('co-bump').checked ? BUMP : 0; }
-      function subtotal(){ return state.price + bump(); }
-      function total(){ return Math.max(0, subtotal() - state.promo); }
-      function refresh(){
-        document.getElementById('co-price').textContent = baht(state.price);
-        document.getElementById('co-subtotal').textContent = baht(subtotal());
-        document.getElementById('co-total').textContent = baht(total());
-        document.getElementById('co-amount-big').textContent = baht(total());
-        document.getElementById('pay-amount').textContent = baht(total());
-        var pp = document.getElementById('pm-promptpay-amt'); if (pp) pp.textContent = baht(total());
-        var bk = document.getElementById('pm-bank-amt'); if (bk) bk.textContent = baht(total());
-        var dr = document.getElementById('co-discount-row');
-        if (state.promo > 0){ dr.classList.remove('hidden'); document.getElementById('co-discount').textContent = '-' + baht(state.promo); document.getElementById('co-promo-code').textContent = state.promoCode; }
-        else { dr.classList.add('hidden'); }
-      }
-      var PAY_LABELS = { card:'ชำระเงิน', promptpay:'ฉันสแกนจ่ายแล้ว', bank:'แจ้งชำระเงินแล้ว' };
-      function selectMethod(method){
-        page.querySelectorAll('.pm-opt').forEach(function(o){
-          var on = o.getAttribute('data-method') === method;
-          o.classList.toggle('border-brand', on); o.classList.toggle('bg-brandSoft', on); o.classList.toggle('border-slate-200', !on);
-          var ic = o.querySelector('i'); if (ic){ ic.classList.toggle('text-brandDark', on); ic.classList.toggle('text-body', !on); }
-        });
-        page.querySelectorAll('.pm-panel').forEach(function(p){ p.classList.toggle('hidden', p.getAttribute('data-panel') !== method); });
-        var lbl = document.getElementById('pay-label'); if (lbl) lbl.textContent = PAY_LABELS[method] || 'ชำระเงิน';
-      }
-      function applyPromo(code){
-        code = (code || '').trim().toUpperCase();
-        var msg = document.getElementById('co-promo-msg');
-        msg.classList.remove('hidden','text-grass','text-magenta');
-        if (PROMOS[code]){ state.promo = PROMOS[code]; state.promoCode = code; msg.textContent = 'ใช้โค้ด ' + code + ' สำเร็จ · ลด ' + baht(PROMOS[code]); msg.classList.add('text-grass'); }
-        else { state.promo = 0; state.promoCode = ''; msg.textContent = 'โค้ดไม่ถูกต้อง'; msg.classList.add('text-magenta'); }
-        refresh();
-      }
-      function open(bundle, price){
-        state.bundle = bundle; state.price = price; state.promo = 0; state.promoCode = '';
-        document.getElementById('co-bundle').textContent = bundle;
-        document.getElementById('co-bump').checked = false;
-        // prefilled promo (เหมือนลิงก์ตัวอย่าง ?prefilled_promo_code=PRO500)
-        document.getElementById('co-promo').value = 'PRO500';
-        applyPromo('PRO500');
-        selectMethod('card');
-        payView.classList.remove('hidden'); okView.classList.add('hidden');
-        page.classList.remove('hidden'); document.body.style.overflow = 'hidden'; page.scrollTop = 0;
-      }
-      function close(){ page.classList.add('hidden'); document.body.style.overflow = ''; }
-      document.querySelectorAll('.buy-btn').forEach(function(btn){ btn.addEventListener('click', function(){ open(btn.getAttribute('data-bundle'), parseInt(btn.getAttribute('data-price'),10)); }); });
-      page.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', close); });
-      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !page.classList.contains('hidden')) close(); });
-      document.getElementById('co-bump').addEventListener('change', refresh);
-      document.getElementById('co-promo-btn').addEventListener('click', function(){ applyPromo(document.getElementById('co-promo').value); });
-      page.querySelectorAll('.pm-opt').forEach(function(opt){
-        opt.addEventListener('click', function(){ selectMethod(opt.getAttribute('data-method')); });
-      });
-      document.getElementById('pay-btn').addEventListener('click', function(){
-        document.getElementById('co-ref').textContent = '#WM' + Date.now().toString().slice(-8);
-        document.getElementById('co-success-bundle').textContent = state.bundle;
-        document.getElementById('co-success-total').textContent = baht(total());
-        okView.classList.remove('hidden');
-      });
-    })();
-  </script>
+      <!-- Performance -->
+      <article class="bundle">
+        <div class="bundle-cover">
+          <img loading="lazy" decoding="async" src="cover-data.png" alt="ปกชุดประเมินผล" onerror="this.src='cover-legal.png'" />
+          <span class="bc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="url(#icoGrad)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="15" rx="2.4" fill="url(#icoGrad)" stroke="none"/><path d="M6 17.5v3M18 17.5v3M1.5 20.5h21"/><rect x="5.55" y="11" width="1.8" height="5.5" rx="0.3" fill="#fff" stroke="none"/><rect x="8.85" y="8.5" width="1.8" height="8" rx="0.3" fill="#fff" stroke="none"/><rect x="12.15" y="11.5" width="1.8" height="5" rx="0.3" fill="#fff" stroke="none"/><rect x="15.45" y="9" width="1.8" height="7.5" rx="0.3" fill="#fff" stroke="none"/><path d="M6.4 9 9.7 5.5 13 8 16.3 5" stroke="#fff" stroke-width="1.1"/><circle cx="6.4" cy="9" r="1.4" fill="#fff" stroke="none"/><circle cx="9.7" cy="5.5" r="1.4" fill="#fff" stroke="none"/><circle cx="13" cy="8" r="1.4" fill="#fff" stroke="none"/><circle cx="16.3" cy="5" r="1.4" fill="#fff" stroke="none"/></svg></span>
+          <span class="bc-en">Performance &amp; Data</span>
+          <span class="bc-name">ประเมินผล &amp; วิเคราะห์</span>
+        </div>
+        <div class="bundle-head">
+          <h3>ชุดประเมินผล &amp; วิเคราะห์ข้อมูล</h3>
+          <p class="bundle-tagline">เครื่องมือระดับองค์กรใหญ่ ย่อส่วนให้ SME</p>
+        </div>
+        <div class="bundle-body">
+          <div class="core-item">
+            <p>Google Sheet HR Dashboard สรุป KPI อัตโนมัติ <span class="val">(฿5,900)</span></p>
+          </div>
+          <p class="bonus-lbl">✓ แถมฟรี 3 ชิ้น มูลค่า ฿8,000</p>
+          <ul class="bonus-list">
+            <li><span class="free">ฟรี</span> แบบประเมินผล 360 องศา <span class="strike">฿2,500</span></li>
+            <li><span class="free">ฟรี</span> แผนพัฒนารายบุคคล (IDP) + ตารางทักษะ <span class="strike">฿2,500</span></li>
+            <li><span class="free">ฟรี</span> E-book: The Strategic HR Mindset <span class="strike">฿3,000</span></li>
+          </ul>
+          <div class="price-box">
+            <div class="price-row"><span>มูลค่ารวม</span><span class="strike">฿13,900</span></div>
+            <div class="price-main"><b>฿4,990</b><span class="save">ประหยัด 64%</span></div>
+            <button class="btn btn-primary btn-block" onclick="openCheckout('data')">เลือกชุดนี้</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SINGLE ITEMS ===== -->
+<section class="singles" id="singles">
+  <div class="container">
+    <div class="singles-head">
+      <div>
+        <span class="badge-pill"><span>ขายแยกชิ้น</span></span>
+        <h2 class="section-title" style="margin-bottom:6px">ต้องการเฉพาะบางรายการ? ซื้อแยกได้</h2>
+        <p class="section-sub">ทุกไฟล์เป็นเวอร์ชันเดียวกับในชุดแพ็กเกจ ดาวน์โหลดทันทีหลังชำระเงิน</p>
+      </div>
+      <div class="slider-nav">
+        <button type="button" aria-label="เลื่อนซ้าย" onclick="slideSingles(-1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" aria-label="เลื่อนขวา" onclick="slideSingles(1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="single-grid" id="singleGrid"></div>
+  </div>
+</section>
+
+<!-- ===== GUARANTEE (7-day) full-width banner ===== -->
+<div class="guarantee-box" id="guarantee">
+  <img class="guarantee-bg" src="guarantee-bg.jpg" alt="" aria-hidden="true" onerror="this.onerror=function(){this.style.display='none'};this.src='consult-bg.jpg'">
+  <div class="guarantee-scrim" aria-hidden="true"></div>
+  <div class="guarantee-inner">
+    <div>
+      <h3>รับประกันความพึงพอใจ 7 วัน</h3>
+      <p style="font-size:36px;font-weight:400;line-height:1.4">หากมีปัญหาในการเข้าถึงไฟล์ หรือเนื้อหาไม่ตรงตามที่แจ้งไว้<br>ติดต่อทีมงานเราพร้อมดูแลคุณ</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LEAD MAGNET (eBook) ===== -->
+<section class="lead-sec" id="ebook">
+  <div class="container lead-grid">
+    <div>
+      <span class="badge-pill"><span>Download Free</span></span>
+      <h2 class="section-title">ยังไม่พร้อมซื้อ?<br>รับ eBook ตัวอย่างไปก่อน</h2>
+      <img class="ebook-img" src="ebook-cover.png" alt="ตัวอย่าง eBook — WizeMoves HR" onerror="this.style.display='none'" />
+      <ul class="check-list">
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>บทคัดย่อ E-book: The Strategic HR Mindset</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>ตัวอย่างเทมเพลตหนังสือเตือน 1 ฉบับ</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Checklist ตรวจสุขภาพเอกสาร HR ในบริษัทคุณ</li>
+      </ul>
+    </div>
+    <form class="lead-form" id="ebookForm" novalidate>
+      <h3 style="font-size:24px;margin-bottom:4px">รับ eBook ฟรีทางอีเมล</h3>
+      <p style="color:var(--ink-soft);font-size:20px;margin-bottom:18px">ใช้เวลาไม่ถึง 1 นาที</p>
+      <div class="form-row">
+        <div class="field">
+          <label for="eb-name">ชื่อผู้ติดต่อ *</label>
+          <input id="eb-name" name="contact_name" type="text" autocomplete="name" required>
+          <span class="err">กรุณากรอกชื่อ</span>
+        </div>
+        <div class="field">
+          <label for="eb-company">ชื่อบริษัท <span class="opt">(ถ้ามี)</span></label>
+          <input id="eb-company" name="company" type="text" autocomplete="organization">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label id="eb-biz-lbl">ประเภทธุรกิจ *</label>
+          <div class="csel" data-required aria-labelledby="eb-biz-lbl">
+            <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false"><span class="csel-label">— เลือก —</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="csel-panel" role="listbox">
+              <div class="csel-opt" role="option" data-val="ค้าปลีก / ค้าส่ง">ค้าปลีก / ค้าส่ง</div>
+              <div class="csel-opt" role="option" data-val="โรงงาน / การผลิต">โรงงาน / การผลิต</div>
+              <div class="csel-opt" role="option" data-val="บริการ / ร้านอาหาร">บริการ / ร้านอาหาร</div>
+              <div class="csel-opt" role="option" data-val="เทคโนโลยี / สตาร์ทอัพ">เทคโนโลยี / สตาร์ทอัพ</div>
+              <div class="csel-opt" role="option" data-val="ก่อสร้าง / อสังหาริมทรัพย์">ก่อสร้าง / อสังหาริมทรัพย์</div>
+              <div class="csel-opt" role="option" data-val="อื่นๆ">อื่นๆ</div>
+            </div>
+            <input type="hidden" id="eb-biz" name="business_type">
+          </div>
+          <span class="err">กรุณาเลือกประเภทธุรกิจ</span>
+        </div>
+        <div class="field">
+          <label id="eb-size-lbl">จำนวนพนักงาน *</label>
+          <div class="csel" data-required aria-labelledby="eb-size-lbl">
+            <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false"><span class="csel-label">— เลือก —</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="csel-panel" role="listbox">
+              <div class="csel-opt" role="option" data-val="1–10 คน">1–10 คน</div>
+              <div class="csel-opt" role="option" data-val="11–50 คน">11–50 คน</div>
+              <div class="csel-opt" role="option" data-val="51–200 คน">51–200 คน</div>
+              <div class="csel-opt" role="option" data-val="200 คนขึ้นไป">200 คนขึ้นไป</div>
+            </div>
+            <input type="hidden" id="eb-size" name="employee_count">
+          </div>
+          <span class="err">กรุณาเลือกจำนวนพนักงาน</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="eb-email">อีเมล (สำหรับรับไฟล์) *</label>
+        <input id="eb-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        <span class="err">กรุณากรอกอีเมลให้ถูกต้อง</span>
+      </div>
+      <div class="field">
+        <label for="eb-phone">เบอร์โทรศัพท์ *</label>
+        <input id="eb-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9\-\s]{9,12}" required>
+        <span class="err">กรุณากรอกเบอร์โทร 9–10 หลัก</span>
+      </div>
+      <button type="submit" class="btn btn-brand btn-block" id="ebookSubmit">ส่ง eBook เข้าอีเมลของฉัน</button>
+      <p class="form-note">เราเก็บข้อมูลของคุณตามนโยบาย PDPA และใช้เพื่อส่งไฟล์กับข่าวสารจาก WizeMoves HR เท่านั้น</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="proof">
+  <div class="container center">
+    <span class="badge-pill"><span>Review</span></span>
+    <h2 class="section-title">ความสำเร็จของคุณคือความภูมิใจของเรา</h2>
+    <div class="reviews">
+      <span class="review-deco d1"></span>
+      <span class="review-deco d2"></span>
+      <span class="review-chip rc1">Legal Shield</span>
+      <span class="review-chip rc2">Onboarding</span>
+      <span class="review-chip rc3">Business Solutions</span>
+      <div class="reviews-stage" id="reviewStage">
+        <div class="review-card active">
+          <div class="review-qmark">&ldquo;</div>
+          <p class="review-text">เทมเพลต <b>แผน PIP</b> จากชุดนี้ช่วยให้เราเลิกจ้างพนักงานที่มีปัญหาได้อย่างเป็นระบบ <b>โดยไม่มีการฟ้องร้อง</b>ตามมา ประหยัดทั้งเวลาและค่าทนายไปได้เยอะมาก</p>
+          <div class="review-foot"><span class="review-src">คุณศิริพร · HR Manager <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+        </div>
+        <div class="review-card">
+          <div class="review-qmark">&ldquo;</div>
+          <p class="review-text">ประหยัดเวลาทำเอกสารไปได้ <b>เป็นสิบชั่วโมงต่อเดือน</b> ไฟล์ Dashboard ใช้งานง่ายมาก กรอกข้อมูลปุ๊บ <b>ได้กราฟ KPI ทันที</b> ไม่ต้องนั่งทำเอง</p>
+          <div class="review-foot"><span class="review-src">คุณธนกร · เจ้าของกิจการ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+        </div>
+        <div class="review-card">
+          <div class="review-qmark">&ldquo;</div>
+          <p class="review-text">ชุดเอกสาร <b>PDPA</b> ช่วยให้บริษัทเราจัดการข้อมูลพนักงานถูกต้องตามกฎหมาย <b>อุ่นใจขึ้นเยอะ</b> ไม่ต้องกลัวโดนร้องเรียนอีกต่อไป</p>
+          <div class="review-foot"><span class="review-src">คุณนภัสสร · ผู้จัดการฝ่ายบุคคล <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+        </div>
+      </div>
+      <div class="review-dots" id="reviewDots">
+        <button class="active" aria-label="รีวิว 1" onclick="showReview(0)"></button>
+        <button aria-label="รีวิว 2" onclick="showReview(1)"></button>
+        <button aria-label="รีวิว 3" onclick="showReview(2)"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HR CONSULT ===== -->
+<section class="consult" id="consult">
+  <div class="container">
+    <div class="consult-card">
+      <img class="consult-bg" src="consult-bg.jpg?v=2" alt="ทีมที่ปรึกษา HR กำลังให้คำปรึกษาลูกค้า" onerror="this.onerror=function(){this.style.display='none'};this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1600&q=80'" />
+      <div class="consult-scrim" aria-hidden="true"></div>
+      <div class="consult-inner">
+      <div>
+        <span class="eyebrow" style="background:rgba(214,197,255,.12);border-color:rgba(214,197,255,.5);color:#D6C5FF">บริการเสริม · HR Consulting</span>
+        <h2>เอกสารที่ดีคือจุดเริ่มต้น<br>โครงสร้างองค์กรที่ถูกต้องคือเกราะที่แท้จริง</h2>
+        <ul class="consult-list">
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>HR Clinic — ตรวจสุขภาพกฎหมายแรงงานในบริษัทคุณ</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>วางโครงสร้างเงินเดือน (Salary Structure) ดึงดูดและรักษาคนเก่ง</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Payroll Outsourcing และวางระบบซอฟต์แวร์ HR เต็มรูปแบบ</li>
+        </ul>
+      </div>
+      <div style="text-align:center">
+        <div style="margin-bottom:10px;color:#fff"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a1 1 0 0 1-1-1v-5a9 9 0 0 1 18 0v5a1 1 0 0 1-1 1h-2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg></div>
+        <div class="consult-num" style="font-family:var(--font-display);font-size:3.2rem;font-weight:700;color:#fff"><span class="cn">120</span> นาที</div>
+        <p>Strategic HR Advisory Call<br>ประเมินปัญหาองค์กรแบบเจาะลึก</p>
+        <button class="btn btn-white" onclick="openModal('consultModal')" style="margin-top:22px">นัดคุยกับที่ปรึกษา HR</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GUARANTEE + FAQ ===== -->
+<section id="faq">
+  <div class="container faq-wrap illus-left" id="faqWrap">
+    <div class="faq-illus"><img class="faq-mascot" src="faq-mascot.png" alt="WizeMoves HR mascot กำลังทำงาน" onerror="this.style.display='none'"></div>
+    <div class="faq-main">
+    <h2 class="section-title" style="margin-bottom:18px">คำถามที่พบบ่อย</h2>
+    <details class="faq-item"><summary>ได้รับไฟล์เมื่อไหร่ และเป็นไฟล์แบบไหน?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary><div class="faq-body">ระบบส่งลิงก์ดาวน์โหลดเข้าอีเมลทันทีหลังชำระเงินสำเร็จ ไฟล์เป็น Google Docs / Word / Google Sheets ที่แก้ไขได้ พร้อม E-book ในรูปแบบ PDF</div></details>
+    <details class="faq-item"><summary>เอกสารอ้างอิงกฎหมายไทยหรือไม่?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary><div class="faq-body">ทุกฉบับร่างโดยอ้างอิง พ.ร.บ.คุ้มครองแรงงาน และ พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล (PDPA) ฉบับล่าสุด และระบุมาตราที่เกี่ยวข้องไว้ในเอกสาร</div></details>
+    <details class="faq-item"><summary>ปรับแก้ให้เข้ากับบริษัทตัวเองได้ไหม?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary><div class="faq-body">ได้ไม่จำกัด ทุกเทมเพลตมีช่องเว้นให้ปรับแต่งชื่อบริษัท ตำแหน่ง และเงื่อนไขเฉพาะขององค์กรคุณ พร้อมคำอธิบายวิธีใช้ในแต่ละจุด</div></details>
+    <details class="faq-item"><summary>ซื้อแยกชิ้นแล้วเปลี่ยนใจอยากอัปเกรดเป็นชุดได้ไหม?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary><div class="faq-body">ได้ ติดต่อทีมงานทาง LINE ภายใน 7 วัน เราจะหักราคาที่ซื้อไปแล้วออกจากราคาแพ็กเกจให้</div></details>
+    <details class="faq-item"><summary>ออกใบกำกับภาษี / ใบเสร็จในนามบริษัทได้หรือไม่?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary><div class="faq-body">ได้ กรอกข้อมูลบริษัทในขั้นตอนชำระเงิน หรือแจ้งทีมงานทาง LINE หลังสั่งซื้อ เอกสารจะส่งให้ทางอีเมลภายใน 3 วันทำการ</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER (multi-channel CTA) ===== -->
+<footer id="contact">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top" aria-label="WizeMoves HR" style="margin-bottom:14px;display:inline-block"><img src="logo.png" alt="WizeMoves HR" style="height:34px;width:auto"></a>
+        <p style="margin-top:12px;max-width:320px">ชุดเอกสารและเครื่องมือ HR มาตรฐาน สำหรับ SME ไทย จัดทำเพื่อเป็นแนวทาง โปรดปรับใช้ตามบริบทองค์กร</p>
+      </div>
+      <div>
+        <h4>ติดต่อเรา</h4>
+        <ul class="channel-list">
+          <li><a href="https://wizemoves.co" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20z"/></svg>เว็บไซต์ wizemoves.co</a></li>
+          <li><a href="https://lin.ee/wizemoveshr" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>LINE Official: @wizemoveshr</a></li>
+          <li><a href="mailto:hr@wizemoves.co"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>hr@wizemoves.co</a></li>
+          <li><a href="https://facebook.com/wizemoveshr" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg>Facebook: WizeMoves HR</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ทางลัด</h4>
+        <ul class="foot-links">
+          <li><a href="#bundles">แพ็กเกจทั้งหมด</a></li>
+          <li><a href="#singles">ซื้อแยกชิ้น</a></li>
+          <li><a href="#ebook">รับ eBook ฟรี</a></li>
+          <li><a href="#consult">บริการที่ปรึกษา HR</a></li>
+          <li><a href="#guarantee">การรับประกัน</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 WizeMoves HR (Sellsuki Co., Ltd.) · เอกสารทั้งหมดจัดทำเพื่อเป็นแนวทาง โปรดปรับใช้ตามบริบทองค์กร</div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING CONTACT BUTTONS ===== -->
+<div class="fab-stack">
+  <a class="fab-btn fab-line" href="https://lin.ee/wizemoveshr" target="_blank" rel="noopener" aria-label="แชทกับเราทาง LINE">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+  </a>
+  <a class="fab-btn fab-fb" href="https://facebook.com/wizemoveshr" target="_blank" rel="noopener" aria-label="Facebook WizeMoves HR">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg>
+  </a>
+  <a class="fab-btn fab-mail" href="mailto:hr@wizemoves.co" aria-label="อีเมล hr@wizemoves.co">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+  </a>
+</div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="modal-overlay" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('checkoutModal')" aria-label="ปิด">✕</button>
+    <div id="checkoutBody">
+      <h3 id="coTitle">สรุปคำสั่งซื้อ</h3>
+      <p class="m-sub">ตรวจสอบรายการก่อนไปหน้าชำระเงิน Stripe</p>
+      <div class="order-line"><span id="coProduct">—</span><span id="coPrice">฿0</span></div>
+      <label class="bump">
+        <input type="checkbox" id="coBump" onchange="renderTotal()">
+        <div><b>🎁 เพิ่มชุดแบบฟอร์มใบสมัครงาน 50 ตำแหน่ง</b><span>เพิ่มเพียง ฿290 (มูลค่าปกติ ฿990) — เลือกได้เฉพาะตอนนี้เท่านั้น</span></div>
+      </label>
+      <div class="order-line total"><span>ยอดชำระทั้งหมด</span><span class="amt" id="coTotal">฿0</span></div>
+      <div class="field" style="margin-top:16px">
+        <label for="co-email">อีเมล (สำหรับรับไฟล์) *</label>
+        <input id="co-email" type="email" autocomplete="email" inputmode="email" required>
+        <span class="err">กรุณากรอกอีเมลให้ถูกต้อง</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="coPayBtn" onclick="goToStripe()">ชำระเงินผ่าน Stripe →</button>
+      <p class="stripe-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> ชำระเงินปลอดภัย · รองรับบัตรเครดิตและ PromptPay ผ่าน Stripe</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONSULT MODAL ===== -->
+<div class="modal-overlay" id="consultModal" role="dialog" aria-modal="true" aria-labelledby="cnTitle">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('consultModal')" aria-label="ปิด">✕</button>
+    <form id="consultForm" novalidate>
+      <h3 id="cnTitle">นัดคุยกับที่ปรึกษา HR</h3>
+      <p class="m-sub">กรอกข้อมูล ทีมงานจะติดต่อกลับภายใน 1 วันทำการ</p>
+      <div class="form-row">
+        <div class="field">
+          <label for="cn-name">ชื่อผู้ติดต่อ *</label>
+          <input id="cn-name" type="text" autocomplete="name" required>
+          <span class="err">กรุณากรอกชื่อ</span>
+        </div>
+        <div class="field">
+          <label for="cn-company">ชื่อบริษัท *</label>
+          <input id="cn-company" type="text" autocomplete="organization" required>
+          <span class="err">กรุณากรอกชื่อบริษัท</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="cn-phone">เบอร์โทรศัพท์ *</label>
+          <input id="cn-phone" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9\-\s]{9,12}" required>
+          <span class="err">กรุณากรอกเบอร์โทร 9–10 หลัก</span>
+        </div>
+        <div class="field">
+          <label for="cn-email">อีเมล *</label>
+          <input id="cn-email" type="email" inputmode="email" autocomplete="email" required>
+          <span class="err">กรุณากรอกอีเมลให้ถูกต้อง</span>
+        </div>
+      </div>
+      <div class="field">
+        <label id="cn-topic-lbl">เรื่องที่ต้องการปรึกษา *</label>
+        <div class="csel" data-required aria-labelledby="cn-topic-lbl">
+          <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false"><span class="csel-label">— เลือก —</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="csel-panel" role="listbox">
+            <div class="csel-opt" role="option" data-val="ตรวจสุขภาพกฎหมายแรงงาน (HR Clinic)">ตรวจสุขภาพกฎหมายแรงงาน (HR Clinic)</div>
+            <div class="csel-opt" role="option" data-val="วางโครงสร้างเงินเดือน (Salary Structure)">วางโครงสร้างเงินเดือน (Salary Structure)</div>
+            <div class="csel-opt" role="option" data-val="Payroll Outsourcing">Payroll Outsourcing</div>
+            <div class="csel-opt" role="option" data-val="วางระบบซอฟต์แวร์ HR">วางระบบซอฟต์แวร์ HR</div>
+            <div class="csel-opt" role="option" data-val="อื่นๆ">อื่นๆ</div>
+          </div>
+          <input type="hidden" id="cn-topic" name="topic">
+        </div>
+        <span class="err">กรุณาเลือกหัวข้อ</span>
+      </div>
+      <button type="submit" class="btn btn-brand btn-block" id="cnSubmit">ส่งข้อมูล นัดคิวปรึกษา</button>
+      <p class="form-note">ข้อมูลชุดนี้ถูกจัดเก็บแยกจากฐานข้อมูล eBook เพื่อให้ทีมที่ปรึกษาติดต่อกลับโดยตรง</p>
+    </form>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   CONFIG — ทีม dev แก้ค่าตรงนี้ที่เดียว
+   ========================================================= */
+const CONFIG = {
+  // Requirement #4: หน้าจ่ายเงินผูกเข้าตรง Stripe (ใช้ Stripe Payment Links)
+  STRIPE_LINKS: {
+    onboard:      'https://buy.stripe.com/TODO_onboarding',       // ฿2,990
+    legal:        'https://buy.stripe.com/TODO_legal_shield',     // ฿4,990
+    data:         'https://buy.stripe.com/TODO_data_mastery',     // ฿4,990
+    onboard_bump: 'https://buy.stripe.com/TODO_onboarding_bump',  // ฿3,280
+    legal_bump:   'https://buy.stripe.com/TODO_legal_bump',       // ฿5,280
+    data_bump:    'https://buy.stripe.com/TODO_data_bump'         // ฿5,280
+    // สินค้าแยกชิ้น: เพิ่ม key ตาม id ใน SINGLES ด้านล่าง เช่น s1: 'https://buy.stripe.com/...'
+  },
+  // Requirement #2: Lead eBook → Google Sheet (Apps Script Web App) + ส่งเมลอัตโนมัติ
+  SHEET_EBOOK_URL:   'https://script.google.com/macros/s/TODO_EBOOK/exec',
+  // Requirement #3: ฟอร์ม HR Consult → Google Sheet คนละฐานกับ eBook
+  SHEET_CONSULT_URL: 'https://script.google.com/macros/s/TODO_CONSULT/exec',
+  COUNTDOWN_HOURS: 72
+};
+
+/* ============ DATA ============ */
+const BUNDLES = {
+  onboard: { name:'ชุดปฐมนิเทศ & สร้างความผูกพัน', price:2990 },
+  legal:   { name:'ชุดเกราะป้องกันกฎหมายแรงงาน',  price:4990 },
+  data:    { name:'ชุดประเมินผล & วิเคราะห์ข้อมูล', price:4990 }
+};
+// ปกการ์ด: ตอนนี้ใช้รูป mock (cover-legal.png) ทุกใบ — ใส่รูปจริงต่อชิ้นได้ที่ field `img:'ไฟล์.png'`
+const SINGLES = [
+  {id:'s1', cat:'กฎหมาย',    name:'สัญญาจ้างงานครบชุด (ประจำ / Part-time / จ้างทำของ / WFH)', price:3500, img:'single-contract.png'},
+  {id:'s2', cat:'กฎหมาย',    name:'หนังสือเตือน + เลิกจ้าง ครอบคลุม 100 เหตุผล', price:3500, img:'single-warning.png'},
+  {id:'s3', cat:'กฎหมาย',    name:'ชุดเอกสาร PDPA + ข้อบังคับการทำงาน', price:2500, img:'single-pdpa.png'},
+  {id:'s4', cat:'ประเมินผล', name:'แผนปรับปรุงประสิทธิภาพ (PIP)', price:5900, img:'single-contract.png'},
+  {id:'s5', cat:'ปฐมนิเทศ',  name:'Onboarding 30-60-90 วัน + Employee Handbook', price:5900, img:'single-contract.png'},
+  {id:'s6', cat:'สรรหา',     name:'Interview Scorecard ใบสรุปคะแนนสัมภาษณ์', price:990, img:'single-warning.png'},
+  {id:'s7', cat:'สรรหา',     name:'แบบประเมินระยะทดลองงาน', price:990, img:'single-pdpa.png'},
+  {id:'s8', cat:'ประเมินผล', name:'Google Sheet HR Dashboard (KPI อัตโนมัติ)', price:5900, img:'single-contract.png'},
+  {id:'s9', cat:'ประเมินผล', name:'แบบประเมินผล 360 องศา', price:2500, img:'single-warning.png'},
+  {id:'s10',cat:'พัฒนาคน',   name:'แผนพัฒนารายบุคคล (IDP) + ตารางทักษะ', price:2500, img:'single-pdpa.png'},
+  {id:'s11',cat:'E-book',    name:'The Strategic HR Mindset', price:3000, img:'single-contract.png'},
+  {id:'s12',cat:'E-book',    name:'The Ultimate Corporate Event Playbook', price:4990, img:'single-warning.png'}
+];
+const fmt = n => '฿' + n.toLocaleString('th-TH');
+
+/* ============ REVIEW CAROUSEL ============ */
+let reviewIdx = 0;
+function showReview(i){
+  const cards = document.querySelectorAll('#reviewStage .review-card');
+  const dots = document.querySelectorAll('#reviewDots button');
+  if (!cards.length) return;
+  reviewIdx = (i + cards.length) % cards.length;
+  cards.forEach((c,idx)=>c.classList.toggle('active', idx===reviewIdx));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===reviewIdx));
+}
+if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  setInterval(()=>{ if (document.querySelector('#reviewStage')) showReview(reviewIdx+1); }, 6000);
+}
+
+/* ============ SINGLES SLIDER ============ */
+function slideSingles(dir){
+  const g = document.getElementById('singleGrid');
+  if (g) g.scrollBy({ left: dir * g.clientWidth * 0.8, behavior:'smooth' });
+}
+
+/* ============ RENDER SINGLES ============ */
+document.getElementById('singleGrid').innerHTML = SINGLES.map(s => `
+  <div class="single">
+    <div class="single-cover">
+      <img loading="lazy" decoding="async" src="${s.img || 'cover-legal.png'}" alt="ปก ${s.name}" onerror="this.style.display='none'">
+      <span class="cov-tag">${s.cat}</span>
+    </div>
+    <div class="single-body">
+      <h4>${s.name}</h4>
+      <span class="price">${fmt(s.price)}</span>
+      <button class="btn btn-primary btn-sm" onclick="openCheckout('${s.id}')">ซื้อแยกชิ้น</button>
+    </div>
+  </div>`).join('');
+
+/* ============ COUNTDOWN (72 ชม. ต่อ visitor, เก็บใน memory ต่อ session) ============ */
+let deadline = Date.now() + CONFIG.COUNTDOWN_HOURS*3600*1000;
+setInterval(() => {
+  let d = Math.max(0, deadline - Date.now());
+  const h = String(Math.floor(d/3600000)).padStart(2,'0'),
+        m = String(Math.floor(d%3600000/60000)).padStart(2,'0'),
+        s = String(Math.floor(d%60000/1000)).padStart(2,'0');
+  document.getElementById('countdown').textContent = `${h}:${m}:${s}`;
+}, 1000);
+
+/* ============ MODAL HELPERS ============ */
+let lastFocus = null;
+function openModal(id){
+  lastFocus = document.activeElement;
+  const o = document.getElementById(id);
+  o.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const f = o.querySelector('input,select,button.btn');
+  if (f) setTimeout(()=>f.focus(), 60);
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+  if (lastFocus) lastFocus.focus();
+}
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click', e => { if (e.target === o) closeModal(o.id); });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(o=>closeModal(o.id));
+});
+
+/* ============ CHECKOUT ============ */
+let currentProduct = null;
+function openCheckout(key){
+  const b = BUNDLES[key];
+  const s = SINGLES.find(x => x.id === key);
+  currentProduct = b ? {key, name:b.name, price:b.price, isBundle:true}
+                     : {key, name:s.name, price:s.price, isBundle:false};
+  document.getElementById('coProduct').textContent = currentProduct.name;
+  document.getElementById('coPrice').textContent = fmt(currentProduct.price);
+  document.getElementById('coBump').checked = false;
+  renderTotal();
+  openModal('checkoutModal');
+}
+function renderTotal(){
+  const bump = document.getElementById('coBump').checked ? 290 : 0;
+  document.getElementById('coTotal').textContent = fmt(currentProduct.price + bump);
+}
+function goToStripe(){
+  const emailField = document.getElementById('co-email');
+  const wrap = emailField.closest('.field');
+  if (!emailField.checkValidity()){ wrap.classList.add('invalid'); emailField.focus(); return; }
+  wrap.classList.remove('invalid');
+  const bump = document.getElementById('coBump').checked;
+  const linkKey = currentProduct.isBundle
+    ? (bump ? currentProduct.key + '_bump' : currentProduct.key)
+    : currentProduct.key;
+  const url = CONFIG.STRIPE_LINKS[linkKey] || CONFIG.STRIPE_LINKS[currentProduct.key];
+  const btn = document.getElementById('coPayBtn');
+  btn.disabled = true; btn.textContent = 'กำลังพาไปหน้าชำระเงิน…';
+  // prefill อีเมลใน Stripe Checkout
+  const target = url && !url.includes('TODO')
+    ? url + '?prefilled_email=' + encodeURIComponent(emailField.value)
+    : null;
+  setTimeout(()=>{
+    if (target) { window.open(target, '_blank'); }
+    else { alert('หน้าตัวอย่าง: ทีม dev ต้องใส่ Stripe Payment Link ใน CONFIG.STRIPE_LINKS ก่อนเปิดใช้งานจริง'); }
+    btn.disabled = false; btn.textContent = 'ชำระเงินผ่าน Stripe →';
+  }, 400);
+}
+
+/* ============ FORM VALIDATION + SUBMIT ============ */
+function validateForm(form){
+  let ok = true, first = null;
+  form.querySelectorAll('input[required],select[required]').forEach(el=>{
+    const wrap = el.closest('.field');
+    if (!el.checkValidity()){ wrap.classList.add('invalid'); ok = false; first = first || el; }
+    else wrap.classList.remove('invalid');
+  });
+  form.querySelectorAll('.csel[data-required]').forEach(cs=>{
+    const wrap = cs.closest('.field');
+    if (!cs.querySelector('input').value){ wrap.classList.add('invalid'); ok = false; first = first || cs.querySelector('.csel-trigger'); }
+    else wrap.classList.remove('invalid');
+  });
+  if (first) first.focus();
+  return ok;
+}
+
+/* ============ CUSTOM DROPDOWNS ============ */
+document.querySelectorAll('.csel').forEach(cs=>{
+  const trigger = cs.querySelector('.csel-trigger');
+  const label = cs.querySelector('.csel-label');
+  const input = cs.querySelector('input');
+  function closeAll(){ document.querySelectorAll('.csel.open').forEach(o=>{ o.classList.remove('open'); o.querySelector('.csel-trigger').setAttribute('aria-expanded','false'); }); }
+  trigger.addEventListener('click', e=>{
+    e.stopPropagation();
+    const wasOpen = cs.classList.contains('open');
+    closeAll();
+    if (!wasOpen){ cs.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+  });
+  cs.querySelectorAll('.csel-opt').forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      const v = opt.getAttribute('data-val');
+      input.value = v; label.textContent = v; cs.classList.add('has-value');
+      cs.querySelectorAll('.csel-opt').forEach(o=>o.classList.toggle('sel', o===opt));
+      opt.setAttribute('aria-selected','true');
+      cs.classList.remove('open'); trigger.setAttribute('aria-expanded','false');
+      const wrap = cs.closest('.field'); if (wrap) wrap.classList.remove('invalid');
+    });
+  });
+});
+document.addEventListener('click', ()=>{ document.querySelectorAll('.csel.open').forEach(o=>{ o.classList.remove('open'); o.querySelector('.csel-trigger').setAttribute('aria-expanded','false'); }); });
+async function postJSON(url, data){
+  // Google Apps Script รับแบบ no-cors + form encoded ได้เสถียรสุด
+  return fetch(url, { method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body: new URLSearchParams(data).toString() });
+}
+
+/* --- eBook lead form (Requirement #2) --- */
+document.getElementById('ebookForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const form = e.target;
+  if (!validateForm(form)) return;
+  const btn = document.getElementById('ebookSubmit');
+  btn.disabled = true; btn.textContent = 'กำลังส่ง…';
+  const data = {
+    contact_name: form.querySelector('#eb-name').value,
+    company:      form.querySelector('#eb-company').value,
+    business_type:form.querySelector('#eb-biz').value,
+    employee_count:form.querySelector('#eb-size').value,
+    email:        form.querySelector('#eb-email').value,
+    phone:        form.querySelector('#eb-phone').value,
+    source: 'ebook_lead', ts: new Date().toISOString()
+  };
+  try {
+    if (!CONFIG.SHEET_EBOOK_URL.includes('TODO')) await postJSON(CONFIG.SHEET_EBOOK_URL, data);
+  } catch(err){ console.error(err); }
+  // สำเร็จ: แสดงข้อความ + เส้นทางไปฉบับเต็ม (จ่ายเงิน)
+  form.innerHTML = `
+    <div class="success-box">
+      <div class="s-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 style="margin-bottom:6px">ส่ง eBook เข้าอีเมลแล้ว!</h3>
+      <p style="color:var(--ink-soft);font-size:20px;margin-bottom:20px">เช็กกล่องจดหมาย (และโฟลเดอร์สแปม) ของ <b>${data.email}</b><br>อยากได้ฉบับเต็มพร้อมเทมเพลตทั้งหมด?</p>
+      <button class="btn btn-brand btn-block" onclick="openCheckout('legal')">ดูฉบับเต็ม — ชุดเกราะป้องกันกฎหมาย ฿4,990</button>
+    </div>`;
+});
+
+/* --- HR Consult popup form (Requirement #3, คนละฐานข้อมูล) --- */
+document.getElementById('consultForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const form = e.target;
+  if (!validateForm(form)) return;
+  const btn = document.getElementById('cnSubmit');
+  btn.disabled = true; btn.textContent = 'กำลังส่ง…';
+  const data = {
+    contact_name: form.querySelector('#cn-name').value,
+    company:      form.querySelector('#cn-company').value,
+    phone:        form.querySelector('#cn-phone').value,
+    email:        form.querySelector('#cn-email').value,
+    topic:        form.querySelector('#cn-topic').value,
+    source: 'hr_consult_lead', ts: new Date().toISOString()
+  };
+  try {
+    if (!CONFIG.SHEET_CONSULT_URL.includes('TODO')) await postJSON(CONFIG.SHEET_CONSULT_URL, data);
+  } catch(err){ console.error(err); }
+  form.innerHTML = `
+    <div class="success-box">
+      <div class="s-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 style="margin-bottom:6px">รับข้อมูลเรียบร้อย</h3>
+      <p style="color:var(--ink-soft);font-size:20px;margin-bottom:20px">ทีมที่ปรึกษาจะติดต่อกลับภายใน 1 วันทำการ<br>หรือทักหาเราได้เลยทาง LINE @wizemoveshr</p>
+      <button class="btn btn-primary btn-block" onclick="closeModal('consultModal')">ปิดหน้าต่าง</button>
+    </div>`;
+});
+
+/* ล้าง error ทันทีเมื่อผู้ใช้แก้ไข */
+document.addEventListener('input', e=>{
+  const wrap = e.target.closest && e.target.closest('.field');
+  if (wrap && e.target.checkValidity()) wrap.classList.remove('invalid');
+});
+
+/* ============ HERO dashboard bars grow on view ============ */
+(function(){
+  const wrap = document.getElementById('mockBars'); if(!wrap) return;
+  const bars = wrap.querySelectorAll('i');
+  const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function grow(){ bars.forEach((b,i)=>setTimeout(()=>{ b.style.height = b.dataset.h; }, reduce?0:i*90)); }
+  if(reduce){ grow(); return; }
+  const io = new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ grow(); io.unobserve(e.target); } }); }, { threshold:.3 });
+  io.observe(wrap);
+})();
+
+/* ============ WHY scrollytelling (text scrolls, sticky card swaps) ============ */
+(function(){
+  const steps = document.querySelectorAll('.why-step');
+  const cards = document.querySelectorAll('.why-card');
+  if (!steps.length) return;
+  const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function setActive(i){
+    steps.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+    cards.forEach((c,idx)=>c.classList.toggle('active', idx===i));
+  }
+  setActive(0);
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) setActive(+e.target.getAttribute('data-step')); });
+  }, { rootMargin:'-45% 0px -45% 0px', threshold:0 });
+  steps.forEach(s=>io.observe(s));
+})();
+
+/* ============ Count-up + reveal when sections enter view ============ */
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function countUp(el){
+    const raw = el.textContent, m = raw.match(/^([^\d]*)([\d,]+)(.*)$/);
+    if(!m) return;
+    const pre = m[1], hasComma = m[2].indexOf(',') > -1, target = parseInt(m[2].replace(/,/g,''),10), suf = m[3], dur = 1300, start = performance.now();
+    function tick(now){
+      const p = Math.min((now-start)/dur, 1), cur = Math.round(target*(1-Math.pow(1-p,3)));
+      el.textContent = pre + (hasComma ? cur.toLocaleString('en-US') : String(cur)) + suf;
+      if(p<1) requestAnimationFrame(tick); else el.textContent = raw;
+    }
+    requestAnimationFrame(tick);
+  }
+  function onView(el, cb, threshold){
+    const io = new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ cb(); io.disconnect(); } }); }, { threshold: threshold||.35 });
+    io.observe(el);
+  }
+  const stats = document.querySelector('.stats');
+  if(stats){
+    if(!reduce) stats.classList.add('js-reveal');
+    const nums = stats.querySelectorAll('.stats-grid b');
+    onView(stats, function(){ stats.classList.add('in'); if(!reduce) nums.forEach(countUp); }, .4);
+  }
+  const cnum = document.querySelector('.consult-num');
+  if(cnum){
+    if(!reduce) cnum.classList.add('js-reveal');
+    const b = cnum.querySelector('.cn');
+    onView(cnum, function(){ cnum.classList.add('in'); if(!reduce && b) countUp(b); }, .5);
+  }
+})();
+
+/* ============ Scroll-reveal: fade-up section content as it enters view ============ */
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){ window.__revealReady=true; return; }
+  try{
+    if(!('IntersectionObserver' in window)){ document.documentElement.classList.remove('revealjs'); window.__revealReady=true; return; }
+    var els = Array.prototype.slice.call(document.querySelectorAll('.section-title,.section-sub,.badge-pill,.cmp,.review-card,.faq-item,.guarantee-inner,.bundle,.single')).filter(function(el){ return !el.closest('#ebook,#faq'); });
+    if(!els.length){ document.documentElement.classList.remove('revealjs'); window.__revealReady=true; return; }
+    var groups = new Map();
+    els.forEach(function(el){ var p=el.parentNode, a=groups.get(p)||[]; a.push(el); groups.set(p,a); });
+    groups.forEach(function(a){ a.forEach(function(el,i){ if(!el.matches('.bundle,.single')) el.style.transitionDelay=(Math.min(i,4)*0.07)+'s'; }); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold:0, rootMargin:'0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+    window.__revealReady = true;
+  }catch(err){ document.documentElement.classList.remove('revealjs'); window.__revealReady=true; }
+})();
+
+</script>
 </body>
 </html>

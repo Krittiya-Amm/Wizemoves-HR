@@ -3,3 +3,19 @@
 node_modules/
 .vscode/
 .idea/
+
+# local preview config (machine-specific absolute paths)
+.claude/
+
+# large image backups & unused assets
+*-original.jpg
+cover-legal-cut.png
+
+# fonts: keep only the DB Heavent Rounded files the site uses; ignore vendor extras
+fonts/*
+!fonts/DBHeaventRounded.ttf
+!fonts/DBHeaventRounded.woff2
+!fonts/DBHeaventRoundedBold.ttf
+!fonts/DBHeaventRoundedBold.woff2
+!fonts/DBHeaventRoundedMed.ttf
+!fonts/DBHeaventRoundedMed.woff2
