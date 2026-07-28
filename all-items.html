@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เอกสาร HR ทั้งหมด — WizeMoves HR</title>
+<meta name="description" content="รวมเอกสาร HR ทั้งหมด — มีทั้งแบบดาวน์โหลดฟรี และแบบซื้อแยกชิ้น">
+<style>
+@font-face{font-family:'DB Heavent Rounded';src:url('fonts/DBHeaventRounded.woff2') format('woff2'),url('fonts/DBHeaventRounded.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DB Heavent Rounded';src:url('fonts/DBHeaventRoundedMed.woff2') format('woff2'),url('fonts/DBHeaventRoundedMed.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'DB Heavent Rounded';src:url('fonts/DBHeaventRoundedBold.woff2') format('woff2'),url('fonts/DBHeaventRoundedBold.ttf') format('truetype');font-weight:700;font-display:swap}
+:root{--brand:#7C3AED;--brand-dark:#5B21B6;--brand-soft:#F3EEFC;--ink:#2B1B54;--ink-soft:#6B6285;--line:#EAE4F5;--bg:#FAF9FF;--gold:#F59E0B;--red:#C6402F}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DB Heavent Rounded',system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:24px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.top .logo img{height:34px;width:auto;display:block}
+.back{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:22px;color:var(--brand);border:none;background:none;padding:6px 0;transition:color .15s}
+.back:hover{color:var(--brand-dark)}
+.nav-links{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-size:22px;font-weight:400;color:var(--ink-soft);padding:8px 2px;transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+@media(max-width:960px){.nav-links{display:none}}
+/* hero */
+.head{text-align:center;padding:26px 0 6px}
+.head-back{text-align:left;margin-bottom:16px}
+.pill{display:inline-flex;align-items:center;height:38px;padding:0 16px;background:#fff;border-radius:999px;box-shadow:0 8px 22px rgba(124,58,237,.14),0 2px 5px rgba(39,28,67,.06);margin-bottom:18px}
+.pill b{font-weight:700;font-size:22px;background:linear-gradient(100deg,#7C3AED,#C77CB0 60%,#E2A82E);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.head h1{font-weight:700;font-size:clamp(34px,6vw,56px);line-height:1.15;margin-bottom:12px}
+.head p{color:var(--ink-soft);font-size:24px;max-width:680px;margin:0 auto}
+/* filters */
+.filter-bar{margin:28px 0 2px}
+/* ตัวกรอง 2 ตัวอยู่บรรทัดเดียวกัน: ประเภทเอกสาร (หลายหมวด) + รูปแบบ (อย่างเดียว) */
+.fbar-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px}
+/* หัวข้อกำกับอยู่นอก dropdown เพื่อบอกว่ากรองจากอะไร */
+.fgroup{display:inline-flex;align-items:center;gap:6px}
+.flabel{flex:none;font-size:19px;font-weight:600;color:var(--ink-soft);white-space:nowrap}
+.cd{position:relative}
+.cd-trigger{display:inline-flex;align-items:center;gap:10px;min-width:190px;min-height:48px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:0 18px;font-family:inherit;font-size:20px;font-weight:600;color:var(--ink);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.cd-trigger:hover{border-color:var(--brand)}
+.cd.open .cd-trigger{border-color:var(--brand);box-shadow:0 0 0 3px rgba(124,58,237,.14)}
+.cd.on .cd-trigger{border-color:var(--brand);color:var(--brand)}
+.cd-text{flex:1;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cd-chev{width:18px;height:18px;flex:none;color:var(--ink-soft);transition:transform .2s}
+.cd.open .cd-chev{transform:rotate(180deg);color:var(--brand)}
+.cd-panel{position:absolute;top:calc(100% + 8px);left:50%;z-index:30;width:308px;max-width:calc(100vw - 40px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 44px rgba(20,12,40,.18);padding:6px;transform:translateX(-50%) translateY(-6px);opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease,visibility .18s}
+.cd.open .cd-panel{opacity:1;visibility:visible;transform:translateX(-50%)}
+.cd-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 2px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.cd-head span{font-size:17px;color:var(--ink-soft)}
+.cd-clear{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;font-family:inherit;font-size:18px;font-weight:600;color:var(--brand);background:none;border:none;border-radius:9px;padding:0 10px;cursor:pointer;transition:background .15s}
+.cd-clear:hover{background:var(--brand-soft)}
+.cd-clear:disabled{color:var(--ink-soft);opacity:.45;cursor:not-allowed;background:none}
+.cd-list{max-height:300px;overflow:auto}
+.cd-opt{display:flex;align-items:center;gap:11px;min-height:44px;padding:5px 10px;border-radius:9px;font-size:20px;color:var(--ink);cursor:pointer;transition:background .15s}
+.cd-opt:hover{background:var(--brand-soft)}
+.cd-opt input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.cd-box{flex:none;width:22px;height:22px;border:1.8px solid var(--line);border-radius:6px;background:#fff;display:grid;place-items:center;transition:background .15s,border-color .15s}
+.cd-box svg{width:14px;height:14px;color:#fff;opacity:0;transition:opacity .15s}
+.cd-opt input:checked+.cd-box{background:var(--brand);border-color:var(--brand)}
+.cd-opt input:checked+.cd-box svg{opacity:1}
+.cd-opt input:focus-visible+.cd-box{box-shadow:0 0 0 3px rgba(124,58,237,.3)}
+.cd-radio{flex:none;width:22px;height:22px;border:1.8px solid var(--line);border-radius:50%;background:#fff;display:grid;place-items:center;transition:border-color .15s}
+.cd-radio i{display:block;width:10px;height:10px;border-radius:50%;background:var(--brand);opacity:0;transition:opacity .15s}
+.cd-opt input:checked+.cd-radio{border-color:var(--brand)}
+.cd-opt input:checked+.cd-radio i{opacity:1}
+.cd-opt input:focus-visible+.cd-radio{box-shadow:0 0 0 3px rgba(124,58,237,.3)}
+.cd-name{flex:1}
+.cd-opt .n{flex:none;font-size:16px;font-weight:700;color:var(--ink-soft);background:var(--bg-alt);border-radius:999px;padding:1px 8px}
+.cd-opt.off{opacity:.42;cursor:not-allowed}
+.cd-opt.off:hover{background:none}
+.cd-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.cd-tag{display:inline-flex;align-items:center;gap:7px;min-height:40px;font-size:19px;font-weight:600;color:var(--brand);background:var(--brand-soft);border:none;border-radius:999px;padding:4px 12px 4px 16px;font-family:inherit;cursor:pointer;transition:background .15s}
+.cd-tag:hover{background:#E9DEFB}
+.cd-tag svg{width:15px;height:15px;flex:none}
+#tdPanel{width:236px}
+.result-count{text-align:center;font-size:19px;color:var(--ink-soft);margin-top:20px}
+.result-count b{color:var(--ink);font-weight:700}
+.no-result{grid-column:1/-1;text-align:center;padding:52px 20px}
+.no-result.hide{display:none}
+.no-result svg{width:52px;height:52px;color:var(--line);margin-bottom:12px}
+.no-result p{font-size:23px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.no-result span{display:block;font-size:19px;color:var(--ink-soft);margin-bottom:18px}
+.no-result button{font-family:inherit;font-size:20px;font-weight:600;min-height:44px;padding:0 24px;border:none;border-radius:999px;background:var(--brand);color:#fff;cursor:pointer}
+@media(max-width:600px){
+  .fbar-row{flex-direction:column;align-items:stretch;gap:12px}
+  .fgroup{width:100%;max-width:360px;margin:0 auto}
+  .flabel{min-width:56px}
+  .cd{flex:1}
+  .cd-trigger{min-width:0;width:100%}
+}
+/* grid + cards (homepage single-card style) */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:22px;padding:26px 0 24px}
+.item{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s ease,transform .2s ease;position:relative}
+.item:hover{box-shadow:0 16px 38px rgba(124,58,237,.12);transform:translateY(-3px)}
+.item.hide{display:none}
+.cover{position:relative;height:166px;background:linear-gradient(135deg,var(--brand-soft),#F3EEFC);border-bottom:1px solid var(--line)}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.tag{position:absolute;bottom:10px;right:10px;font-size:13px;font-weight:700;letter-spacing:.03em;color:#fff;background:rgba(39,28,67,.6);border-radius:999px;padding:4px 12px}
+.body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cat{font-size:19px;font-weight:700;letter-spacing:.06em;color:var(--brand)}
+.item h3{font-size:23px;line-height:1.35;font-weight:600;flex:1}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+.price{font-family:'DB Heavent Rounded';font-weight:700;font-size:26px;color:var(--brand)}
+.act{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:40px;padding:0 20px;border:none;border-radius:999px;font-family:inherit;font-weight:600;font-size:21px;cursor:pointer;text-decoration:none;transition:background .15s,border-color .15s}
+.act.buy{background:var(--brand);color:#fff}
+.act.buy:hover{background:var(--brand-dark)}
+.act.dl{background:var(--brand);color:#fff}
+.act.dl:hover{background:var(--brand-dark)}
+.act.soon{background:#ECE7F6;color:var(--ink-soft);cursor:not-allowed;white-space:nowrap;padding:0 16px}
+.act svg{width:18px;height:18px}
+/* coming soon (mirrors homepage) */
+.item.coming-soon .cover,.item.coming-soon .body{opacity:.62}
+.item.coming-soon::after{content:"Coming soon";position:absolute;top:12px;right:12px;z-index:5;background:var(--brand-soft);color:#8B5CF6;font-weight:700;font-size:15px;padding:4px 12px;border-radius:999px}
+/* footer (mirrors homepage) */
+footer{background:var(--ink);color:#B9C2D6;padding:56px 0 32px;font-size:20px;margin-top:36px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
+footer h4{color:#fff;font-size:20px;margin-bottom:14px}
+footer .logo img{filter:brightness(0) invert(1);height:34px;width:auto;display:block}
+footer p{color:#B9C2D6}
+.ic{width:18px;height:18px;flex:none}
+.channel-list{list-style:none}
+.channel-list li{margin-bottom:10px}
+.channel-list a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:6px 0;color:#B9C2D6}
+.channel-list a:hover{color:#fff}
+.foot-links{list-style:none}
+.foot-links li{margin-bottom:10px}
+.foot-links a{text-decoration:none;color:#B9C2D6}
+.foot-links a:hover{color:#fff}
+.copy{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:20px;color:#8391AD}
+@media(max-width:800px){.foot-grid{grid-template-columns:1fr}}
+/* checkout modal (mirrors homepage) */
+.modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(20,12,40,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px;max-width:460px;width:100%;padding:30px 28px;position:relative;box-shadow:0 30px 80px rgba(20,12,40,.35);max-height:90vh;overflow:auto}
+.modal-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:22px;color:var(--ink-soft);cursor:pointer;line-height:1}
+.modal h3{font-size:30px;font-weight:700;margin-bottom:4px}
+.m-sub{color:var(--ink-soft);font-size:20px;margin-bottom:18px}
+.order-line{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:22px}
+.order-line.total{border-bottom:none;border-top:2px solid var(--line);margin-top:4px;font-weight:700}
+.order-line .amt{font-family:'DB Heavent Rounded';font-weight:700;font-size:28px;color:var(--brand)}
+.bump{display:flex;gap:12px;align-items:flex-start;background:var(--brand-soft);border:1px dashed rgba(124,58,237,.4);border-radius:12px;padding:14px;margin:14px 0;cursor:pointer}
+.bump input{margin-top:4px;width:20px;height:20px;flex:none;accent-color:var(--brand)}
+.bump b{display:block;font-size:20px;font-weight:700}
+.bump span{display:block;font-size:18px;color:var(--ink-soft)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:20px;font-weight:600}
+.field input{height:48px;border:1.5px solid var(--line);border-radius:10px;padding:0 14px;font-family:inherit;font-size:20px}
+.field .err{display:none;color:var(--red);font-size:18px}
+.field.invalid input{border-color:var(--red)}
+.field.invalid .err{display:block}
+.co-pay{width:100%;height:52px;border:none;border-radius:999px;background:var(--brand);color:#fff;font-family:inherit;font-weight:700;font-size:22px;cursor:pointer;margin-top:16px;transition:background .15s}
+.co-pay:hover{background:var(--brand-dark)}
+.stripe-note{display:flex;align-items:center;gap:8px;justify-content:center;color:var(--ink-soft);font-size:17px;margin-top:12px}
+.modal form{display:flex;flex-direction:column;gap:14px}
+/* custom select (mirrors eBook .csel) */
+.csel{position:relative}
+.csel-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--line);border-radius:10px;padding:0 14px;background:#fff;font-family:inherit;font-size:20px;color:var(--ink-soft);height:48px;text-align:left;cursor:pointer}
+.csel.has-value .csel-trigger{color:var(--ink)}
+.csel-trigger svg{width:18px;height:18px;color:var(--ink-soft);transition:transform .2s;flex:none}
+.csel.open .csel-trigger{border-color:var(--brand);box-shadow:0 0 0 3px rgba(124,58,237,.14)}
+.csel.open .csel-trigger svg{transform:rotate(180deg);color:var(--brand)}
+.field.invalid .csel-trigger{border-color:var(--red)}
+.csel-panel{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 40px rgba(20,12,40,.16);padding:6px;max-height:264px;overflow:auto;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease,visibility .18s}
+.csel.open .csel-panel{opacity:1;visibility:visible;transform:none}
+.csel-opt{padding:11px 12px;border-radius:8px;font-size:20px;color:var(--ink);cursor:pointer;transition:background .15s,color .15s}
+.csel-opt:hover{background:var(--brand-soft);color:var(--brand)}
+.csel-opt.sel{background:var(--brand-soft);color:var(--brand);font-weight:600}
+.form-row{display:flex;gap:12px}
+.form-row .field{flex:1;min-width:0}
+.success{text-align:center;padding:6px 0}
+.success .s-ic{width:64px;height:64px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;margin:0 auto 14px}
+.success h3{font-size:28px}
+@media(max-width:560px){.head{padding:38px 0 4px}.form-row{flex-direction:column}}
+/* sticky promo pill (mirrors homepage, bottom-left) */
+.promo-bar{position:fixed;left:18px;bottom:20px;z-index:70;width:366px;max-width:calc(100vw - 36px);transform:translateX(-140%);opacity:0;transition:transform .34s cubic-bezier(.22,1,.36,1),opacity .3s ease;will-change:transform}
+.promo-bar.show{transform:none;opacity:1}
+.promo-card{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 44px rgba(30,12,60,.24);padding:12px 14px;cursor:pointer;font-family:inherit;transition:transform .15s,box-shadow .15s}
+.promo-card:hover{transform:translateY(-2px);box-shadow:0 22px 54px rgba(30,12,60,.32)}
+.promo-ic{flex:none;width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#7C3AED,#9F67FF);display:grid;place-items:center;color:#fff;box-shadow:0 7px 16px rgba(124,58,237,.38)}
+.promo-ic svg{width:26px;height:26px}
+.promo-txt{min-width:0;flex:1;line-height:1.2}
+.promo-txt b{display:block;font-weight:700;font-size:22px;color:var(--ink)}
+.promo-sub{display:block;font-size:18px;color:var(--brand);font-weight:600;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.promo-close{position:absolute;top:-10px;right:-10px;width:28px;height:28px;border:none;background:#fff;color:var(--ink-soft);border-radius:50%;cursor:pointer;display:grid;place-items:center;box-shadow:0 3px 10px rgba(30,12,60,.24);transition:color .15s,transform .15s}
+.promo-close svg{width:13px;height:13px;display:block}
+.promo-close:hover{color:var(--red);transform:scale(1.12)}
+@media(max-width:480px){.promo-bar{left:12px;right:12px;bottom:14px;width:auto}}
+@media(prefers-reduced-motion:reduce){.promo-bar{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="container top-in">
+    <a class="logo" href="index.html" aria-label="WizeMoves HR"><img src="logo.png" alt="WizeMoves HR"></a>
+    <ul class="nav-links">
+      <li><a href="index.html#story">ปัญหาที่ SME เจอ</a></li>
+      <li><a href="index.html#bundles">แพ็กเกจ</a></li>
+      <li><a href="index.html#singles">ซื้อแยกชิ้น</a></li>
+      <li><a href="index.html#ebook">eBook ฟรี</a></li>
+      <li><a href="index.html#consult">ที่ปรึกษา HR</a></li>
+      <li><a href="index.html#faq">คำถามที่พบบ่อย</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="container">
+  <div class="head">
+    <div class="head-back"><a class="back" href="index.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> กลับหน้าหลัก</a></div>
+    <span class="pill"><b>All Templates</b></span>
+    <h1>เอกสาร HR ทั้งหมด</h1>
+    <!-- เดิม: <p>รวมเทมเพลตและฟอร์ม HR ทั้งหมด มีทั้งแบบ <b style="color:var(--brand)">ดาวน์โหลดฟรี</b> และแบบ <b style="color:#B45309">ซื้อแยกชิ้น</b></p> -->
+    <p>รวมเทมเพลตและฟอร์ม HR สำหรับ SME ไทย แบบ <b style="color:#B45309">ซื้อแยกชิ้น</b> พร้อมปรับใช้ได้ทันที</p>
+  </div>
+
+  <div class="filter-bar">
+    <div class="fbar-row">
+      <div class="fgroup">
+        <span class="flabel" id="catLb">ประเภท</span>
+        <div class="cd" id="cd">
+          <button type="button" class="cd-trigger" id="cdTrigger" aria-haspopup="true" aria-expanded="false" aria-labelledby="catLb cdText">
+            <span class="cd-text" id="cdText">ทั้งหมด</span>
+            <svg class="cd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="cd-panel" id="cdPanel" role="group" aria-label="ประเภทเอกสาร">
+            <div class="cd-head">
+              <span>เลือกได้หลายประเภท</span>
+              <button type="button" class="cd-clear" id="cdClear" disabled>ล้าง</button>
+            </div>
+            <div class="cd-list" id="cdList"></div>
+          </div>
+        </div>
+      </div>
+      <!-- dropdown "รูปแบบ" ซ่อนชั่วคราว (หน้านี้แสดงเฉพาะเอกสารแบบซื้อ) — ยกคอมเมนต์บล็อกนี้ออกเพื่อเปิดตัวกรองรูปแบบ + เอกสารฟรีกลับมา
+      <div class="fgroup">
+        <span class="flabel" id="typeLb">รูปแบบ</span>
+        <div class="cd" id="td">
+          <button type="button" class="cd-trigger" id="tdTrigger" aria-haspopup="true" aria-expanded="false" aria-labelledby="typeLb tdText">
+            <span class="cd-text" id="tdText">ทั้งหมด</span>
+            <svg class="cd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="cd-panel" id="tdPanel" role="group" aria-label="รูปแบบ">
+            <div class="cd-list" id="tdList"></div>
+          </div>
+        </div>
+      </div>
+      -->
+    </div>
+    <div class="cd-tags" id="cdTags"></div>
+  </div>
+  <p class="result-count" id="resultCount" aria-live="polite"></p>
+
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html" aria-label="WizeMoves HR"><img src="logo.png" alt="WizeMoves HR"></a>
+        <p style="margin-top:12px;max-width:320px">ชุดเอกสารและเครื่องมือ HR มาตรฐาน สำหรับ SME ไทย จัดทำเพื่อเป็นแนวทาง โปรดปรับใช้ตามบริบทองค์กร</p>
+      </div>
+      <div>
+        <h4>ติดต่อเรา</h4>
+        <ul class="channel-list">
+          <li><a href="https://wizemoves.co" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20z"/></svg>เว็บไซต์ wizemoves.co</a></li>
+          <li><a href="https://lin.ee/wizemoveshr" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>LINE Official: @wizemoveshr</a></li>
+          <li><a href="mailto:hr@wizemoves.co"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>hr@wizemoves.co</a></li>
+          <li><a href="https://facebook.com/wizemoveshr" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg>Facebook: WizeMoves HR</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ทางลัด</h4>
+        <ul class="foot-links">
+          <li><a href="index.html#bundles">แพ็กเกจทั้งหมด</a></li>
+          <li><a href="index.html#singles">ซื้อแยกชิ้น</a></li>
+          <li><a href="index.html#ebook">รับ eBook ฟรี</a></li>
+          <li><a href="index.html#consult">บริการที่ปรึกษา HR</a></li>
+          <li><a href="index.html#guarantee">การรับประกัน</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 WizeMoves HR (Sellsuki Co., Ltd.) · เอกสารทั้งหมดจัดทำเพื่อเป็นแนวทาง โปรดปรับใช้ตามบริบทองค์กร</div>
+  </div>
+</footer>
+
+<!-- sticky promo pill (mirrors homepage) -->
+<div class="promo-bar" id="promoBar" role="region" aria-label="โปรโมชั่นพิเศษ">
+  <a class="promo-card" href="index.html#bundles" aria-label="สั่งซื้อชุด Legal Shield ราคาพิเศษ ฿4,990">
+    <span class="promo-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+    <span class="promo-txt"><b>สั่งซื้อตอนนี้ ราคาพิเศษ</b><span class="promo-sub">Legal Shield ครบชุด ฿4,990 →</span></span>
+  </a>
+  <button class="promo-close" type="button" onclick="dismissPromo()" aria-label="ปิดโปรโมชั่น"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+</div>
+
+<!-- checkout popup (order summary) -->
+<div class="modal-overlay" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('checkoutModal')" aria-label="ปิด">✕</button>
+    <h3 id="coTitle">สรุปคำสั่งซื้อ</h3>
+    <p class="m-sub">ตรวจสอบรายการก่อนไปหน้าชำระเงิน Stripe</p>
+    <div class="order-line"><span id="coProduct">—</span><span id="coPrice">฿0</span></div>
+    <label class="bump">
+      <input type="checkbox" id="coBump" onchange="renderTotal()">
+      <div><b>🎁 เพิ่มชุดแบบฟอร์มใบสมัครงาน 50 ตำแหน่ง</b><span>เพิ่มเพียง ฿290 (มูลค่าปกติ ฿990) — เลือกได้เฉพาะตอนนี้</span></div>
+    </label>
+    <div class="order-line total"><span>ยอดชำระทั้งหมด</span><span class="amt" id="coTotal">฿0</span></div>
+    <div class="field" style="margin-top:16px">
+      <label for="co-email">อีเมล (สำหรับรับไฟล์) *</label>
+      <input id="co-email" type="email" autocomplete="email" inputmode="email" required>
+      <span class="err">กรุณากรอกอีเมลให้ถูกต้อง</span>
+    </div>
+    <button class="co-pay" onclick="goToStripe()">ชำระเงินผ่าน Stripe →</button>
+    <p class="stripe-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> ชำระเงินปลอดภัย · รองรับบัตรเครดิตและ PromptPay ผ่าน Stripe</p>
+  </div>
+</div>
+
+<!-- free download form popup (mirrors eBook lead form) -->
+<div class="modal-overlay" id="freeModal" role="dialog" aria-modal="true" aria-labelledby="frTitle">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('freeModal')" aria-label="ปิด">✕</button>
+    <h3 id="frTitle">รับเอกสารฟรีทางอีเมล</h3>
+    <p class="m-sub" id="frSub">กรอกข้อมูลเพื่อรับไฟล์ ใช้เวลาไม่ถึง 1 นาที</p>
+    <form id="freeForm" novalidate onsubmit="return submitFree(event)">
+      <div class="field"><label for="fr-name">ชื่อผู้ติดต่อ *</label><input id="fr-name" type="text" autocomplete="name" required><span class="err">กรุณากรอกชื่อ</span></div>
+      <div class="field"><label for="fr-company">ชื่อบริษัท <span style="color:var(--ink-soft);font-weight:400">(ถ้ามี)</span></label><input id="fr-company" type="text" autocomplete="organization"></div>
+      <div class="form-row">
+        <div class="field">
+          <label id="fr-biz-lbl">ประเภทธุรกิจ *</label>
+          <div class="csel">
+            <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="fr-biz-lbl">
+              <span class="csel-label">— เลือก —</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="csel-panel" role="listbox">
+              <div class="csel-opt" role="option" data-val="ค้าปลีก / ค้าส่ง">ค้าปลีก / ค้าส่ง</div>
+              <div class="csel-opt" role="option" data-val="โรงงาน / การผลิต">โรงงาน / การผลิต</div>
+              <div class="csel-opt" role="option" data-val="บริการ / ร้านอาหาร">บริการ / ร้านอาหาร</div>
+              <div class="csel-opt" role="option" data-val="เทคโนโลยี / สตาร์ทอัพ">เทคโนโลยี / สตาร์ทอัพ</div>
+              <div class="csel-opt" role="option" data-val="ก่อสร้าง / อสังหาริมทรัพย์">ก่อสร้าง / อสังหาริมทรัพย์</div>
+              <div class="csel-opt" role="option" data-val="อื่นๆ">อื่นๆ</div>
+            </div>
+            <input type="hidden" id="fr-biz" value="">
+          </div>
+          <span class="err">กรุณาเลือกประเภทธุรกิจ</span>
+        </div>
+        <div class="field">
+          <label id="fr-size-lbl">จำนวนพนักงาน *</label>
+          <div class="csel">
+            <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="fr-size-lbl">
+              <span class="csel-label">— เลือก —</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="csel-panel" role="listbox">
+              <div class="csel-opt" role="option" data-val="1–10 คน">1–10 คน</div>
+              <div class="csel-opt" role="option" data-val="11–50 คน">11–50 คน</div>
+              <div class="csel-opt" role="option" data-val="51–200 คน">51–200 คน</div>
+              <div class="csel-opt" role="option" data-val="200 คนขึ้นไป">200 คนขึ้นไป</div>
+            </div>
+            <input type="hidden" id="fr-size" value="">
+          </div>
+          <span class="err">กรุณาเลือก</span>
+        </div>
+      </div>
+      <div class="field"><label for="fr-email">อีเมล (สำหรับรับไฟล์) *</label><input id="fr-email" type="email" autocomplete="email" inputmode="email" required><span class="err">กรุณากรอกอีเมลให้ถูกต้อง</span></div>
+      <button class="co-pay" type="submit">รับไฟล์ฟรี →</button>
+    </form>
+    <div class="success" id="freeSuccess" style="display:none">
+      <div class="s-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>ส่งไฟล์เข้าอีเมลแล้ว</h3>
+      <p class="m-sub" style="margin-top:6px">ระบบส่งลิงก์ดาวน์โหลดไปที่อีเมลของคุณเรียบร้อย<br>(ตัวอย่าง mock — ยังไม่มีไฟล์จริง)</p>
+      <button class="co-pay" type="button" onclick="closeModal('freeModal')">ปิดหน้าต่าง</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Catalogue — mix of free (mock download) and paid (order-summary popup). */
+var ITEMS = [
+  {cat:'บริหารวินัย', t:'หนังสือเตือน + เลิกจ้าง ครอบคลุม 100 เหตุผล', img:'single-warning.png', type:'paid', price:'฿3,500'},
+  {cat:'PDPA', t:'ชุดเอกสาร PDPA + ข้อบังคับการทำงาน', img:'single-pdpa.png', type:'paid', price:'฿2,500'},
+  {cat:'พัฒนาบุคลากร', t:'แผน PIP ปรับปรุงประสิทธิภาพพนักงาน', img:'single-contract.png', type:'paid', price:'฿5,900'},
+  {cat:'สัญญาจ้าง', t:'สัญญาจ้างงานครบชุด — ประจำ / Part-time / จ้างทำของ / WFH', img:'single-contract.png', type:'paid', price:'฿3,500', soon:true},
+  {cat:'ปฐมนิเทศ', t:'Onboarding 30-60-90 วัน + Employee Handbook', img:'single-pdpa.png', type:'paid', price:'฿5,900', soon:true},
+  {cat:'ประเมินผล', t:'Google Sheet HR Dashboard สรุป KPI อัตโนมัติ', img:'single-warning.png', type:'paid', price:'฿5,900', soon:true},
+  {cat:'ฟอร์มพื้นฐาน', t:'แบบฟอร์มใบลา (ลาป่วย / ลากิจ / ลาพักร้อน)', img:'single-pdpa.png', type:'free'},
+  {cat:'หนังสือรับรอง', t:'หนังสือรับรองการทำงาน', img:'single-contract.png', type:'free'},
+  {cat:'หนังสือรับรอง', t:'หนังสือรับรองเงินเดือน', img:'single-contract.png', type:'free'},
+  {cat:'ปฐมนิเทศ', t:'เช็กลิสต์รับพนักงานใหม่ (Onboarding)', img:'single-pdpa.png', type:'free'},
+  {cat:'ฟอร์มพื้นฐาน', t:'แบบฟอร์มเบิกค่าใช้จ่าย / สวัสดิการ', img:'single-warning.png', type:'free'},
+  {cat:'ประเมินผล', t:'แบบประเมินทดลองงาน (ตัวอย่าง)', img:'single-warning.png', type:'free'},
+  {cat:'PDPA', t:'นโยบาย PDPA ฉบับย่อ (ตัวอย่าง)', img:'single-pdpa.png', type:'free'},
+  {cat:'สำรวจ', t:'แบบสำรวจความผูกพันพนักงาน (Engagement)', img:'single-warning.png', type:'free'}
+];
+/* ===== ชั่วคราว: หน้านี้แสดงเฉพาะเอกสารแบบซื้อ (ซ่อนแบบดาวน์โหลดฟรี) =====
+   ผูกกับการมี dropdown "รูปแบบ" (#td): ถ้ายกคอมเมนต์ #td กลับมา จะแสดงเอกสารฟรี + ตัวกรองรูปแบบอีกครั้งอัตโนมัติ */
+var HAS_TYPE_FILTER = !!document.getElementById('td');
+var VISIBLE = HAS_TYPE_FILTER ? ITEMS : ITEMS.filter(function(x){ return x.type !== 'free'; });
+var DL_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>';
+function cardHTML(x, i){
+  var foot;
+  if (x.type === 'free') {
+    foot = '<div class="foot"><span class="price">฿0</span><button class="act dl" type="button" onclick="grab(' + i + ')">ดาวน์โหลดฟรี</button></div>';
+  } else if (x.soon) {
+    foot = '<div class="foot"><span class="price">' + x.price + '</span><button class="act soon" type="button" disabled>Coming soon</button></div>';
+  } else {
+    foot = '<div class="foot"><span class="price">' + x.price + '</span><button class="act buy" type="button" onclick="buy(' + i + ')">ซื้อ</button></div>';
+  }
+  return '<article class="item' + (x.soon ? ' coming-soon' : '') + '" data-type="' + x.type + '" data-cat="' + x.cat + '">'
+    + '<div class="cover"><img src="' + x.img + '" alt="" loading="lazy" onerror="this.style.display=\'none\'"><span class="tag">' + x.cat + '</span></div>'
+    + '<div class="body"><span class="cat">' + x.cat + '</span><h3>' + x.t + '</h3>' + foot + '</div>'
+    + '</article>';
+}
+var grid = document.getElementById('grid');
+grid.innerHTML = ITEMS.map(function(x, i){ return (HAS_TYPE_FILTER || x.type !== 'free') ? cardHTML(x, i) : ''; }).join('')
+  + '<div class="no-result hide" id="noResult">'
+  + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6M8.5 11h5"/></svg>'
+  + '<p>ไม่พบเอกสารที่ตรงกับตัวกรอง</p>'
+  + '<span>ลองเลือกประเภทอื่น หรือล้างตัวกรอง</span>'
+  + '<button type="button" onclick="resetFilters()">ล้างตัวกรอง</button>'
+  + '</div>';
+
+/* ===== two-axis filter: ประเภทเอกสาร (multi-select) x รูปแบบ (ซื้อ / ฟรี) ===== */
+var cd = document.getElementById('cd');
+var cdTrigger = document.getElementById('cdTrigger');
+var cdList = document.getElementById('cdList');
+var cdText = document.getElementById('cdText');
+var cdClear = document.getElementById('cdClear');
+var cdTags = document.getElementById('cdTags');
+var td = document.getElementById('td');
+var tdTrigger = document.getElementById('tdTrigger');
+var tdList = document.getElementById('tdList');
+var tdText = document.getElementById('tdText');
+var noResult = document.getElementById('noResult');
+var resultCount = document.getElementById('resultCount');
+var CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+var X_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+
+/* cats = [] คือ "ทุกประเภท"; มีหลายค่า = OR กันในแกนหมวด */
+var state = { cats: [], type: 'all' };
+
+/* หมวดเรียงตามลำดับที่ปรากฏใน ITEMS (ของขายมาก่อน) */
+var CATS = VISIBLE.reduce(function(a, x){ if (a.indexOf(x.cat) < 0) a.push(x.cat); return a; }, []);
+var TYPES = [
+  { k: 'all',  label: 'ทั้งหมด' },
+  { k: 'paid', label: 'ซื้อแยกชิ้น' },
+  { k: 'free', label: 'ดาวน์โหลดฟรี' }
+];
+
+/* นับจำนวนในแกนหมวด โดยคิดรูปแบบที่เลือกอยู่ */
+function countIn(cat){
+  return VISIBLE.filter(function(x){
+    return x.cat === cat && (state.type === 'all' || x.type === state.type);
+  }).length;
+}
+/* นับจำนวนในแกนรูปแบบ โดยคิดหมวดที่เลือกอยู่ */
+function countType(k){
+  return VISIBLE.filter(function(x){
+    return (state.cats.length === 0 || state.cats.indexOf(x.cat) > -1) && (k === 'all' || x.type === k);
+  }).length;
+}
+function renderCatList(){
+  cdList.innerHTML = CATS.map(function(c){
+    var n = countIn(c), on = state.cats.indexOf(c) > -1;
+    return '<label class="cd-opt' + (n === 0 ? ' off' : '') + '">'
+      + '<input type="checkbox" value="' + c + '"' + (on ? ' checked' : '') + (n === 0 ? ' disabled' : '') + '>'
+      + '<span class="cd-box">' + CHECK_SVG + '</span>'
+      + '<span class="cd-name">' + c + '</span>'
+      + '<span class="n">' + n + '</span></label>';
+  }).join('');
+}
+function renderCatSummary(){
+  var k = state.cats.length;
+  cdText.textContent = k === 0 ? 'ทั้งหมด' : (k === 1 ? state.cats[0] : k + ' ประเภท');
+  cdClear.disabled = k === 0;
+  cd.classList.toggle('on', k > 0);
+  cdTags.innerHTML = state.cats.map(function(c){
+    return '<button type="button" class="cd-tag" data-c="' + c + '" aria-label="เอาหมวด ' + c + ' ออก">' + c + X_SVG + '</button>';
+  }).join('');
+}
+function renderTypeList(){
+  if (!td) return;   /* ไม่มี dropdown รูปแบบ = ข้าม */
+  tdList.innerHTML = TYPES.map(function(t){
+    var n = countType(t.k), on = state.type === t.k;
+    return '<label class="cd-opt' + (n === 0 && !on ? ' off' : '') + '">'
+      + '<input type="radio" name="ftype" value="' + t.k + '"' + (on ? ' checked' : '') + (n === 0 && !on ? ' disabled' : '') + '>'
+      + '<span class="cd-radio"><i></i></span>'
+      + '<span class="cd-name">' + t.label + '</span>'
+      + '<span class="n">' + n + '</span></label>';
+  }).join('');
+  var cur = TYPES.filter(function(t){ return t.k === state.type; })[0];
+  tdText.textContent = cur ? cur.label : 'ทั้งหมด';
+  td.classList.toggle('on', state.type !== 'all');
+}
+function applyFilters(){
+  var shown = 0;
+  grid.querySelectorAll('.item').forEach(function(it){
+    var ok = (state.cats.length === 0 || state.cats.indexOf(it.getAttribute('data-cat')) > -1)
+          && (state.type === 'all' || it.getAttribute('data-type') === state.type);
+    it.classList.toggle('hide', !ok);
+    if (ok) shown++;
+  });
+  noResult.classList.toggle('hide', shown > 0);
+  resultCount.innerHTML = shown > 0
+    ? 'แสดง <b>' + shown + '</b> จาก ' + VISIBLE.length + ' รายการ'
+    : '';
+}
+function refresh(){ renderCatList(); renderCatSummary(); renderTypeList(); applyFilters(); }
+function resetFilters(){ state.cats = []; state.type = 'all'; refresh(); }
+
+/* รายการ dropdown ที่มีอยู่จริงบนหน้า (td อาจถูกซ่อน) */
+var DROPS = [[cd, cdTrigger]];
+if (td) DROPS.push([td, tdTrigger]);
+
+/* เปิดตัวหนึ่ง = ปิดอีกตัวอัตโนมัติ */
+function openDrop(el, trigger, on){
+  if (on) {
+    DROPS.forEach(function(p){
+      if (p[0] !== el) { p[0].classList.remove('open'); p[1].setAttribute('aria-expanded', 'false'); }
+    });
+  }
+  el.classList.toggle('open', on);
+  trigger.setAttribute('aria-expanded', on);
+}
+cdTrigger.addEventListener('click', function(e){
+  e.stopPropagation();
+  openDrop(cd, cdTrigger, !cd.classList.contains('open'));
+});
+if (td) tdTrigger.addEventListener('click', function(e){
+  e.stopPropagation();
+  openDrop(td, tdTrigger, !td.classList.contains('open'));
+});
+cdList.addEventListener('change', function(e){
+  var i = e.target; if (i.type !== 'checkbox') return;
+  var at = state.cats.indexOf(i.value);
+  if (i.checked && at < 0) state.cats.push(i.value);
+  else if (!i.checked && at > -1) state.cats.splice(at, 1);
+  /* เรียงตามลำดับหมวดเดิม ไม่ใช่ลำดับที่กด */
+  state.cats.sort(function(a, b){ return CATS.indexOf(a) - CATS.indexOf(b); });
+  renderCatSummary(); renderTypeList(); applyFilters();
+});
+if (td) tdList.addEventListener('change', function(e){
+  var i = e.target; if (i.type !== 'radio') return;
+  state.type = i.value;
+  /* ตัดหมวดที่ไม่เหลือของในรูปแบบใหม่ออก เพื่อไม่ให้ค้างที่หน้าเปล่า */
+  state.cats = state.cats.filter(function(c){ return countIn(c) > 0; });
+  openDrop(td, tdTrigger, false);
+  refresh();
+});
+cdClear.addEventListener('click', function(){ state.cats = []; refresh(); });
+cdTags.addEventListener('click', function(e){
+  var b = e.target.closest('.cd-tag'); if (!b) return;
+  state.cats = state.cats.filter(function(c){ return c !== b.getAttribute('data-c'); });
+  refresh();
+});
+document.addEventListener('click', function(e){
+  DROPS.forEach(function(p){
+    if (p[0].classList.contains('open') && !p[0].contains(e.target)) openDrop(p[0], p[1], false);
+  });
+});
+document.addEventListener('keydown', function(e){
+  if (e.key !== 'Escape') return;
+  DROPS.forEach(function(p){
+    if (p[0].classList.contains('open')) { openDrop(p[0], p[1], false); p[1].focus(); }
+  });
+});
+refresh();
+
+/* ===== order-summary popup (mirrors homepage) ===== */
+var current = null;
+function fmt(n){ return '฿' + n.toLocaleString('en-US'); }
+function priceNum(p){ return parseInt(String(p).replace(/[^0-9]/g, ''), 10) || 0; }
+function openModal(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+/* flow ชำระเงินชั่วคราว: กดซื้อแล้วพาไปสั่งซื้อ/สอบถามทาง LINE แทนหน้า checkout เดิม */
+var LINE_ORDER_URL = 'https://line.me/R/ti/p/@537kvraj';
+function buy(i){
+  window.open(LINE_ORDER_URL, '_blank', 'noopener');
+}
+function renderTotal(){
+  var bump = document.getElementById('coBump').checked ? 290 : 0;
+  document.getElementById('coTotal').textContent = fmt(current.price + bump);
+}
+function goToStripe(){
+  var f = document.getElementById('co-email'), wrap = f.closest('.field');
+  if(!f.checkValidity()){ wrap.classList.add('invalid'); f.focus(); return; }
+  wrap.classList.remove('invalid');
+  alert('ตัวอย่าง (mock): ต่อไปจะพาไปหน้าชำระเงิน Stripe\n\nสินค้า: ' + current.name + '\nยอดชำระ: ' + document.getElementById('coTotal').textContent);
+}
+function grab(i){
+  var x = ITEMS[i];
+  document.getElementById('frSub').textContent = 'เอกสาร: ' + x.t;
+  var f = document.getElementById('freeForm');
+  f.reset();
+  f.querySelectorAll('.field.invalid').forEach(function(w){ w.classList.remove('invalid'); });
+  f.querySelectorAll('.csel').forEach(function(c){
+    c.classList.remove('open','has-value');
+    c.querySelector('.csel-label').textContent = '— เลือก —';
+    c.querySelector('input').value = '';
+    c.querySelectorAll('.csel-opt.sel').forEach(function(o){ o.classList.remove('sel'); });
+    c.querySelector('.csel-trigger').setAttribute('aria-expanded','false');
+  });
+  f.style.display = '';
+  document.getElementById('frSub').style.display = '';
+  document.getElementById('freeSuccess').style.display = 'none';
+  openModal('freeModal');
+}
+function submitFree(e){
+  e.preventDefault();
+  var ok = true;
+  ['fr-name','fr-email'].forEach(function(id){
+    var el = document.getElementById(id), wrap = el.closest('.field');
+    if(!el.checkValidity()){ wrap.classList.add('invalid'); ok = false; } else { wrap.classList.remove('invalid'); }
+  });
+  ['fr-biz','fr-size'].forEach(function(id){
+    var el = document.getElementById(id), wrap = el.closest('.field');
+    if(!el.value){ wrap.classList.add('invalid'); ok = false; } else { wrap.classList.remove('invalid'); }
+  });
+  if(!ok) return false;
+  document.getElementById('freeForm').style.display = 'none';
+  document.getElementById('frSub').style.display = 'none';
+  document.getElementById('freeSuccess').style.display = '';
+  return false;
+}
+/* ===== custom select (mirrors eBook .csel) ===== */
+document.querySelectorAll('.csel').forEach(function(csel){
+  var trigger = csel.querySelector('.csel-trigger');
+  var label = csel.querySelector('.csel-label');
+  var input = csel.querySelector('input');
+  function closeAll(){
+    document.querySelectorAll('.csel.open').forEach(function(c){
+      c.classList.remove('open');
+      c.querySelector('.csel-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  trigger.addEventListener('click', function(e){
+    e.stopPropagation();
+    var wasOpen = csel.classList.contains('open');
+    closeAll();
+    if(!wasOpen){ csel.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+  });
+  csel.querySelectorAll('.csel-opt').forEach(function(opt){
+    opt.addEventListener('click', function(e){
+      e.stopPropagation();
+      var v = opt.getAttribute('data-val');
+      input.value = v;
+      label.textContent = v;
+      csel.classList.add('has-value');
+      csel.querySelectorAll('.csel-opt.sel').forEach(function(o){ o.classList.remove('sel'); });
+      opt.classList.add('sel');
+      csel.classList.remove('open');
+      trigger.setAttribute('aria-expanded','false');
+      var wrap = csel.closest('.field'); if(wrap) wrap.classList.remove('invalid');
+    });
+  });
+});
+document.addEventListener('click', function(){
+  document.querySelectorAll('.csel.open').forEach(function(c){
+    c.classList.remove('open');
+    c.querySelector('.csel-trigger').setAttribute('aria-expanded','false');
+  });
+});
+
+document.querySelectorAll('.modal-overlay').forEach(function(o){
+  o.addEventListener('click', function(e){ if(e.target === o) closeModal(o.id); });
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(function(o){ closeModal(o.id); });
+});
+
+/* ===== sticky promo bar (mirrors homepage) ===== */
+(function(){
+  var bar = document.getElementById('promoBar');
+  if(!bar) return;
+  var dismissed = false;
+  try{ dismissed = sessionStorage.getItem('promoDismissed') === '1'; }catch(e){}
+  function update(){
+    if(dismissed) return;
+    var past = window.scrollY > window.innerHeight * 0.4;
+    bar.classList.toggle('show', past);
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+  window.dismissPromo = function(){
+    dismissed = true;
+    try{ sessionStorage.setItem('promoDismissed','1'); }catch(e){}
+    bar.classList.remove('show');
+  };
+  update();
+})();
+</script>
+</body>
+</html>
