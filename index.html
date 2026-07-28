@@ -655,11 +655,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   <div class="container nav-inner">
     <a class="logo" href="#top" aria-label="WizeMoves HR"><img src="logo.png" alt="WizeMoves HR" style="height:34px;width:auto"></a>
     <ul class="nav-links">
-      <li><a href="#story">ปัญหาที่ SME เจอ</a></li>
       <li><a href="#bundles">แพ็กเกจ</a></li>
-      <li><a href="#singles">ซื้อแยกชิ้น</a></li>
-      <li><a href="#howto">สอนใช้งาน</a></li>
-      <li><a href="#ebook">eBook ฟรี</a></li>
+      <li><a href="#singles">เอกสาร/สัญญา</a></li>
+      <!-- ซ่อนชั่วคราวพร้อม section eBook: <li><a href="#ebook">eBook ฟรี</a></li> -->
       <li><a href="#consult">ที่ปรึกษา HR</a></li>
       <li><a href="#faq">คำถามที่พบบ่อย</a></li>
     </ul>
@@ -858,7 +856,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   <div class="container">
     <div class="singles-head">
       <div>
-        <span class="badge-pill"><span>ขายแยกชิ้น</span></span>
+        <span class="badge-pill"><span>เอกสาร/สัญญา</span></span>
         <h2 class="section-title" style="margin-bottom:6px">ต้องการเฉพาะบางรายการ? ซื้อแยกได้</h2>
         <p class="section-sub">ทุกไฟล์เป็นเวอร์ชันเดียวกับในชุดแพ็กเกจ ดาวน์โหลดทันทีหลังชำระเงิน</p>
       </div>
@@ -908,7 +906,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   </div>
 </section>
 
-<!-- ===== LEAD MAGNET (eBook) ===== -->
+<!-- ===== LEAD MAGNET (eBook) — ซ่อนชั่วคราว ยังไม่ลบ / ลบ 2 บรรทัด HIDDEN-EBOOK-START และ HIDDEN-EBOOK-END เพื่อเปิดใช้อีกครั้ง ===== -->
+<!-- HIDDEN-EBOOK-START
 <section class="lead-sec" id="ebook">
   <div class="container lead-grid">
     <div>
@@ -982,6 +981,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     </form>
   </div>
 </section>
+HIDDEN-EBOOK-END -->
 
 <!-- ===== TESTIMONIALS ===== -->
 <section id="proof">
@@ -1083,8 +1083,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
         <h4>ทางลัด</h4>
         <ul class="foot-links">
           <li><a href="#bundles">แพ็กเกจทั้งหมด</a></li>
-          <li><a href="#singles">ซื้อแยกชิ้น</a></li>
-          <li><a href="#ebook">รับ eBook ฟรี</a></li>
+          <li><a href="#singles">เอกสาร/สัญญา</a></li>
+          <!-- ซ่อนชั่วคราวพร้อม section eBook: <li><a href="#ebook">รับ eBook ฟรี</a></li> -->
           <li><a href="#consult">บริการที่ปรึกษา HR</a></li>
           <li><a href="#guarantee">การรับประกัน</a></li>
         </ul>
@@ -1396,7 +1396,7 @@ async function postJSON(url, data){
 }
 
 /* --- eBook lead form (Requirement #2) --- */
-document.getElementById('ebookForm').addEventListener('submit', async e=>{
+document.getElementById('ebookForm')?.addEventListener('submit', async e=>{
   e.preventDefault();
   const form = e.target;
   if (!validateForm(form)) return;
